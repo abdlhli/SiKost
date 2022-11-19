@@ -8975,7 +8975,7 @@ fieldset:disabled .btn {
 
 .text-white-50 {
   --bs-text-opacity: 1;
-  color: rgba(255, 255, 255, 0.5) !important;
+  color: rgb(255 255 255 / 0.5) !important;
 }
 
 .text-reset {
@@ -12546,7 +12546,7 @@ body {
   #mainNav .nav-link {
     transition: none;
     padding: 2rem 1.5rem;
-    color: rgb(255 255 255 / 70%);
+    color: rgb(255 255 255);
   }
 
   #mainNav .nav-link:hover {
@@ -12558,15 +12558,15 @@ body {
   }
 
   #mainNav.navbar-shrink {
-    background-color: #fff;
+    background-color: #91c6c2;
   }
 
   #mainNav.navbar-shrink .navbar-brand {
-    color: #000;
+    color: #fff;
   }
 
   #mainNav.navbar-shrink .nav-link {
-    color: #000;
+    color: #fff;
     padding: 1.5rem 1.5rem 1.25rem;
     border-bottom: 0.25rem solid transparent;
   }
@@ -12582,7 +12582,7 @@ body {
   #mainNav.navbar-shrink .nav-link.active {
     color: #64a19d;
     outline: none;
-    border-bottom: 0.25rem solid #64a19d;
+    border-bottom: 0.25rem solid #fff;
   }
 }
 
@@ -12661,7 +12661,7 @@ body {
 
 .about-section {
   padding-top: 10rem;
-  background: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.9) 75%, rgba(0, 0, 0, 0.8) 100%);
+  background: linear-gradient(to bottom, #fff 0%, rgb(177 221 222) 75%, rgb(248 249 250) 100%);
 }
 
 .about-section p {
