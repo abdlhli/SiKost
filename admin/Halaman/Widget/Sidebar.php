@@ -12,7 +12,7 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-header"> Main </li>
                 <li class="sidebar-item active">
-                    <a data-bs-target="#dashboard" data-bs-toogle="collapse" class="sidebar-link" aria-expanded="false">
+                    <a data-bs-target="#dashboard" data-bs-toogle="collapse" class="sidebar-link">
 
                         <i class="align-middle me-2 fas fa-fw">
                             <img src="img/home.png" width="18" height="18">
@@ -30,7 +30,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a data-bs-target="#dataPenghuni" data-bs-toogle="collapse" class="sidebar-link" aria-expanded="false">
+                    <a data-bs-target="#dataPenghuni" data-bs-toogle="collapse" class="sidebar-link">
 
                         <i class="align-middle me-2 fas fa-fw">
                             <img src="img/group.png" width="18" height="18">

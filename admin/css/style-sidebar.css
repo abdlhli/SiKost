@@ -361,10 +361,10 @@ a.sidebar-link svg {
 .navbar {
     align-items: center;
     display: flex;
-    padding: 0 1rem;
     position: relative;
     width: 100%;
-    height: 100px;
+    height: 70px;
+    background-color: #153d77;
 }
 .sidebar-toggle {
     cursor: pointer;
@@ -645,4 +645,17 @@ li {
 
 div {
     display: block;
+}
+.sidebar-toggle {
+    cursor: pointer;
+    height: 26px;
+    margin-left: 0.5rem;
+    width: 26px;
+}
+.me-2 {
+    margin-right: 0.5rem !important;
+}
+
+.d-flex {
+    display: flex !important;
 }
