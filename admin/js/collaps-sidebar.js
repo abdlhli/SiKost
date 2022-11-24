@@ -1,10 +1,5 @@
 
-function openNav() {
-    document.getElementById("mySidebar").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-}
-
-function closeNav() {
-    document.getElementById("mySidebar").style.width = "0";
-    document.getElementById("main").style.marginLeft = "0";
-}
+var hamburger = document.querySelector(".hamburger");
+hamburger.addEventListener("click", function(){
+    document.querySelector("body").classList.toggle("active")
+})
