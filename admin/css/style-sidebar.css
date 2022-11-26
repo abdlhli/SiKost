@@ -59,13 +59,13 @@ body {
     text-align: var(--bs-body-text-align);
 }
 
-.sidebar-brand{
+.sidebar .sidebar-brand{
     background: #153d77;
     color: #fff;
     display: block;
-    font-size: 1.175rem;
-    font-weight: 500;
-    padding: 1rem;
+    font-size: 18px;
+    font-weight: 800;
+    padding: 1.5rem 1.5rem;
     text-decoration: none;
     width: 100%;
 }
@@ -123,6 +123,7 @@ svg {
 }
 .fw-bold {
     font-weight: 500 !important;
+    
 }
 .small,
 small {
@@ -254,9 +255,13 @@ ul {
 }
 
 .wrapper .main{
-    width: calc(100% -- 250px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     margin-left: 250px;
     transition: all .5s;
+    min-height: 100vh;
+    min-width: 0;
 }
 .wrapper .main .navbar{
     background-color: #153d77;

@@ -20,13 +20,10 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        <?php
-        include_once('Widget/Sidebar.php');
-        include_once('Widget/topbar.php');
-        // include_once('tampilan/404.php');
-        ?>
-    </div>
+    <?php
+    include_once('Widget/Sidebar.php');
+    // include_once('tampilan/404.php');
+    ?>
     <?php
     include_once('Komponen/footer.php');
     ?>
