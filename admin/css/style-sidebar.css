@@ -47,6 +47,8 @@
     --bs-body-bg-rgb: 244, 247, 252;
 }
 
+
+
 body {
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -293,4 +295,258 @@ body.active .wrapper .sidebar {
 
 body.active .wrapper .main {
     margin-left: 0;
+}
+
+main {
+    display: block;
+}
+@media (min-width: 992px) {
+.content {
+    padding: 0 1.5rem;
+}
+}
+
+.content {
+    flex: 1;
+    margin-top: 3rem;
+    padding: 0 0.5rem;
+}
+
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--bs-gutter-x, .75rem);
+    padding-right: var(--bs-gutter-x, .75rem);
+    width: 100%;
+}
+.header {
+    margin-bottom: 3rem;
+    position: relative;
+}
+.header-title {
+    color: #fff;
+    font-size: 1.640625rem;
+}
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Jost, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Arial, sans-serif;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.header-subtitle {
+    color: #fff;
+    font-size: .9375rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    margin-top: 0;
+}
+.wrapper:before {
+    background: #153d77;
+    content: " ";
+    height: 264px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+} */  */ */
+
+.page-container {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    padding-left: 280px;
+    -webkit-transition: padding-left 0.3s ease 0s;
+    transition: padding-left 0.3s ease 0s;
+}
+
+.sidebar-header {
+    padding: 19px 32px 20px;
+    background: #153d77;
+    border-bottom: 1px solid #343e50;
+}
+
+.brand {
+    background: #153d77;
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    font-weight: 800;
+    /* padding: 1.5rem 1.5rem; */
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
+}
+
+.sidebar-user {
+    background: #fff;
+    color: #153d77;
+    padding: 1.5rem 1rem 1rem;
+    text-align: center;
+}
+
+.sidebar-user img {
+    height: 82px;
+    width: 82px;
+}
+
+.rounded-circle {
+    border-radius: 50% !important;
+}
+
+.main-menu {
+    height: calc(100% - 100px);
+    overflow: hidden;
+    padding: 20px 10px 0 0;
+    -webkit-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem !important;
+}
+
+.img-fluid,
+.img-thumbnail {
+    height: auto;
+    max-width: 100%;
+}
+
+img,
+svg {
+    vertical-align: middle;
+}
+
+.sidebar-content {
+    height: 100%;
+    min-height: 100%;
+    transition: all .5s;
+}
+
+.fw-bold {
+    font-weight: 500 !important;
+
+}
+
+.small,
+small {
+    font-size: 80%;
+}
+
+.sidebar-content{
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-menu {
+    flex: 1;
+    justify-content: flex-start;
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+}
+
+.menu-header {
+    background: transparent;
+    color: #adb5bd;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0.375rem 1.5rem;
+    text-transform: none;
+    padding: 0px 10px;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+li {
+    text-align: -webkit-match-parent;
+}
+
+ul {
+    margin: 0;
+    list-style-type: none;
+}
+.metismenu li a {
+    position: relative;
+    display: block;
+    color: #8d97ad;
+    font-size: 15px;
+    text-transform: capitalize;
+    padding: 15px 15px;
+    letter-spacing: 0;
+    font-weight: 400;
+}
+.metismenu li a span {
+    margin-left: 10px;
+}
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+}
+
+.fa-solid,
+.fas {
+    font-family: Font Awesome\ 6 Free;
+    font-weight: 900;
+}
+
+.fa-fw {
+    text-align: center;
+    width: 1.25em;
+}
+
+.fas,
+.fat {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: auto;
+    display: var(--fa-display, inline-block);
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+}
+
+.me-2 {
+    margin-right: 0.5rem !important;
+}
+
+.align-middle {
+    vertical-align: middle !important;
 }
