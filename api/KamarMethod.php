@@ -13,6 +13,7 @@ class Kamar
             $data[] = $row;
         }
         $response = array(
+            'Response Code' => http_response_code(),
             'status' => 1,
             'message' => 'Get List Kamar Sukses.',
             'data' => $data
@@ -34,6 +35,7 @@ class Kamar
             $data[] = $row;
         }
         $response = array(
+            'Response Code' => http_response_code(),
             'status' => 1,
             'message' => 'Get kamar By Id Jenis Kamar Sukses.',
             'data' => $data

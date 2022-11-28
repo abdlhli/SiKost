@@ -13,6 +13,7 @@ class User
             $data[] = $row;
         }
         $response = array(
+            'Response Code' => http_response_code(),
             'status' => 1,
             'message' => 'Get List Akun Sukses.',
             'data' => $data
@@ -34,6 +35,7 @@ class User
             $data[] = $row;
         }
         $response = array(
+            'Response Code' => http_response_code(),
             'status' => 1,
             'message' => 'Get Akun By ID Sukses.',
             'data' => $data
@@ -81,17 +83,20 @@ class User
 
             if ($result) {
                 $response = array(
+                    'Response Code' => http_response_code(),
                     'status' => 1,
                     'message' => 'Akun Sukses Ditambahkan.'
                 );
             } else {
                 $response = array(
+                    'Response Code' => http_response_code(),
                     'status' => 0,
                     'message' => 'Akun Gagal Ditambahkan.'
                 );
             }
         } else {
             $response = array(
+                'Response Code' => http_response_code(),
                 'status' => 0,
                 'message' => 'Parameter Insert Tidak Sama'
             );
@@ -137,17 +142,20 @@ class User
 
             if ($result) {
                 $response = array(
+                    'Response Code' => http_response_code(),
                     'status' => 1,
                     'message' => 'Mahasiswa Added Successfully.'
                 );
             } else {
                 $response = array(
+                    'Response Code' => http_response_code(),
                     'status' => 0,
                     'message' => 'Mahasiswa Addition Failed.'
                 );
             }
         } else {
             $response = array(
+                'Response Code' => http_response_code(),
                 'status' => 0,
                 'message' => 'Parameter Update Tidak Sama'
             );
@@ -162,11 +170,13 @@ class User
         $query = "DELETE FROM akun WHERE id_user=" . $id_user;
         if (mysqli_query($mysqli, $query)) {
             $response = array(
+                'Response Code' => http_response_code(),
                 'status' => 1,
                 'message' => 'Akun Berhasil Terhapus.'
             );
         } else {
             $response = array(
+                'Response Code' => http_response_code(),
                 'status' => 0,
                 'message' => 'Akun Gagal Terhapus.'
             );

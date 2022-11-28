@@ -12,6 +12,7 @@ class Pemesanan
             $data[] = $row;
         }
         $response = array(
+            'Response Code' => http_response_code(),
             'status' => 1,
             'message' => 'Get List Pemesanan Sukses.',
             'data' => $data
@@ -51,17 +52,20 @@ class Pemesanan
 
             if ($result) {
                 $response = array(
+                    'Response Code' => http_response_code(),
                     'status' => 1,
                     'message' => 'Pemesanan Sukses Ditambahkan.'
                 );
             } else {
                 $response = array(
+                    'Response Code' => http_response_code(),
                     'status' => 0,
                     'message' => 'Pemesanan Gagal Ditambahkan.'
                 );
             }
         } else {
             $response = array(
+                'Response Code' => http_response_code(),
                 'status' => 0,
                 'message' => 'Parameter Insert Tidak Sama'
             );
