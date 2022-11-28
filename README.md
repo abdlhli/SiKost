@@ -1,4 +1,3 @@
-[![Contributors][contributors-shield]][contributors-url]
 # SiKost
 
 Deskripsi 
@@ -9,3 +8,11 @@ Link Github Versi Mobile dan Web
 ------
 https://github.com/abdlhli/SiKost
 https://github.com/abdlhli/SiKost-Mobile
+
+Contributor
+------
+    <a href="https://github.com/abdlhli">Abdullah Ali</a>
+- Abdullah Ali
+- Fagil Nuril Akbar
+- Mohamad Taufiq Rahmadi
+- Naufal Alif Nur
