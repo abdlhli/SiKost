@@ -186,7 +186,7 @@ body {
 
 #add-button {
     display: block;
-    position: absolute;
+    position: relative;
     right: 20px;
     bottom: 20px;
 }

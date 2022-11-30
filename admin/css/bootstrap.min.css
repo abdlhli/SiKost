@@ -453,7 +453,7 @@ h6 {
 }
 
 hr {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     margin-bottom: 1rem;
     border: 0;
     border-top: 1px solid rgba(0, 0, 0, .1)
@@ -630,8 +630,28 @@ pre code {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px
+    flex-direction: row;
+    margin-right: -5px;
+    margin-left: -5px;
+}
+.row-in {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-right: -5px;
+    margin-left: -5px;
+    margin-top: -5px;
+}
+.column-in{
+    float: left;
+    width: 50%;
+}
+.column-text {
+    float: right;
+    width: 50%;
 }
 
 .no-gutters {
@@ -718,9 +738,15 @@ pre code {
     position: relative;
     width: 100%;
     min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px
+    padding-left: 10px;
 }
+
+.col-tb-1 {
+    position: relative;
+    width: 100%;
+    padding-left: 10px;
+}
+
 
 .col {
     -ms-flex-preferred-size: 0;
@@ -820,7 +846,16 @@ pre code {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
-    max-width: 100%
+    max-width: 100%;
+    margin-left: 10px;
+}
+
+.col-tb-1{
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-left: 10px;
 }
 
 .order-first {
@@ -1014,7 +1049,7 @@ pre code {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 50%;
         flex: 0 0 50%;
-        max-width: 50%
+        max-width: 100%
     }
 
     .col-sm-7 {
@@ -4869,6 +4904,7 @@ tbody.collapse.show {
     border-radius: .25rem
 }
 
+
 .card>hr {
     margin-right: 0;
     margin-left: 0
@@ -4888,7 +4924,7 @@ tbody.collapse.show {
     -webkit-box-flex: 1;
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
-    padding: 1.25rem
+    padding: 1.25rem;
 }
 
 .card-title {
