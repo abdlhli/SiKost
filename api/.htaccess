@@ -7,3 +7,5 @@ RewriteRule ^Kamar/?$ Kamar.php [NC,L]
 RewriteRule ^Kamar/([0-9]+)/?$ Kamar.php?id=$1 [NC,L]
 
 RewriteRule ^Pemesanan/?$ Pemesanan.php [NC,L]
+
+RewriteRule ^Pengaduan/?$ Pengaduan.php [NC,L]
