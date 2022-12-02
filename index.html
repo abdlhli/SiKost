@@ -27,10 +27,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#Tentang">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
                     <li class="nav-item"><a class="nav-link" href="#info">Info Ketersediaan</a></li>
                     <li class="nav-item"><a class="nav-link" href="#hubungi-kami">Hubungi Kami</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login\index.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login/">Login</a></li>
                 </ul>
             </div>
         </div>
@@ -46,7 +46,7 @@
         </div>
     </header>
     <!-- Tentang -->
-    <section class="about-section text-center" id="Tentang">
+    <section class="about-section text-center" id="tentang">
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-lg-8">
@@ -65,7 +65,6 @@
                 </div>
                 <br><br><br>
             </div>
-            <!-- Foto kalo perlu -->
         </div>
     </section>
     <!-- Ketersediaan -->
@@ -88,8 +87,7 @@
         <div class="container px-4 px-lg-5">
             <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
                 <div class="col-xl-8 col-lg-7">
-                    <img class="img-fluid" src="assets\img\kamar\284322582_420533123192815_458714842493503271_n.jpeg"
-                        alt="..." width="900" height="900" />
+                    <img class="img-fluid" src="assets\img\pexels-adel-krim-14523322.jpg" />
                 </div>
                 <div class="col-xl-4 col-lg-5">
                     <div class="featured-text text-center text-lg-left">
@@ -98,36 +96,63 @@
                     </div>
                 </div>
             </div>
-            <!-- Baris Foto 1-->
-            <!-- <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
-                <div class="col-lg-6"><img class="img-fluid"
-                        src="assets\img\kamar\285382847_2107866516049863_440541204352646268_n.jpeg" alt="..." /></div>
-                <div class="col-lg-6">
-                    <div class="bg-black text-center h-100 project">
-                        <div class="d-flex h-100">
-                            <div class="project-text w-100 my-auto text-center text-lg-left">
-                                <h4 class="text-white">Foto Dapur</h4>
-                                <p class="mb-0 text-white-50">
-                                    DeskripsifotodapurDeskripsifotodapurDeskripsifotodapurDeskripsifotodapur.</p>
-                                <hr class="d-none d-lg-block mb-0 ms-0" />
-                            </div>
+            <!-- Foto Kamar Slide -->
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="assets/img/kamar/foto2.jpeg" class="d-block w-100"
+                            alt="285382847_2107866516049863_440541204352646268_n">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Parkir</h5>
+                            <p>Foto Sebagian Lahan Parkir Motor dan kamar.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/img/kamar/foto3.jpeg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Kamar Atas</h5>
+                            <p>Foto Sebagian Kamar Di Lt.2 Pada Kost Putri Jawa 48.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/img/kamar/foto4.jpeg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Dapur</h5>
+                            <p>Foto Dapur Yang Dapat Digunakan Untuk Penghuni Kost Putri Jawa 48.</p>
                         </div>
                     </div>
                 </div>
-            </div> -->
-            <!-- Baris Foto 2 -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
         </div>
     </section>
     <!-- Review Google Maps -->
-    <section class="projects-section bg-light" id="info">
-        <div class="container px-4 px-lg-5">
-            <!-- Featured Project Row-->
-            <div class="google-review">
+    <!-- <section class="projects-section bg-light" id="info">
+        <div class="container px-4 px-lg-5"> -->
+    <!-- Featured Project Row-->
+    <!-- <div class="google-review">
                 <script src="https://apps.elfsight.com/p/platform.js" defer></script>
                 <div class="elfsight-app-3fdf3ca5-ebba-41d4-a048-a1edd84b3860"></div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- Hubungi Kami-->
     <section class="signup-section" id="hubungi-kami">
         <div class="container px-4 px-lg-5">
