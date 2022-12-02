@@ -1,3 +1,30 @@
+<?php
+
+include 'database/config.php';
+error_reporting(0);
+session_start();
+
+if (isset($_SESSION['username'])) {
+    header("Location: login/404.php");
+}
+
+if (isset($_POST['submit'])) {
+    $username = $_POST['username'];
+    $pass = $_POST['pass'];
+
+    $sql = "SELECT * FROM akun WHERE username='$username' AND pass='$pass'";
+    $result = mysqli_query($conn, $sql);
+    if ($result->num_rows > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $_SESSION['username'] = $row['username'];
+        header("Location: login/404.php");
+    } else {
+        echo (" gagal login");
+    }
+}
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -25,13 +52,14 @@
                                     <h3 class="font-weight-bold mb-4">Login</h3>
                                 </div>
                             </div>
-                            <form action="#" class="signin-form">
+                            <form action="" method="POST" class="signin-form">
                                 <div class="form-group mt-3">
-                                    <input type="text" class="form-control" required>
+                                    <input type="text" class="form-control" value="<?php echo $username; ?>" required>
                                     <label class="form-control-placeholder" for="username">Username</label>
                                 </div>
                                 <div class="form-group">
-                                    <input id="password-field" type="password" class="form-control" required>
+                                    <input id="password-field" type="password" class="form-control"
+                                        value="<?php echo $pass; ?>" required>
                                     <label class="form-control-placeholder" for="password">Password</label>
                                     <span toggle="#password-field"
                                         class="fa fa-fw fa-eye field-icon toggle-password"></span>
@@ -51,7 +79,6 @@
                                         <a href="#lupa-password" data-toggle="modal" data-target="#lupa-password">
                                             Lupa Password</a>
                                     </div>
-
                                 </div>
                             </form>
                         </div>
