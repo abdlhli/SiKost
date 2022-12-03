@@ -68,6 +68,13 @@
         </div>
     </section>
     <!-- Ketersediaan -->
+
+    <?php
+    include 'login/database/config.php';
+    $kamar_kosong = mysqli_query($conn, "SELECT COUNT(id_user) AS kamar_kosong FROM kamar WHERE id_user = 0;");
+    while ($hasil = mysqli_fetch_array($kamar_kosong)) {
+    ?>
+
     <section class="projects-section bg-light" id="info">
         <div class="container px-4 px-lg-5">
             <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
@@ -76,7 +83,16 @@
                         <i class="fas fa-door text-primary mb-2"></i>
                         <h4 class="text-uppercase m-0">--= Ketersediaan Kamar =--</h4>
                         <hr class="my-4 mx-auto" />
-                        <div class="medium text-black-50">Tersedia 12 kamar kosong</div>
+                        <div class="medium text-black-50">
+                            Tersedia
+                            <?php
+        echo $hasil['kamar_kosong'];
+                            ?>
+                            kamar kosong
+                            <?php
+    }
+                            ?>
+                        </div>
                     </div>
                 </div>
             </div>

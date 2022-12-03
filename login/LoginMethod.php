@@ -15,7 +15,7 @@ if ($cek > 0) {
     if ($data['hak_akses'] == "0") {
         $_SESSION['username'] = $username;
         $_SESSION['hak_akses'] = "0";
-        header("location:../admin/index.html");
+        header("location:../admin/");
     } else {
         header("location:index.html");
     }
