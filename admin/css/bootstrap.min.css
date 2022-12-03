@@ -231,7 +231,8 @@ svg:not(:root) {
 }
 
 table {
-    border-collapse: collapse
+    border-collapse: collapse;
+    
 }
 
 caption {
@@ -648,10 +649,13 @@ pre code {
 .column-in{
     float: left;
     width: 50%;
+    margin-bottom: 20px;
 }
 .column-text {
     float: right;
     width: 50%;
+    margin-bottom: 20px;
+    padding-left: 20px;
 }
 
 .no-gutters {
@@ -744,9 +748,15 @@ pre code {
 .col-tb-1 {
     position: relative;
     width: 100%;
-    padding-left: 10px;
+    padding-left: 5px;
 }
 
+.col-sm-btn {
+    position: relative;
+    width: 100%;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
 
 .col {
     -ms-flex-preferred-size: 0;
@@ -1966,7 +1976,7 @@ pre code {
 .table td,
 .table th {
     padding: .75rem;
-    vertical-align: top;
+    vertical-align: middle;
     border-top: 1px solid #dee2e6
 }
 
@@ -1976,7 +1986,9 @@ pre code {
 }
 
 .table tbody+tbody {
-    border-top: 2px solid #dee2e6
+    border-top: 2px solid #dee2e6;
+    overflow-y: scroll;
+    
 }
 
 .table .table {
@@ -2003,7 +2015,7 @@ pre code {
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
-    background-color: rgba(0, 0, 0, .05)
+    background-color: rgba(0, 0, 0, .05);
 }
 
 .table-hover tbody tr:hover {
@@ -2239,7 +2251,6 @@ pre code {
 .table-responsive {
     display: block;
     width: 100%;
-    overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar
 }

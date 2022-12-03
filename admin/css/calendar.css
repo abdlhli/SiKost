@@ -100,6 +100,8 @@ body {
 
 .calendar {
     display: table;
+    height: 450px;
+    width: 450px;
 }
 
 /* Calendar Header */
@@ -209,6 +211,7 @@ body {
 .months-table {
     border-collapse: separate;
     text-align: center;
+    width: 100%;
 }
 
 .day {
