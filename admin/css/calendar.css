@@ -100,6 +100,8 @@ body {
 
 .calendar {
     display: table;
+    height: 450px;
+    width: 450px;
 }
 
 /* Calendar Header */
@@ -186,7 +188,7 @@ body {
 
 #add-button {
     display: block;
-    position: absolute;
+    position: relative;
     right: 20px;
     bottom: 20px;
 }
@@ -209,6 +211,7 @@ body {
 .months-table {
     border-collapse: separate;
     text-align: center;
+    width: 100%;
 }
 
 .day {

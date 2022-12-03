@@ -152,7 +152,9 @@
     /* main content */
     .main-content-inner {
         padding: 0 15px 50px;
+        width: 100%;
     }
+
     .page-container,
     .sbar_collapsed.page-container {
         padding-left: 0;
