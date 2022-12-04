@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="css/calendar.css">
     <!-- modernizr css -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-    
+
 </head>
 
 <body>
@@ -55,29 +55,32 @@
                     <nav>
                         <ul class="metismenu" id="menu">
                             <li class="">
-                                <a href="index.html"><img src="img/home.png" width="24"
-                                        height="24"></i><span>Dashboard</span></a>
+                                <a href="index.html"><img src="img/home.png" width="24" height="24"></i>
+                                    <span>Dashboard</span></a>
                             </li>
                             <li class="">
-                                <a href="admin.html"><img src="img/setting.png" width="24" height="24"><span>Data
-                                        Admin</span></a>
+                                <a href="admin.html"><img src="img/setting.png" width="24" height="24">
+                                    <span>Data Admin</span></a>
                             </li>
                             <li class="">
-                                <a href="data_kamar.html"><img src="img/bed.png" width="24" height="24"><span>Data Kamar</span></a>
+                                <a href="data_kamar.html"><img src="img/bed.png" width="24" height="24">
+                                    <span>Data Kamar</span></a>
                             </li>
                             <li class="active">
-                                <a href="data_penghuni.html"><img src="img/group.png" width="24" height="24"><span>Data
-                                        Penghuni</span></a>
+                                <a href="data_penghuni.html"><img src="img/group.png" width="24" height="24">
+                                    <span>Data Penghuni</span></a>
                             </li>
                             <li class="">
-                                <a href="report.html"><img src="img/report.png" width="24" height="24"><span>Laporan
-                                        Pembayaran</span></a>
+                                <a href="report.html"><img src="img/report.png" width="24" height="24">
+                                    <span>Laporan Pembayaran</span></a>
                             </li>
                             <li class="">
-                                <a href="pengaduan.html"><img src="img/alert.png" width="24" height="24"><span>Pengaduan</span></a>
+                                <a href="pengaduan.html"><img src="img/alert.png" width="24" height="24">
+                                    <span>Pengaduan</span></a>
                             </li>
                             <li class="">
-                                <a href="booking.html"><img src="img/booking.png" width="24" height="24"><span>Pemesanan</span></a>
+                                <a href="booking.html"><img src="img/booking.png" width="24" height="24">
+                                    <span>Pemesanan</span></a>
                             </li>
                         </ul>
                     </nav>
@@ -148,18 +151,22 @@
                     <div class="col-tb-1">
                         <div class="card-table">
                             <div class="card-body">
-                                <div class="modal fade" id="tmb_data_penghuni" tabindex="-1" aria-labelledby="exampleModalLabel">
+                                <div class="modal fade" id="tmb_data_penghuni" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h4 class="modal-title fs-5" id="exampleModalLabel">Tambah Data Penghuni</h4>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <h4 class="modal-title fs-5" id="exampleModalLabel">Tambah Data Penghuni
+                                                </h4>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
                                             </div>
                                             <form method="post" enctype="multipart/form-data">
                                                 <div class="modal-body">
                                                     <div class="mb-3">
                                                         <label class="form-label" for="">No Kamar</label>
-                                                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                                        <select class="form-select form-select-sm"
+                                                            aria-label=".form-select-sm example">
                                                             <option selected>Pilih No Kamar</option>
                                                             <option value="1">Kamar No 1</option>
                                                             <option value="2">Kamar No 2</option>
@@ -168,50 +175,61 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label" for="">Nama Penghuni</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
+                                                        <input type="text" name="" class="form-control form-control-sm"
+                                                            id="" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label" for="">Email</label>
-                                                        <input type="email" name="" class="form-control form-control-sm" placeholder="name@example.com" id="" required>
+                                                        <input type="email" name="" class="form-control form-control-sm"
+                                                            placeholder="name@example.com" id="" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label" for="">No Telepon</label>
-                                                        <input type="number" name="" class="form-control form-control-sm" id="" required>
+                                                        <input type="number" name=""
+                                                            class="form-control form-control-sm" id="" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label" for="">Tanggal Masuk</label>
-                                                        <input type="date" name="" class="form-control form-control-sm" id="" required>
+                                                        <input type="date" name="" class="form-control form-control-sm"
+                                                            id="" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label" for="">Alamat</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
+                                                        <input type="text" name="" class="form-control form-control-sm"
+                                                            id="" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label" for="">Alamat</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
+                                                        <input type="text" name="" class="form-control form-control-sm"
+                                                            id="" required>
                                                     </div>
                                                 </div>
                                             </form>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Batal</button>
                                                 <button type="button" class="btn btn-primary">Simpan Perubahan</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="modal fade" id="edit_data_penghuni" tabindex="-1" aria-labelledby="exampleModalLabel">
+                                <div class="modal fade" id="edit_data_penghuni" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h4 class="modal-title fs-5" id="exampleModalLabel">Edit Data Penghuni</h4>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <h4 class="modal-title fs-5" id="exampleModalLabel">Edit Data Penghuni
+                                                </h4>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
                                             </div>
                                             <form method="post" enctype="multipart/form-data">
                                                 <div class="modal-body">
                                                     <div class="mb-3">
                                                         <label class="form-label" for="">No Kamar</label>
-                                                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                                        <select class="form-select form-select-sm"
+                                                            aria-label=".form-select-sm example">
                                                             <option selected>Pilih No Kamar</option>
                                                             <option value="1">Kamar No 1</option>
                                                             <option value="2">Kamar No 2</option>
@@ -220,51 +238,61 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label" for="">Nama Penghuni</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Email</label>
-                                                        <input type="email" name="" class="form-control form-control-sm" placeholder="name@example.com"
+                                                        <input type="text" name="" class="form-control form-control-sm"
                                                             id="" required>
                                                     </div>
                                                     <div class="form-group">
+                                                        <label class="control-label" for="">Email</label>
+                                                        <input type="email" name="" class="form-control form-control-sm"
+                                                            placeholder="name@example.com" id="" required>
+                                                    </div>
+                                                    <div class="form-group">
                                                         <label class="control-label" for="">No Telepon</label>
-                                                        <input type="number" name="" class="form-control form-control-sm" id="" required>
+                                                        <input type="number" name=""
+                                                            class="form-control form-control-sm" id="" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label" for="">Tanggal Masuk</label>
-                                                        <input type="date" name="" class="form-control form-control-sm" id="" required>
+                                                        <input type="date" name="" class="form-control form-control-sm"
+                                                            id="" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label" for="">Alamat</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
+                                                        <input type="text" name="" class="form-control form-control-sm"
+                                                            id="" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label" for="">Alamat</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
+                                                        <input type="text" name="" class="form-control form-control-sm"
+                                                            id="" required>
                                                     </div>
                                                 </div>
                                             </form>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Batal</button>
                                                 <button type="button" class="btn btn-primary">Edit</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="modal fade" id="detail_data_penghuni" tabindex="-1" aria-labelledby="exampleModalLabel">
+                                <div class="modal fade" id="detail_data_penghuni" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h4 class="modal-title fs-5" id="exampleModalLabel">Detail Data Penghuni</h4>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <h4 class="modal-title fs-5" id="exampleModalLabel">Detail Data Penghuni
+                                                </h4>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
                                             </div>
                                             <form method="post" enctype="multipart/form-data">
                                                 <div class="modal-body">
                                                     <div class="mb-3">
                                                         <label class="form-label" for="">No Kamar</label>
-                                                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                                        <select class="form-select form-select-sm"
+                                                            aria-label=".form-select-sm example">
                                                             <option selected>Pilih No Kamar</option>
                                                             <option value="1">Kamar No 1</option>
                                                             <option value="2">Kamar No 2</option>
@@ -273,28 +301,33 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label" for="">Nama Penghuni</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
+                                                        <input type="text" name="" class="form-control form-control-sm"
+                                                            id="" required readonly>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label" for="">Email</label>
-                                                        <input type="email" name="" class="form-control form-control-sm" placeholder="name@example.com"
-                                                            id="" required>
+                                                        <input type="email" name="" class="form-control form-control-sm"
+                                                            placeholder="name@example.com" id="" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label" for="">No Telepon</label>
-                                                        <input type="number" name="" class="form-control form-control-sm" id="" required>
+                                                        <input type="number" name=""
+                                                            class="form-control form-control-sm" id="" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label" for="">Tanggal Masuk</label>
-                                                        <input type="date" name="" class="form-control form-control-sm" id="" required>
+                                                        <input type="date" name="" class="form-control form-control-sm"
+                                                            id="" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label" for="">Alamat</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
+                                                        <input type="text" name="" class="form-control form-control-sm"
+                                                            id="" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label" for="">Alamat</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
+                                                        <input type="text" name="" class="form-control form-control-sm"
+                                                            id="" required>
                                                     </div>
                                                 </div>
                                             </form>
@@ -305,112 +338,65 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="table-responsive">
-                                            <button type="button" class="btn btn-primary btn-xs" data-bs-toggle="modal" data-bs-target="#tmb_data_penghuni">
-                                                <i class="bi-plus-lg"></i>
-                                                Tambah Data</button>
-                                            <table id="tbl" class="display" style="width: 100%;">
+                                            <button type="button" class="btn btn-primary btn-xs" data-bs-toggle="modal"
+                                                data-bs-target="#tmb_data_penghuni">
+                                                <i class="bi-plus-lg">
+                                                </i>Tambah Data</button>
+                                            <table data-order="[]" id="tbl" class="display" style="width: 100%;">
                                                 <thead>
                                                     <tr>
                                                         <th>No Kamar</th>
                                                         <th>Nama Penghuni</th>
-                                                        <th>Email</th>
                                                         <th>No Telepon</th>
                                                         <th>Tanggal Masuk</th>
+                                                        <th>Status</th>
                                                         <th>Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    <?php
+                                                    include 'database/config.php';
+                                                    $sql = "SELECT * FROM akun LEFT OUTER JOIN kamar ON akun.id_user = kamar.id_user WHERE `hak_akses` = 1 ORDER BY CASE WHEN kamar.no_kamar IS NULL THEN 1 ELSE 0 END , kamar.no_kamar ASC;";
+                                                    $hasil = mysqli_query($conn, $sql);
+                                                    while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
+                                                    ?>
                                                     <tr>
-                                                        <td>Kamar No 1</td>
-                                                        <td>Penghuni 1</td>
-                                                        <td>Email@gmail.com</td>
-                                                        <td>085232111232</td>
-                                                        <td>29-11-2022</td>
-                                                        <th><button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit_data_penghuni"><i class="bi-pencil" 
-                                                            style="padding-right: 10px;"></i>Edit</button>
-                                                            <button class="btn btn-danger btn-xs"><i class="bi-trash" style="padding-right: 10px;"></i>Hapus</button>
-                                                            <button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail_data_penghuni">
-                                                                <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
-                                                        </th>
+                                                        <td>
+                                                            <?php echo $data['no_kamar']; ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $data['firstname'], " ", $data['lastname']; ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $data['no_hp']; ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $data['tgl_masuk']; ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $data['status']; ?>
+                                                        </td>
+                                                        <td>
+                                                            <button class="btn btn-success btn-xs"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#edit_data_penghuni">
+                                                                <i class="bi-pencil" style="padding-right: 10px;">
+                                                                </i>Edit</button>
+                                                            <button class="btn btn-danger btn-xs">
+                                                                <i class="bi-trash" style="padding-right: 10px;"
+                                                                    href="hapus.php?id=<?php echo $data['id_user']; ?>">
+                                                                </i>Hapus</button>
+                                                            <button class="btn btn-secondary btn-xs"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#detail_data_penghuni">
+                                                                <i class="bi-info-circle-fill"
+                                                                    style="padding-right: 10px;">
+                                                                </i>Detail</button>
+                                                        </td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>Kamar No 1</td>
-                                                        <td>Penghuni 1</td>
-                                                        <td>Email@gmail.com</td>
-                                                        <td>085232111232</td>
-                                                        <td>30-11-2022</td>
-                                                        <th><button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit_data_penghuni"><i class="bi-pencil"
-                                                                style="padding-right: 10px;"></i>Edit</button>
-                                                            <button class="btn btn-danger btn-xs"><i class="bi-trash" style="padding-right: 10px;"></i>Hapus</button>
-                                                            <button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail_data_penghuni">
-                                                                <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
-                                                        </th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Kamar No 1</td>
-                                                        <td>Penghuni 1</td>
-                                                        <td>Email@gmail.com</td>
-                                                        <td>085232111232</td>
-                                                        <td>30-11-2022</td>
-                                                        <th><button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit_data_penghuni"><i class="bi-pencil"
-                                                                style="padding-right: 10px;"></i>Edit</button>
-                                                            <button class="btn btn-danger btn-xs"><i class="bi-trash" style="padding-right: 10px;"></i>Hapus</button>
-                                                            <button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail_data_penghuni">
-                                                                <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
-                                                        </th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Kamar No 1</td>
-                                                        <td>Penghuni 1</td>
-                                                        <td>Email@gmail.com</td>
-                                                        <td>085232111232</td>
-                                                        <td>30-11-2022</td>
-                                                        <th><button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit_data_penghuni"><i class="bi-pencil"
-                                                                style="padding-right: 10px;"></i>Edit</button>
-                                                            <button class="btn btn-danger btn-xs"><i class="bi-trash" style="padding-right: 10px;"></i>Hapus</button>
-                                                            <button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail_data_penghuni">
-                                                                <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
-                                                        </th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Kamar No 1</td>
-                                                        <td>Penghuni 1</td>
-                                                        <td>Email@gmail.com</td>
-                                                        <td>085232111232</td>
-                                                        <td>30-11-2022</td>
-                                                        <th><button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit_data_penghuni"><i class="bi-pencil"
-                                                                style="padding-right: 10px;"></i>Edit</button>
-                                                            <button class="btn btn-danger btn-xs"><i class="bi-trash" style="padding-right: 10px;"></i>Hapus</button>
-                                                            <button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail_data_penghuni">
-                                                                <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
-                                                        </th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Kamar No 1</td>
-                                                        <td>Penghuni 1</td>
-                                                        <td>Email@gmail.com</td>
-                                                        <td>085232111232</td>
-                                                        <td>30-11-2022</td>
-                                                        <th><button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit_data_penghuni"><i class="bi-pencil"
-                                                                style="padding-right: 10px;"></i>Edit</button>
-                                                            <button class="btn btn-danger btn-xs"><i class="bi-trash" style="padding-right: 10px;"></i>Hapus</button>
-                                                            <button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail_data_penghuni">
-                                                                <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
-                                                        </th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Kamar No 1</td>
-                                                        <td>Penghuni 1</td>
-                                                        <td>Email@gmail.com</td>
-                                                        <td>085232111232</td>
-                                                        <td>30-11-2022</td>
-                                                        <th><button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit_data_penghuni"><i class="bi-pencil"
-                                                                style="padding-right: 10px;"></i>Edit</button>
-                                                            <button class="btn btn-danger btn-xs"><i class="bi-trash" style="padding-right: 10px;"></i>Hapus</button>
-                                                            <button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail_data_penghuni">
-                                                                <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
-                                                        </th>
-                                                    </tr>
+                                                    <?php
+                                                    }
+                                                    ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -424,7 +410,7 @@
         </div>
     </div>
 
-    
+
     <script src="js/vendor/jquery-2.2.4.min.js"></script>
     <!-- bootstrap 4 js -->
     <script src="js/popper.min.js"></script>
@@ -452,4 +438,5 @@
 
 
 </body>
+
 </html>

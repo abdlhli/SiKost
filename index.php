@@ -71,7 +71,7 @@
 
     <?php
     include 'login/database/config.php';
-    $kamar_kosong = mysqli_query($conn, "SELECT COUNT(id_user) AS kamar_kosong FROM kamar WHERE id_user = 0;");
+    $kamar_kosong = mysqli_query($conn, "SELECT SUM(CASE WHEN id_user is null THEN 1 ELSE 0 END) AS kamar_kosong FROM kamar;");
     while ($hasil = mysqli_fetch_array($kamar_kosong)) {
     ?>
 
