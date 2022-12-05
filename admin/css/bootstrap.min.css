@@ -406,7 +406,7 @@ h2 {
 
 .h3,
 h3 {
-    font-size: 1.75rem
+    font-size: 48px
 }
 
 .h4,
@@ -635,6 +635,7 @@ pre code {
     margin-right: -5px;
     margin-left: -5px;
 }
+
 .row-in {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -742,7 +743,7 @@ pre code {
     position: relative;
     width: 100%;
     min-height: 1px;
-    padding-left: 10px;
+    padding-left: 5px;
 }
 
 .col-tb-1 {
@@ -765,6 +766,17 @@ pre code {
     -ms-flex-positive: 1;
     flex-grow: 1;
     max-width: 100%
+}
+
+.col-adm {
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    width: 50%;
+    margin-left: -15px;
+    margin-right: -5px;
 }
 
 .col-auto {

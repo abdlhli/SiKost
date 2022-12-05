@@ -85,8 +85,8 @@ body {
 .calendar-container {
     float: left;
     position: relative;
-    margin: 0px auto;
-    height: 100%;
+    margin-left: 25px;
+    height: 520px;
     background: #fff;
     font: 13px Helvetica, Arial, san-serif;
     display: inline-block;
@@ -100,21 +100,18 @@ body {
 
 .calendar {
     display: table;
-    height: 450px;
-    width: 450px;
+    height: 400px;
+    width: 380px;
 }
 
 /* Calendar Header */
 .year-header {
-    background: #52A0FD;
-    background: -moz-linear-gradient(left, #52A0FD 0%, #00C9FB 80%, #00C9FB 100%);
-    background: -webkit-linear-gradient(left, #52A0FD 0%, #00C9FB 80%, #00C9FB 100%);
-    background: linear-gradient(to right, #52A0FD 0%, #00C9FB 80%, #00C9FB 100%);
-    font-family: Helvetica;
+    background: #007BFF;
+    font-family: Arial, Helvetica, sans-serif;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    height: 40px;
+    height: 50px;
     text-align: center;
     position: relative;
     color: #fff;
@@ -124,7 +121,7 @@ body {
 .year-header span {
     display: inline-block;
     font-size: 20px;
-    line-height: 40px;
+    line-height: 50px;
 }
 
 .left-button,
@@ -212,7 +209,10 @@ body {
     border-collapse: separate;
     text-align: center;
     width: 100%;
+    margin-top: 10px;
 }
+
+
 
 .day {
     height: 26px;
@@ -241,13 +241,12 @@ body {
 .active-month {
     font-weight: bold;
     font-size: 14px;
-    color: #FF1744;
-    text-shadow: 0 1px 4px RGBA(255, 50, 120, .8);
+    color: #153d77;
 }
 
 .month:hover {
-    color: #FF1744;
-    text-shadow: 0 1px 4px RGBA(255, 50, 120, .8);
+    color: #153d77;
+    text-shadow: 0 1px 4px RGB(68, 68, 242, 0.8);
 }
 
 /*  Dates table */
@@ -266,24 +265,24 @@ body {
 }
 
 .table-date:not(.nil):hover {
-    border-color: #FF1744;
-    box-shadow: 0 2px 6px RGBA(255, 50, 120, .9);
+    border-color: #153d77;
+    text-shadow: 0 1px 4px RGB(68, 68, 242, 0.8);
 }
 
 .event-date {
     border-color: #52A0FD;
-    box-shadow: 0 2px 8px RGBA(130, 180, 255, .9);
+    box-shadow: 0 2px 8px RGBA(68, 68, 242, 0.8);
 }
 
 .active-date {
-    background: #FF1744;
-    box-shadow: 0 2px 8px RGBA(255, 50, 120, .9);
+    background: #153d77;
+    box-shadow: 0 2px 8px RGBA(68, 68, 242, 0.8);
     color: #fff;
 }
 
 .event-date.active-date {
     background: #52A0FD;
-    box-shadow: 0 2px 8px RGBA(130, 180, 255, .9);
+    box-shadow: 0 2px 8px RGBA(68, 68, 242, 0.8);
 }
 
 /* input dialog */
@@ -325,6 +324,7 @@ body {
     text-align: center;
     transition: border-color 250ms;
 }
+
 
 .input:focus {
     outline: none;
