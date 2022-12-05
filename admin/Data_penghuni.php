@@ -161,59 +161,91 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                             </div>
-                                            <form method="post" enctype="multipart/form-data">
+                                            <form action="method/tmbDataPenghuni.php" method="POST"
+                                                enctype="multipart/form-data">
                                                 <div class="modal-body">
                                                     <div class="mb-3">
-                                                        <label class="form-label" for="">No Kamar</label>
-                                                        <select class="form-select form-select-sm"
+                                                        <label class="form-label" for="tmbNoKamarPeng">No Kamar</label>
+                                                        <select name="tmbNoKamarPeng" class="form-select form-select-sm"
                                                             aria-label=".form-select-sm example">
-                                                            <option selected>Pilih No Kamar</option>
-                                                            <option value="1">Kamar No 1</option>
-                                                            <option value="2">Kamar No 2</option>
-                                                            <option value="3">Kamar No 3</option>
+                                                            <option disabled selected>Pilih No Kamar</option>
+                                                            <?php
+                                                            include 'database/config.php';
+                                                            $kamar = mysqli_query($conn, "SELECT `no_kamar` FROM `kamar` WHERE id_user IS NULL ORDER BY `kamar`.`no_kamar` * 1 ASC;");
+                                                            while ($hasil = mysqli_fetch_array($kamar)) {
+                                                            ?>
+                                                            <option value="<?= $hasil['no_kamar'] ?>">
+                                                                <?= $hasil['no_kamar'] ?>
+                                                            </option>
+                                                            <?php
+                                                            }
+                                                            ?>
                                                         </select>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Nama Penghuni</label>
-                                                        <input type="text" name="" class="form-control form-control-sm"
-                                                            id="" required>
+                                                    <div class="row">
+                                                        <div class="form-group col">
+                                                            <label class="control-label" for="tmbNamaDepanPeng">Nama
+                                                                Depan</label>
+                                                            <input type="text" name="tmbNamaDepanPeng"
+                                                                class="form-control form-control-sm"
+                                                                id="tmbNamaDepanPeng" required>
+                                                        </div>
+                                                        <div class="form-group col">
+                                                            <label class="control-label" for="tmbNamaBelakangPeng">Nama
+                                                                belakang</label>
+                                                            <input type="text" name="tmbNamaBelakangPeng"
+                                                                class="form-control form-control-sm"
+                                                                id="tmbNamaBelakangPeng" required>
+                                                        </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="control-label" for="">Email</label>
-                                                        <input type="email" name="" class="form-control form-control-sm"
-                                                            placeholder="name@example.com" id="" required>
+                                                        <label class="control-label" for="tmbTelpPeng">No
+                                                            Telepon</label>
+                                                        <input type="number" name="tmbTelpPeng"
+                                                            class="form-control form-control-sm" id="tmbTelpPeng"
+                                                            required>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="control-label" for="">No Telepon</label>
-                                                        <input type="number" name=""
-                                                            class="form-control form-control-sm" id="" required>
+                                                        <label class="control-label" for="tmbAlamatPeng">Alamat</label>
+                                                        <input type="text" name="tmbAlamatPeng"
+                                                            class="form-control form-control-sm" id="tmbAlamatPeng"
+                                                            required>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="control-label" for="">Tanggal Masuk</label>
-                                                        <input type="date" name="" class="form-control form-control-sm"
-                                                            id="" required>
+                                                        <label class="control-label" for="tmbTglPeng">Tanggal
+                                                            Masuk</label>
+                                                        <input type="date" name="tmbTglPeng"
+                                                            class="form-control form-control-sm" id="tmbTglPeng"
+                                                            required>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="control-label" for="">Alamat</label>
-                                                        <input type="text" name="" class="form-control form-control-sm"
-                                                            id="" required>
+                                                        <label class="control-label" for="tmbAsalKamPeng">Asal
+                                                            Kampus</label>
+                                                        <input type="text" name="tmbAsalKamPeng"
+                                                            class="form-control form-control-sm" id="tmbAsalKamPeng"
+                                                            required>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Alamat</label>
-                                                        <input type="text" name="" class="form-control form-control-sm"
-                                                            id="" required>
+                                                    <div class="mb-3">
+                                                        <label class="form-label" for="">Status</label>
+                                                        <select name="tmbStatusPeng" class="form-select form-select-sm"
+                                                            aria-label=".form-select-sm example">
+                                                            <option selected>Pilih Status Penghuni</option>
+                                                            <option value="aktif">Aktif</option>
+                                                            <option value="tidak_aktif">Tidak Aktif</option>
+                                                        </select>
                                                     </div>
                                                 </div>
-                                            </form>
-                                            <div class="modal-footer">
+                                                <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Batal</button>
-                                                <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+                                                <button type="submit" name="tmbdatapenghuni"
+                                                    class="btn btn-primary">Simpan
+                                                    Perubahan</button>
                                             </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="modal fade" id="edit_data_penghuni" tabindex="-1"
                                     aria-labelledby="exampleModalLabel">
                                     <div class="modal-dialog">
@@ -383,8 +415,7 @@
                                                                 <i class="bi-pencil" style="padding-right: 10px;">
                                                                 </i>Edit</button>
                                                             <button class="btn btn-danger btn-xs">
-                                                                <i class="bi-trash" style="padding-right: 10px;"
-                                                                    href="hapus.php?id=<?php echo $data['id_user']; ?>">
+                                                                <i class="bi-trash" style="padding-right: 10px;">
                                                                 </i>Hapus</button>
                                                             <button class="btn btn-secondary btn-xs"
                                                                 data-bs-toggle="modal"
