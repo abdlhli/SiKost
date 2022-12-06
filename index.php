@@ -199,7 +199,7 @@
                         aria-labelledby="panelsStayOpen-headingTwo">
                         <div class="accordion-body">
                             <strong>Beberapa Fasilitas Kamar Kost.</strong><br>
-                            
+
                         </div>
                     </div>
                 </div>

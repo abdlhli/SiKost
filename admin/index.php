@@ -55,7 +55,8 @@
                                         Admin</span></a>
                             </li>
                             <li class="">
-                                <a href="data_kamar.html"><img src="img/bed.png" width="24" height="24"><span>Data Kamar</span></a>
+                                <a href="data_kamar.html"><img src="img/bed.png" width="24" height="24"><span>Data
+                                        Kamar</span></a>
                             </li>
                             <li class="">
                                 <a href="data_penghuni.html"><img src="img/group.png" width="24" height="24"><span>Data
@@ -66,10 +67,12 @@
                                         Pembayaran</span></a>
                             </li>
                             <li class="">
-                                <a href="pengaduan.html"><img src="img/alert.png" width="24" height="24"><span>Pengaduan</span></a>
+                                <a href="pengaduan.html"><img src="img/alert.png" width="24"
+                                        height="24"><span>Pengaduan</span></a>
                             </li>
                             <li class="">
-                                <a href="booking.html"><img src="img/booking.png" width="24" height="24"><span>Pemesanan</span></a>
+                                <a href="booking.html"><img src="img/booking.png" width="24"
+                                        height="24"><span>Pemesanan</span></a>
                             </li>
                         </ul>
                     </nav>
@@ -143,7 +146,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-4">
-                        <div class="main-content-inner">    
+                        <div class="main-content-inner">
                             <div class="card">
                                 <div class="card-head-1 align-items-center">
                                     <h4 class="head-title-card fs-title">Pembayaran Terakhir</h4>
@@ -245,34 +248,59 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-sm-3">
                         <div class="main-content-inner">
                             <div class="col-xl-8 col-lg-7 col-md-12 mt-5">
                                 <div class="card-info">
+                                    <?php
+                                    include 'database/config.php';
+                                    $pengaduan = mysqli_query($conn, "SELECT COUNT(id_pgd) AS jumlah_pengaduan FROM `pengaduan`;");
+                                    while ($hasil = mysqli_fetch_array($pengaduan)) {
+                                    ?>
                                     <div class="card-head align-items-center">
                                         <h4 class="head-title-card fs-info">Pengaduan</h4>
                                     </div>
                                     <br>
                                     <div class="card-body">
                                         <div class="col">
-                                            <h3 class="text-inf f-w-info f-center">10</h3>
+                                            <h3 class="text-inf f-w-info f-center">
+                                                <?php
+                                        echo $hasil['jumlah_pengaduan'];
+                                                ?>
+                                            </h3>
                                         </div>
                                     </div>
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
                             </div>
                             <br>
                             <br>
                             <div class="col-xl-8 col-lg-7 col-md-12 mt-5">
                                 <div class="card-info">
+                                    <?php
+                                    include 'database/config.php';
+                                    $pemesanan = mysqli_query($conn, "SELECT COUNT(id_psn) AS jumlah_pemesanan FROM `pemesanan`;");
+                                    while ($hasil = mysqli_fetch_array($pemesanan)) {
+                                    ?>
                                     <div class="card-head align-items-center">
                                         <h4 class="head-title-card fs-info">Pemesanan</h4>
                                     </div>
                                     <br>
                                     <div class="card-body">
                                         <div class="col">
-                                            <h3 class="text-inf f-w-info f-center">10</h3>
+                                            <h3 class="text-inf f-w-info f-center">
+                                                <?php
+                                        echo $hasil['jumlah_pemesanan'];
+                                                ?>
+                                            </h3>
                                         </div>
                                     </div>
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -281,40 +309,40 @@
             </div>
         </div>
     </div>
-                <!-- offset area end -->
-                <!-- jquery latest version -->
-                <script src="js/vendor/jquery-2.2.4.min.js"></script>
-                <!-- bootstrap 4 js -->
-                <script src="js/popper.min.js"></script>
-                <script src="js/bootstrap.min.js"></script>
-                <script src="js/owl.carousel.min.js"></script>
-                <script src="js/metisMenu.min.js"></script>
-                <script src="js/jquery.slimscroll.min.js"></script>
-                <script src="js/jquery.slicknav.min.js"></script>
+    <!-- offset area end -->
+    <!-- jquery latest version -->
+    <script src="js/vendor/jquery-2.2.4.min.js"></script>
+    <!-- bootstrap 4 js -->
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/metisMenu.min.js"></script>
+    <script src="js/jquery.slimscroll.min.js"></script>
+    <script src="js/jquery.slicknav.min.js"></script>
 
-                <script src="js/calendar.js"></script>
+    <script src="js/calendar.js"></script>
 
-                <!-- start chart js -->
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-                <!-- start highcharts js -->
-                <script src="https://code.highcharts.com/highcharts.js"></script>
-                <!-- start zingchart js -->
-                <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
-                <script>
-                    zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
-                    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
-                </script>
-                <!-- all line chart activation -->
-                <script src="js/line-chart.js"></script>
-                <!-- all pie chart -->
-                <script src="js/pie-chart.js"></script>
-                <!-- others plugins -->
-                <script src="js/plugins.js"></script>
-                <script src="js/scripts.js"></script>
+    <!-- start chart js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <!-- start highcharts js -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <!-- start zingchart js -->
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+    <script>
+        zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+        ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
+    </script>
+    <!-- all line chart activation -->
+    <script src="js/line-chart.js"></script>
+    <!-- all pie chart -->
+    <script src="js/pie-chart.js"></script>
+    <!-- others plugins -->
+    <script src="js/plugins.js"></script>
+    <script src="js/scripts.js"></script>
 
-                    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-                        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
-                        </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+        </script>
 </body>
 
 </html>
