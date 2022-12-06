@@ -55,15 +55,15 @@
                     <nav>
                         <ul class="metismenu" id="menu">
                             <li class="">
-                                <a href="index.html"><img src="img/home.png" width="24" height="24"></i>
+                                <a href="index.php"><img src="img/home.png" width="24" height="24"></i>
                                     <span>Dashboard</span></a>
                             </li>
                             <li class="">
-                                <a href="admin.html"><img src="img/setting.png" width="24" height="24">
+                                <a href="admin.php"><img src="img/setting.png" width="24" height="24">
                                     <span>Data Admin</span></a>
                             </li>
                             <li class="">
-                                <a href="data_kamar.html"><img src="img/bed.png" width="24" height="24">
+                                <a href="data_kamar.php"><img src="img/bed.png" width="24" height="24">
                                     <span>Data Kamar</span></a>
                             </li>
                             <li class="active">
@@ -71,15 +71,15 @@
                                     <span>Data Penghuni</span></a>
                             </li>
                             <li class="">
-                                <a href="report.html"><img src="img/report.png" width="24" height="24">
+                                <a href="report.php"><img src="img/report.png" width="24" height="24">
                                     <span>Laporan Pembayaran</span></a>
                             </li>
                             <li class="">
-                                <a href="pengaduan.html"><img src="img/alert.png" width="24" height="24">
+                                <a href="pengaduan.php"><img src="img/alert.png" width="24" height="24">
                                     <span>Pengaduan</span></a>
                             </li>
                             <li class="">
-                                <a href="booking.html"><img src="img/booking.png" width="24" height="24">
+                                <a href="booking.php"><img src="img/booking.png" width="24" height="24">
                                     <span>Pemesanan</span></a>
                             </li>
                         </ul>
