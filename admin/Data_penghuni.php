@@ -67,7 +67,7 @@
                                     <span>Data Kamar</span></a>
                             </li>
                             <li class="active">
-                                <a href="data_penghuni.html"><img src="img/group.png" width="24" height="24">
+                                <a href="data_penghuni.php"><img src="img/group.png" width="24" height="24">
                                     <span>Data Penghuni</span></a>
                             </li>
                             <li class="">
