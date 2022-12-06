@@ -15,8 +15,7 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/slicknav.min.css">
     <!-- amchart css -->
-    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css"
-        media="all" />
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
     <!-- others css -->
     <link rel="stylesheet" href="css/typography.css">
     <link rel="stylesheet" href="css/default-css.css">
@@ -47,32 +46,28 @@
                     <nav>
                         <ul class="metismenu" id="menu">
                             <li class="active">
-                                <a href="index.html"><img src="img/home.png" width="24"
-                                        height="24"></i><span>Dashboard</span></a>
+                                <a href="index.php"><img src="img/home.png" width="24" height="24"></i><span>Dashboard</span></a>
                             </li>
                             <li class="">
-                                <a href="admin.html"><img src="img/setting.png" width="24" height="24"><span>Data
+                                <a href="admin.php"><img src="img/setting.png" width="24" height="24"><span>Data
                                         Admin</span></a>
                             </li>
                             <li class="">
-                                <a href="data_kamar.html"><img src="img/bed.png" width="24" height="24"><span>Data
-                                        Kamar</span></a>
+                                <a href="data_kamar.php"><img src="img/bed.png" width="24" height="24"><span>Data Kamar</span></a>
                             </li>
                             <li class="">
-                                <a href="data_penghuni.html"><img src="img/group.png" width="24" height="24"><span>Data
+                                <a href="data_penghuni.php"><img src="img/group.png" width="24" height="24"><span>Data
                                         Penghuni</span></a>
                             </li>
                             <li class="">
-                                <a href="report.html"><img src="img/report.png" width="24" height="24"><span>Laporan
+                                <a href="report.php"><img src="img/report.png" width="24" height="24"><span>Laporan
                                         Pembayaran</span></a>
                             </li>
                             <li class="">
-                                <a href="pengaduan.html"><img src="img/alert.png" width="24"
-                                        height="24"><span>Pengaduan</span></a>
+                                <a href="pengaduan.php"><img src="img/alert.png" width="24" height="24"><span>Pengaduan</span></a>
                             </li>
                             <li class="">
-                                <a href="booking.html"><img src="img/booking.png" width="24"
-                                        height="24"><span>Pemesanan</span></a>
+                                <a href="booking.php"><img src="img/booking.png" width="24" height="24"><span>Pemesanan</span></a>
                             </li>
                         </ul>
                     </nav>

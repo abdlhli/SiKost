@@ -4,16 +4,23 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>KostPutri - Laporan Pembayaran</title>
+    <title>kostputri - Data Penghuni</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <!-- CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/themify-icons.css">
     <link rel="stylesheet" href="css/metisMenu.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/slicknav.min.css">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+
     <!-- amchart css -->
     <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css"
         media="all" />
@@ -25,6 +32,7 @@
     <link rel="stylesheet" href="css/calendar.css">
     <!-- modernizr css -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
 </head>
 
 <body>
@@ -47,29 +55,32 @@
                     <nav>
                         <ul class="metismenu" id="menu">
                             <li class="">
-                                <a href="index.html"><img src="img/home.png" width="24"
-                                        height="24"></i><span>Dashboard</span></a>
+                                <a href="index.html"><img src="img/home.png" width="24" height="24"></i>
+                                    <span>Dashboard</span></a>
                             </li>
                             <li class="">
-                                <a href="admin.html"><img src="img/setting.png" width="24" height="24"><span>Data
-                                        Admin</span></a>
+                                <a href="admin.html"><img src="img/setting.png" width="24" height="24">
+                                    <span>Data Admin</span></a>
                             </li>
                             <li class="">
-                                <a href="data_kamar.html"><img src="img/bed.png" width="24" height="24"><span>Data Kamar</span></a>
-                            </li>
-                            <li class="">
-                                <a href="data_penghuni.html"><img src="img/group.png" width="24" height="24"><span>Data
-                                        Penghuni</span></a>
+                                <a href="data_kamar.html"><img src="img/bed.png" width="24" height="24">
+                                    <span>Data Kamar</span></a>
                             </li>
                             <li class="active">
-                                <a href="report.html"><img src="img/report.png" width="24" height="24"><span>Laporan
-                                        Pembayaran</span></a>
+                                <a href="data_penghuni.php"><img src="img/group.png" width="24" height="24">
+                                    <span>Data Penghuni</span></a>
                             </li>
                             <li class="">
-                                <a href="pengaduan.html"><img src="img/alert.png" width="24" height="24"><span>Pengaduan</span></a>
+                                <a href="report.html"><img src="img/report.png" width="24" height="24">
+                                    <span>Laporan Pembayaran</span></a>
                             </li>
                             <li class="">
-                                <a href="booking.html"><img src="img/booking.png" width="24" height="24"><span>Pemesanan</span></a>
+                                <a href="pengaduan.html"><img src="img/alert.png" width="24" height="24">
+                                    <span>Pengaduan</span></a>
+                            </li>
+                            <li class="">
+                                <a href="booking.html"><img src="img/booking.png" width="24" height="24">
+                                    <span>Pemesanan</span></a>
                             </li>
                         </ul>
                     </nav>
@@ -103,14 +114,14 @@
                                             all</a></span>
                                     <div class="nofity-list">
                                         <a href="#" class="notify-item">
-                                            <div class="notify-thumb"><i class="bi-key btn-danger"></i></div>
+                                            <div class="notify-thumb"><i class="ti-key btn-danger"></i></div>
                                             <div class="notify-text">
                                                 <p>You have Changed Your Password</p>
                                                 <span>Just Now</span>
                                             </div>
                                         </a>
                                         <a href="#" class="notify-item">
-                                            <div class="notify-thumb"><i class="bi-chat-text btn-info"></i></div>
+                                            <div class="notify-thumb"><i class="ti-comments-smiley btn-info"></i></div>
                                             <div class="notify-text">
                                                 <p>New Commetns On Post</p>
                                                 <span>30 Seconds ago</span>
@@ -129,27 +140,60 @@
             <!-- header area end -->
             <!-- page title area start -->
             <div class="page-title-area">
-                <div class="row lign-items-center">
+                <div class="row align-items-center">
                     <div class="col-sm-6">
-                        <div class="container-fluid">
-                            <div class="head-welcome">
-                                <h1 class="head-title">
-                                    Laporan Pembayaran
-                                </h1>
-                            </div>
+                        <div class="head-welcome-1">
+                            <h1 class="head-title">Data Penghuni Kost</h1>
                         </div>
                     </div>
                 </div>
-                <div class="row align-items-center">
-                    <div class="main-content-inner">
-
+                <div class="main-content-inner">
+                    <div class="col-tb-1">
+                        <div class="card-table">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="table-responsive">
+                                            <button type="button" class="btn btn-primary btn-xs" data-bs-toggle="modal"
+                                                data-bs-target="#tmb_data_penghuni">
+                                                <i class="bi-plus-lg">
+                                                </i>Tambah Data</button>
+                                            <table data-order="[]" id="tbl" class="display" style="width: 100%;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>No Kamar</th>
+                                                        <th>Nama Penghuni</th>
+                                                        <th>No Telepon</th>
+                                                        <th>Tanggal Masuk</th>
+                                                        <th>Status</th>
+                                                        <th>Aksi</th>
+                                                    </tr>
+                                                </thead>
+                                                <?php
+                                                //Menampilkan Modal Tambah, Edit,dan Detail 
+                                                include('method/tmbDataPenghuni.php');
+                                                include('method/EditDataPenghuni.php');
+                                                include('method/DetailDataPenghuni.php');
+                                                ?>
+                                                <tbody>
+                                                    <?php
+                                                    //Menampilkan Data Dari Database Ke Tabel
+                                                    include('method/ViewDataPenghuni.php');
+                                                    ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- offset area end -->
-    <!-- jquery latest version -->
+
+
     <script src="js/vendor/jquery-2.2.4.min.js"></script>
     <!-- bootstrap 4 js -->
     <script src="js/popper.min.js"></script>
@@ -158,30 +202,24 @@
     <script src="js/metisMenu.min.js"></script>
     <script src="js/jquery.slimscroll.min.js"></script>
     <script src="js/jquery.slicknav.min.js"></script>
-
     <script src="js/calendar.js"></script>
 
-    <!-- start chart js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-    <!-- start highcharts js -->
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <!-- start zingchart js -->
-    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
-    <script>
-                    zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
-                    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
-    </script>
-    <!-- all line chart activation -->
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
     <script src="js/line-chart.js"></script>
-    <!-- all pie chart -->
     <script src="js/pie-chart.js"></script>
-    <!-- others plugins -->
     <script src="js/plugins.js"></script>
     <script src="js/scripts.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
-        </script>
+    <!-- Script Tabel + Modal -->
+    <script src="js/tabel.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="js/modal.js"></script>
+
+
 </body>
 
 </html>

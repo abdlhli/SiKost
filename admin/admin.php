@@ -8,8 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href=".../assets/img/favicon.ico" />
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <!-- CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -18,9 +17,9 @@
     <link rel="stylesheet" href="css/metisMenu.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/slicknav.min.css">
-    
+
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
-    
+
     <!-- amchart css -->
     <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
     <!-- others css -->
@@ -53,29 +52,28 @@
                     <nav>
                         <ul class="metismenu" id="menu">
                             <li class="">
-                                <a href="index.html"><img src="img/home.png" width="24"
-                                        height="24"></i><span>Dashboard</span></a>
+                                <a href="index.php"><img src="img/home.png" width="24" height="24"></i><span>Dashboard</span></a>
                             </li>
                             <li class="active">
-                                <a href="admin.html"><img src="img/setting.png" width="24" height="24"><span>Data
+                                <a href="admin.php"><img src="img/setting.png" width="24" height="24"><span>Data
                                         Admin</span></a>
                             </li>
                             <li class="">
-                                <a href="data_kamar.html"><img src="img/bed.png" width="24" height="24"><span>Data Kamar</span></a>
+                                <a href="data_kamar.php"><img src="img/bed.png" width="24" height="24"><span>Data Kamar</span></a>
                             </li>
                             <li class="">
-                                <a href="data_penghuni.html"><img src="img/group.png" width="24" height="24"><span>Data
+                                <a href="data_penghuni.php"><img src="img/group.png" width="24" height="24"><span>Data
                                         Penghuni</span></a>
                             </li>
                             <li class="">
-                                <a href="report.html"><img src="img/report.png" width="24" height="24"><span>Laporan
+                                <a href="report.php"><img src="img/report.png" width="24" height="24"><span>Laporan
                                         Pembayaran</span></a>
                             </li>
                             <li class="">
-                                <a href="pengaduan.html"><img src="img/alert.png" width="24" height="24"><span>Pengaduan</span></a>
+                                <a href="pengaduan.php"><img src="img/alert.png" width="24" height="24"><span>Pengaduan</span></a>
                             </li>
                             <li class="">
-                                <a href="booking.html"><img src="img/booking.png" width="24" height="24"><span>Pemesanan</span></a>
+                                <a href="booking.php"><img src="img/booking.png" width="24" height="24"><span>Pemesanan</span></a>
                             </li>
                         </ul>
                     </nav>
@@ -165,8 +163,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label" for="">Email</label>
-                                                        <input type="email" name="" class="form-control form-control-sm" placeholder="name@example.com" id=""
-                                                            required>
+                                                        <input type="email" name="" class="form-control form-control-sm" placeholder="name@example.com" id="" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label" for="">No Telepon</label>
@@ -217,8 +214,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label" for="">Email</label>
-                                                        <input type="email" name="" class="form-control form-control-sm" placeholder="name@example.com"
-                                                            id="" required>
+                                                        <input type="email" name="" class="form-control form-control-sm" placeholder="name@example.com" id="" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label" for="">No Telepon</label>
@@ -269,8 +265,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label" for="">Email</label>
-                                                        <input type="email" name="" class="form-control form-control-sm" placeholder="name@example.com"
-                                                            id="" required>
+                                                        <input type="email" name="" class="form-control form-control-sm" placeholder="name@example.com" id="" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label" for="">No Telepon</label>
@@ -318,8 +313,7 @@
                                                         <td>Email@gmail.com</td>
                                                         <td>085232111232</td>
                                                         <td>Super Admin</td>
-                                                        <th><button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit-admin"><i
-                                                                class="bi-pencil" style="padding-right: 10px;"></i>Edit</button>
+                                                        <th><button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit-admin"><i class="bi-pencil" style="padding-right: 10px;"></i>Edit</button>
                                                             <button class="btn btn-danger btn-xs"><i class="bi-trash" style="padding-right: 10px;"></i>Hapus</button>
                                                             <button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail-admin">
                                                                 <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
@@ -331,8 +325,7 @@
                                                         <td>Email@gmail.com</td>
                                                         <td>085232111232</td>
                                                         <td>Super Admin</td>
-                                                        <th><button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit-admin"><i
-                                                                class="bi-pencil" style="padding-right: 10px;"></i>Edit</button>
+                                                        <th><button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit-admin"><i class="bi-pencil" style="padding-right: 10px;"></i>Edit</button>
                                                             <button class="btn btn-danger btn-xs"><i class="bi-trash" style="padding-right: 10px;"></i>Hapus</button>
                                                             <button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail-admin">
                                                                 <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
@@ -344,8 +337,7 @@
                                                         <td>Email@gmail.com</td>
                                                         <td>085232111232</td>
                                                         <td>Super Admin</td>
-                                                        <th><button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit-admin"><i
-                                                                class="bi-pencil" style="padding-right: 10px;"></i>Edit</button>
+                                                        <th><button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit-admin"><i class="bi-pencil" style="padding-right: 10px;"></i>Edit</button>
                                                             <button class="btn btn-danger btn-xs"><i class="bi-trash" style="padding-right: 10px;"></i>Hapus</button>
                                                             <button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail-admin">
                                                                 <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
@@ -374,15 +366,13 @@
     <script src="js/jquery.slicknav.min.js"></script>
     <script src="js/calendar.js"></script>
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
     <script src="js/line-chart.js"></script>
     <script src="js/pie-chart.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/scripts.js"></script>
-    
+
     <!-- Script Tabel + Modal -->
     <script src="js/tabel.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>

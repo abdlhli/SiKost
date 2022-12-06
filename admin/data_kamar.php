@@ -8,8 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <!-- CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -18,9 +17,9 @@
     <link rel="stylesheet" href="css/metisMenu.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/slicknav.min.css">
-    
+
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
-    
+
     <!-- amchart css -->
     <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
     <!-- others css -->
@@ -53,31 +52,29 @@
                     <nav>
                         <ul class="metismenu" id="menu">
                             <li class="">
-                                <a href="index.html"><img src="img/home.png" width="24"
-                                        height="24"></i><span>Dashboard</span></a>
+                                <a href="index.php"><img src="img/home.png" width="24" height="24"></i><span>Dashboard</span></a>
                             </li>
                             <li class="">
-                                <a href="admin.html"><img src="img/setting.png" width="24" height="24"><span>Data
+                                <a href="admin.php"><img src="img/setting.png" width="24" height="24"><span>Data
                                         Admin</span></a>
                             </li>
                             <li class="active">
-                                <a href="data_kamar.html"><img src="img/bed.png" width="24" height="24"><span>Data
+                                <a href="data_kamar.php"><img src="img/bed.png" width="24" height="24"><span>Data
                                         Kamar</span></a>
                             </li>
                             <li class="">
-                                <a href="data_penghuni.html"><img src="img/group.png" width="24" height="24"><span>Data
+                                <a href="data_penghuni.php"><img src="img/group.png" width="24" height="24"><span>Data
                                         Penghuni</span></a>
                             </li>
                             <li class="">
-                                <a href="report.html"><img src="img/report.png" width="24" height="24"><span>Laporan
+                                <a href="report.php"><img src="img/report.png" width="24" height="24"><span>Laporan
                                         Pembayaran</span></a>
                             </li>
                             <li class="">
-                                <a href="pengaduan.html"><img src="img/alert.png" width="24"
-                                        height="24"><span>Pengaduan</span></a>
+                                <a href="pengaduan.php"><img src="img/alert.png" width="24" height="24"><span>Pengaduan</span></a>
                             </li>
                             <li class="">
-                                <a href="booking.html"><img src="img/booking.png" width="24" height="24"><span>Pemesanan</span></a>
+                                <a href="booking.php"><img src="img/booking.png" width="24" height="24"><span>Pemesanan</span></a>
                             </li>
                         </ul>
                     </nav>
@@ -146,49 +143,49 @@
                     <div class="col-tb-1">
                         <div class="card-table">
                             <div class="card-body">
-                            <div class="modal fade" id="tmb_data_kamar" tabindex="-1" aria-labelledby="exampleModalLabel">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h4 class="modal-title fs-5" id="exampleModalLabel">Tambah Data Kamar</h4>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <form method="post" enctype="multipart/form-data">
-                                            <div class="modal-body">
-                                                <div class="mb-3">
-                                                    <label class="form-label" for="">No Kamar</label>
-                                                    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                                        <option selected>Pilih No Kamar</option>
-                                                        <option value="1">Kamar No 1</option>
-                                                        <option value="2">Kamar No 2</option>
-                                                        <option value="3">Kamar No 3</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label" for="">Id User</label>
-                                                    <input type="number" name="" class="form-control form-control-sm" id="" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label" for="">Id Jenis Kamar</label>
-                                                    <input type="number" name="" class="form-control form-control-sm" id="" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label" for="">Keterangan</label>
-                                                    <textarea class="form-control" id="exampleFormControlTextArea1" rows="3"></textarea>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label" for="">Harga</label>
-                                                    <input type="number" name="" class="form-control form-control-sm" id="" required>
-                                                </div>
+                                <div class="modal fade" id="tmb_data_kamar" tabindex="-1" aria-labelledby="exampleModalLabel">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title fs-5" id="exampleModalLabel">Tambah Data Kamar</h4>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
-                                        </form>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                            <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+                                            <form method="post" enctype="multipart/form-data">
+                                                <div class="modal-body">
+                                                    <div class="mb-3">
+                                                        <label class="form-label" for="">No Kamar</label>
+                                                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                                            <option selected>Pilih No Kamar</option>
+                                                            <option value="1">Kamar No 1</option>
+                                                            <option value="2">Kamar No 2</option>
+                                                            <option value="3">Kamar No 3</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="">Id User</label>
+                                                        <input type="number" name="" class="form-control form-control-sm" id="" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="">Id Jenis Kamar</label>
+                                                        <input type="number" name="" class="form-control form-control-sm" id="" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="">Keterangan</label>
+                                                        <textarea class="form-control" id="exampleFormControlTextArea1" rows="3"></textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="">Harga</label>
+                                                        <input type="number" name="" class="form-control form-control-sm" id="" required>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
                                 <div class="modal fade" id="edit_data_kamar" tabindex="-1" aria-labelledby="exampleModalLabel">
                                     <div class="modal-dialog">
@@ -277,8 +274,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="table-responsive">
-                                            <button type="button" class="btn btn-primary btn-xs" data-bs-toggle="modal"
-                                                data-bs-target="#tmb_data_kamar">
+                                            <button type="button" class="btn btn-primary btn-xs" data-bs-toggle="modal" data-bs-target="#tmb_data_kamar">
                                                 <i class="bi-plus-lg"></i>
                                                 Tambah Data</button>
                                             <table id="tbl" class="display" style="width: 100%;">
@@ -299,13 +295,9 @@
                                                         <td>01</td>
                                                         <td>Kamar Mandi Luar</td>
                                                         <td>Rp 500.000</td>
-                                                        <th><button class="btn btn-success btn-xs" data-bs-toggle="modal"
-                                                                data-bs-target="#edit_data_kamar"><i class="bi-pencil"
-                                                                    style="padding-right: 10px;"></i>Edit</button>
-                                                            <button class="btn btn-danger btn-xs"><i class="bi-trash"
-                                                                    style="padding-right: 10px;"></i>Hapus</button>
-                                                            <button class="btn btn-secondary btn-xs" data-bs-toggle="modal"
-                                                                data-bs-target="#detail_data_kamar">
+                                                        <th><button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit_data_kamar"><i class="bi-pencil" style="padding-right: 10px;"></i>Edit</button>
+                                                            <button class="btn btn-danger btn-xs"><i class="bi-trash" style="padding-right: 10px;"></i>Hapus</button>
+                                                            <button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail_data_kamar">
                                                                 <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
                                                         </th>
                                                     </tr>
@@ -315,13 +307,9 @@
                                                         <td>02</td>
                                                         <td>Kamar Mandi Dalam</td>
                                                         <td>Rp 700.000</td>
-                                                        <th><button class="btn btn-success btn-xs" data-bs-toggle="modal"
-                                                                data-bs-target="#edit_data_kamar"><i class="bi-pencil"
-                                                                    style="padding-right: 10px;"></i>Edit</button>
-                                                            <button class="btn btn-danger btn-xs"><i class="bi-trash"
-                                                                    style="padding-right: 10px;"></i>Hapus</button>
-                                                            <button class="btn btn-secondary btn-xs" data-bs-toggle="modal"
-                                                                data-bs-target="#detail_data_kamar">
+                                                        <th><button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit_data_kamar"><i class="bi-pencil" style="padding-right: 10px;"></i>Edit</button>
+                                                            <button class="btn btn-danger btn-xs"><i class="bi-trash" style="padding-right: 10px;"></i>Hapus</button>
+                                                            <button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail_data_kamar">
                                                                 <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
                                                         </th>
                                                     </tr>
@@ -331,13 +319,9 @@
                                                         <td>02</td>
                                                         <td>Kamar Mandi Dalam</td>
                                                         <td>Rp 700.000</td>
-                                                        <th><button class="btn btn-success btn-xs" data-bs-toggle="modal"
-                                                                data-bs-target="#edit_data_kamar"><i class="bi-pencil"
-                                                                    style="padding-right: 10px;"></i>Edit</button>
-                                                            <button class="btn btn-danger btn-xs"><i class="bi-trash"
-                                                                    style="padding-right: 10px;"></i>Hapus</button>
-                                                            <button class="btn btn-secondary btn-xs" data-bs-toggle="modal"
-                                                                data-bs-target="#detail_data_kamar">
+                                                        <th><button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit_data_kamar"><i class="bi-pencil" style="padding-right: 10px;"></i>Edit</button>
+                                                            <button class="btn btn-danger btn-xs"><i class="bi-trash" style="padding-right: 10px;"></i>Hapus</button>
+                                                            <button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail_data_kamar">
                                                                 <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
                                                         </th>
                                                     </tr>
@@ -365,15 +349,13 @@
     <script src="js/calendar.js"></script>
 
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
     <script src="js/line-chart.js"></script>
     <script src="js/pie-chart.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/scripts.js"></script>
-    
+
     <!-- Script Tabel + Modal -->
     <script src="js/tabel.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
