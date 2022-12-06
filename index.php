@@ -165,18 +165,48 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-        </div>
-    </section>
-    <!-- Review Google Maps -->
-    <!-- <section class="projects-section bg-light" id="info">
-        <div class="container px-4 px-lg-5"> -->
-    <!-- Featured Project Row-->
-    <!-- <div class="google-review">
-                <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-                <div class="elfsight-app-3fdf3ca5-ebba-41d4-a048-a1edd84b3860"></div>
+            <div class="accordion" id="accordionPanelsStayOpenExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                        <button class="accordion-button text-center" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                            aria-controls="panelsStayOpen-collapseOne">
+                            Detail Fasilitas Kost
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                        aria-labelledby="panelsStayOpen-headingOne">
+                        <div class="accordion-body">
+                            <strong>Beberapa fasilitas yang ada pada kost.</strong><br>
+                            * FREE WIFI 24/7 Jam <br>
+                            * Dapur Bersama <br>
+                            * Tempat Cuci Baju Bersama <br>
+                            * Tempat Jemuran <br>
+                            * Kulkas Bersama <br>
+                            * Ruang TV <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseTwo">
+                            Detail Fasilitas Kamar Kost
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                        aria-labelledby="panelsStayOpen-headingTwo">
+                        <div class="accordion-body">
+                            <strong>Beberapa Fasilitas Kamar Kost.</strong><br>
+                            
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section> -->
+    </section>
+
     <!-- Hubungi Kami-->
     <section class="signup-section" id="hubungi-kami">
         <div class="container px-4 px-lg-5">
@@ -195,6 +225,18 @@
             </div>
         </div>
     </section>
+
+    <!-- Review Google Maps -->
+    <section class="projects-section bg-light" id="info">
+        <div class="container px-4 px-lg-5">
+            <!-- Featured Project Row-->
+            <div class="google-review">
+                <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+                <div class="elfsight-app-3fdf3ca5-ebba-41d4-a048-a1edd84b3860"></div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact-->
     <section class="contact-section">
         <div class="container px-4 px-lg-5">
