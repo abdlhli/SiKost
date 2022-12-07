@@ -1,3 +1,22 @@
+<?php
+include 'database/config.php';
+
+if (isset($_POST["tmbdatapenghuni"])) {
+    $namadep = $_POST['tmbNamaDepanPeng'];
+    $namabelak = $_POST['tmbNamaBelakangPeng'];
+    $telp = $_POST['tmbTelpPeng'];
+    $alamat = $_POST['tmbAlamatPeng'];
+    $tgl = $_POST['tmbTglPeng'];
+    $asal = $_POST['tmbAsalKamPeng'];
+    $stat = $_POST['tmbStatusPeng'];
+
+    $sql = "INSERT INTO akun (firstname, lastname, no_hp, alamat, tgl_masuk, asal_kampus, status) 
+    VALUES ('$namadep','$namabelak','$telp','$alamat','$tgl','$asal','$stat')";
+
+    $query = mysqli_query($conn, $sql);
+}
+?>
+
 <div class="modal fade" id="tmb_data_penghuni" tabindex="-1" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -6,7 +25,7 @@
                 </h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="method/tmbDataPenghuni.php" method="POST" enctype="multipart/form-data">
+            <form action="" method="POST" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="mb-3">
                         <label class="form-label" for="tmbNoKamarPeng">No Kamar</label>

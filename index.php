@@ -177,13 +177,16 @@
                     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
                         aria-labelledby="panelsStayOpen-headingOne">
                         <div class="accordion-body">
-                            <strong>Beberapa fasilitas yang ada pada kost.</strong><br>
-                            * FREE WIFI 24/7 Jam <br>
-                            * Dapur Bersama <br>
-                            * Tempat Cuci Baju Bersama <br>
-                            * Tempat Jemuran <br>
-                            * Kulkas Bersama <br>
-                            * Ruang TV <br>
+                            <strong>Beberapa Fasilitas Pada Kost.</strong><br>
+                            <p class="ukuran-teks-kecil">
+                                ● FREE WIFI <br>
+                                ● Dapur <br>
+                                ● Tempat Cuci Baju <br>
+                                ● Tempat Jemuran <br>
+                                ● Alat Setrika <br>
+                                ● Kulkas <br>
+                                ● Ruang TV <br>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -199,7 +202,12 @@
                         aria-labelledby="panelsStayOpen-headingTwo">
                         <div class="accordion-body">
                             <strong>Beberapa Fasilitas Kamar Kost.</strong><br>
-
+                            <p class="ukuran-teks-kecil">
+                                ● Tempat Tidur Beserta Kasur <br>
+                                ● Lemari <br>
+                                ● Meja Belajar <br>
+                                ● Kamar Mandi Dalam ( Untuk Pilihan Kamar Dengan Kamar Mandi Dalam ) <br>
+                            </p>
                         </div>
                     </div>
                 </div>

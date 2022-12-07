@@ -36,9 +36,9 @@
 </head>
 
 <body>
-    <div id="preloader">
+    <!-- <div id="preloader">
         <div class="loader"></div>
-    </div>
+    </div> -->
     <!-- preloader area end -->
     <!-- page container area start -->
     <div class="page-container">
@@ -192,7 +192,6 @@
             </div>
         </div>
     </div>
-
 
     <script src="js/vendor/jquery-2.2.4.min.js"></script>
     <!-- bootstrap 4 js -->
