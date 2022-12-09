@@ -8,7 +8,7 @@ $database = "sikost";
 $conn = mysqli_connect($server, $user, $pass, $database);
 
 if (!$conn) {
-    echo ("Gagal Tersambung Ke Database");
+    die("ERROR: Tidak Dapat Terkoneksi. " . mysqli_connect_error());
 }
 
 ?>

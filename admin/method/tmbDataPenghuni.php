@@ -56,7 +56,7 @@ if (isset($_POST["tmbdatapenghuni"])) {
                             <label class="control-label" for="tmbNamaBelakangPeng">Nama
                                 belakang</label>
                             <input type="text" name="tmbNamaBelakangPeng" class="form-control form-control-sm"
-                                id="tmbNamaBelakangPeng" required>
+                                id="tmbNamaBelakangPeng">
                         </div>
                     </div>
                     <div class="form-group">
