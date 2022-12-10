@@ -253,19 +253,19 @@
                                     $pengaduan = mysqli_query($conn, "SELECT COUNT(id_pgd) AS jumlah_pengaduan FROM `pengaduan`;");
                                     while ($hasil = mysqli_fetch_array($pengaduan)) {
                                     ?>
-                                    <div class="card-head align-items-center">
-                                        <h4 class="head-title-card fs-info">Pengaduan</h4>
-                                    </div>
-                                    <br>
-                                    <div class="card-body">
-                                        <div class="col">
-                                            <h3 class="text-inf f-w-info f-center">
-                                                <?php
-                                        echo $hasil['jumlah_pengaduan'];
-                                                ?>
-                                            </h3>
+                                        <div class="card-head align-items-center">
+                                            <h4 class="head-title-card fs-info">Pengaduan</h4>
                                         </div>
-                                    </div>
+                                        <br>
+                                        <div class="card-body">
+                                            <div class="col">
+                                                <h3 class="text-inf f-w-info f-center">
+                                                    <?php
+                                                    echo $hasil['jumlah_pengaduan'];
+                                                    ?>
+                                                </h3>
+                                            </div>
+                                        </div>
                                     <?php
                                     }
                                     ?>
@@ -280,19 +280,19 @@
                                     $pemesanan = mysqli_query($conn, "SELECT COUNT(id_psn) AS jumlah_pemesanan FROM `pemesanan`;");
                                     while ($hasil = mysqli_fetch_array($pemesanan)) {
                                     ?>
-                                    <div class="card-head align-items-center">
-                                        <h4 class="head-title-card fs-info">Pemesanan</h4>
-                                    </div>
-                                    <br>
-                                    <div class="card-body">
-                                        <div class="col">
-                                            <h3 class="text-inf f-w-info f-center">
-                                                <?php
-                                        echo $hasil['jumlah_pemesanan'];
-                                                ?>
-                                            </h3>
+                                        <div class="card-head align-items-center">
+                                            <h4 class="head-title-card fs-info">Pemesanan</h4>
                                         </div>
-                                    </div>
+                                        <br>
+                                        <div class="card-body">
+                                            <div class="col">
+                                                <h3 class="text-inf f-w-info f-center">
+                                                    <?php
+                                                    echo $hasil['jumlah_pemesanan'];
+                                                    ?>
+                                                </h3>
+                                            </div>
+                                        </div>
                                     <?php
                                     }
                                     ?>
@@ -335,9 +335,8 @@
     <script src="js/plugins.js"></script>
     <script src="js/scripts.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
-        </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

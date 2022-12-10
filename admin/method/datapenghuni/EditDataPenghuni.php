@@ -1,28 +1,28 @@
 <!-- //======================================================= QUERY EDIT DATA ====================================================================================// -->
 <?php
-// include 'database/config.php';
+include 'database/config.php';
 
-// if (isset($_POST["editdatapenghuni"])) {
-//     $namadep = $_POST['editNamaDepanPeng'];
-//     $namabelak = $_POST['editNamaBelakangPeng'];
-//     $telp = $_POST['editTelpPeng'];
-//     $alamat = $_POST['editAlamatPeng'];
-//     $tgl = $_POST['editTglPeng'];
-//     $asal = $_POST['editAsalKamPeng'];
-//     $stat = $_POST['editStatusPeng'];
+if (isset($_POST["editdatapenghuni"])) {
+    $namadep = $_POST['editNamaDepanPeng'];
+    $namabelak = $_POST['editNamaBelakangPeng'];
+    $telp = $_POST['editTelpPeng'];
+    $alamat = $_POST['editAlamatPeng'];
+    $tgl = $_POST['editTglPeng'];
+    $asal = $_POST['editAsalKamPeng'];
+    $stat = $_POST['editStatusPeng'];
 
-//     $sql = "UPDATE `akun` SET 
-//     `firstname`='[editNamaDepanPeng]',
-//     `lastname`='[editNamaBelakangPeng]',
-//     `no_hp`='[editTelpPeng]',
-//     `alamat`='[editAlamatPeng]',
-//     `tgl_masuk`='[editTglPeng]',
-//     `asal_kampus`='[editAsalKamPeng]',
-//     `status`='[editStatusPeng]' 
-//     WHERE id_user=2";
+    $sql = "UPDATE `akun` SET 
+    firstname= '$namadep',
+    lastname= '$namabelak',
+    no_hp= '$telp',
+    alamat= '$alamat',
+    tgl_masuk= '$tgl',
+    asal_kampus= '$asal',
+    status= '$stat' 
+    WHERE id_user=2";
 
-//     $query = mysqli_query($conn, $sql);
-// }
+    $query = mysqli_query($conn, $sql);
+}
 
 //======================================================== MODAL EDIT DATA ===================================================================================//
 $query = "SELECT * FROM akun Where id_user=2";

@@ -19,7 +19,6 @@ if ($cek > 0) {
     } else {
         header("location:index.html");
     }
-
 } else {
     header("location:index.html");
 }
