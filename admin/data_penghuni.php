@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>KostPutri - Pemesanan</title>
+    <title>kostputri - Data Penghuni</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
     <!-- Bootstrap CSS -->
@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="css/calendar.css">
     <!-- modernizr css -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
 </head>
 
 <body>
@@ -52,29 +53,32 @@
                     <nav>
                         <ul class="metismenu" id="menu">
                             <li class="">
-                                <a href="index.php"><img src="img/home.png" width="24" height="24"></i><span>Dashboard</span></a>
+                                <a href="index.php"><img src="img/home.png" width="24" height="24"></i>
+                                    <span>Dashboard</span></a>
                             </li>
                             <li class="">
-                                <a href="admin.php"><img src="img/setting.png" width="24" height="24"><span>Data
-                                        Admin</span></a>
+                                <a href="admin.php"><img src="img/setting.png" width="24" height="24">
+                                    <span>Data Admin</span></a>
                             </li>
                             <li class="">
-                                <a href="data_kamar.php"><img src="img/bed.png" width="24" height="24"><span>Data
-                                        Kamar</span></a>
-                            </li>
-                            <li class="">
-                                <a href="data_penghuni.php"><img src="img/group.png" width="24" height="24"><span>Data
-                                        Penghuni</span></a>
-                            </li>
-                            <li class="">
-                                <a href="report.php"><img src="img/report.png" width="24" height="24"><span>Laporan
-                                        Pembayaran</span></a>
-                            </li>
-                            <li class="">
-                                <a href="pengaduan.php"><img src="img/alert.png" width="24" height="24"><span>Pengaduan</span></a>
+                                <a href="data_kamar.php"><img src="img/bed.png" width="24" height="24">
+                                    <span>Data Kamar</span></a>
                             </li>
                             <li class="active">
-                                <a href="booking.php"><img src="img/booking.png" width="24" height="24"><span>Pemesanan</span></a>
+                                <a href="data_penghuni.php"><img src="img/group.png" width="24" height="24">
+                                    <span>Data Penghuni</span></a>
+                            </li>
+                            <li class="">
+                                <a href="report.php"><img src="img/report.png" width="24" height="24">
+                                    <span>Laporan Pembayaran</span></a>
+                            </li>
+                            <li class="">
+                                <a href="pengaduan.php"><img src="img/alert.png" width="24" height="24">
+                                    <span>Pengaduan</span></a>
+                            </li>
+                            <li class="">
+                                <a href="booking.php"><img src="img/booking.png" width="24" height="24">
+                                    <span>Pemesanan</span></a>
                             </li>
                         </ul>
                     </nav>
@@ -155,12 +159,13 @@
                     </div>
                 </div>
             </div>
-
+            <!-- header area end -->
+            <!-- page title area start -->
             <div class="page-title-area">
-                <div class="row lign-items-center">
+                <div class="row align-items-center">
                     <div class="col-sm-6">
                         <div class="head-welcome-1">
-                            <h1 class="head-title">Pemesanan</h1>
+                            <h1 class="head-title">Data Penghuni Kost</h1>
                         </div>
                     </div>
                 </div>
@@ -168,80 +173,34 @@
                     <div class="col-tb-1">
                         <div class="card-table">
                             <div class="card-body">
-                                <div class="modal fade" id="detail_pemesanan" tabindex="-1" aria-labelledby="exampleModalLabel">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title fs-5" id="exampleModalLabel">Detail Pemesanan
-                                                </h4>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <form method="post" enctype="multipart/form-data">
-                                                <div class="modal-body">
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Id Pemesanan</label>
-                                                        <input type="number" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Jenis Kamar</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">No Kamar</label>
-                                                        <input type="number" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Nama Pemesan</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Alamat Pemesan</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">No HP Pemesan</label>
-                                                        <input type="number" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Lampiran KTP Pemesan</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Tanggal Pemesanan</label>
-                                                        <input type="date" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="table-responsive">
-                                            <table id="tbl" class="display" style="width: 100%;">
+                                            <button type="button" class="btn btn-primary btn-xs" data-bs-toggle="modal" data-bs-target="#tmb_data_penghuni">
+                                                <i class="bi-plus-lg">
+                                                </i>Tambah Data</button>
+                                            <table data-order="[]" id="tbl" class="display" style="width: 100%;">
                                                 <thead>
                                                     <tr>
-                                                        <th>Id Pemesanan</th>
-                                                        <th>Jenis Kamar</th>
                                                         <th>No Kamar</th>
-                                                        <th>Nama Pemesan</th>
-                                                        <th>Alamat Pemesan</th>
-                                                        <th>No HP Pemesan</th>
+                                                        <th>Nama Penghuni</th>
+                                                        <th>No Telepon</th>
+                                                        <th>Tanggal Masuk</th>
+                                                        <th>Status</th>
                                                         <th>Aksi</th>
                                                     </tr>
                                                 </thead>
+                                                <?php
+                                                //Menampilkan Modal Tambah, Edit,dan Detail 
+                                                include('method/tmbDataPenghuni.php');
+                                                include('method/EditDataPenghuni.php');
+                                                include('method/DetailDataPenghuni.php');
+                                                ?>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>001</td>
-                                                        <td>Kamar Mandi Dalam</td>
-                                                        <td>01</td>
-                                                        <td>Nama Penghuni</td>
-                                                        <td>Jember</td>
-                                                        <td>087824221222</td>
-                                                        <th><button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail_pemesanan">
-                                                                <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
-                                                        </th>
-                                                    </tr>
+                                                    <?php
+                                                    //Menampilkan Data Dari Database Ke Tabel
+                                                    include('method/ViewDataPenghuni.php');
+                                                    ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -254,6 +213,7 @@
             </div>
         </div>
     </div>
+
 
     <script src="js/vendor/jquery-2.2.4.min.js"></script>
     <!-- bootstrap 4 js -->
@@ -277,6 +237,8 @@
     <script src="js/tabel.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="js/modal.js"></script>
+
+
 </body>
 
 </html>
