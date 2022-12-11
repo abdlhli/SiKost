@@ -6,21 +6,20 @@
                 </h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="method/tmbDataPenghuni.php" method="POST" enctype="multipart/form-data">
+            <form method="POST" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="mb-3">
                         <label class="form-label" for="tmbNoKamarPeng">No Kamar</label>
-                        <select name="tmbNoKamarPeng" class="form-select form-select-sm"
-                            aria-label=".form-select-sm example">
+                        <select name="tmbNoKamarPeng" class="form-select form-select-sm" aria-label=".form-select-sm example">
                             <option disabled selected>Pilih No Kamar</option>
                             <?php
                             include 'database/config.php';
                             $kamar = mysqli_query($conn, "SELECT `no_kamar` FROM `kamar` WHERE id_user IS NULL ORDER BY `kamar`.`no_kamar` * 1 ASC;");
                             while ($hasil = mysqli_fetch_array($kamar)) {
                             ?>
-                            <option value="<?= $hasil['no_kamar'] ?>">
-                                <?= $hasil['no_kamar'] ?>
-                            </option>
+                                <option value="<?= $hasil['no_kamar'] ?>">
+                                    <?= $hasil['no_kamar'] ?>
+                                </option>
                             <?php
                             }
                             ?>
@@ -30,43 +29,36 @@
                         <div class="form-group col">
                             <label class="control-label" for="tmbNamaDepanPeng">Nama
                                 Depan</label>
-                            <input type="text" name="tmbNamaDepanPeng" class="form-control form-control-sm"
-                                id="tmbNamaDepanPeng" required>
+                            <input type="text" name="tmbNamaDepanPeng" class="form-control form-control-sm" id="tmbNamaDepanPeng" required>
                         </div>
                         <div class="form-group col">
                             <label class="control-label" for="tmbNamaBelakangPeng">Nama
                                 belakang</label>
-                            <input type="text" name="tmbNamaBelakangPeng" class="form-control form-control-sm"
-                                id="tmbNamaBelakangPeng" required>
+                            <input type="text" name="tmbNamaBelakangPeng" class="form-control form-control-sm" id="tmbNamaBelakangPeng" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="tmbTelpPeng">No
                             Telepon</label>
-                        <input type="number" name="tmbTelpPeng" class="form-control form-control-sm" id="tmbTelpPeng"
-                            required>
+                        <input type="number" name="tmbTelpPeng" class="form-control form-control-sm" id="tmbTelpPeng" required>
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="tmbAlamatPeng">Alamat</label>
-                        <input type="text" name="tmbAlamatPeng" class="form-control form-control-sm" id="tmbAlamatPeng"
-                            required>
+                        <input type="text" name="tmbAlamatPeng" class="form-control form-control-sm" id="tmbAlamatPeng" required>
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="tmbTglPeng">Tanggal
                             Masuk</label>
-                        <input type="date" name="tmbTglPeng" class="form-control form-control-sm" id="tmbTglPeng"
-                            required>
+                        <input type="date" name="tmbTglPeng" class="form-control form-control-sm" id="tmbTglPeng" required>
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="tmbAsalKamPeng">Asal
                             Kampus</label>
-                        <input type="text" name="tmbAsalKamPeng" class="form-control form-control-sm"
-                            id="tmbAsalKamPeng" required>
+                        <input type="text" name="tmbAsalKamPeng" class="form-control form-control-sm" id="tmbAsalKamPeng" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="">Status</label>
-                        <select name="tmbStatusPeng" class="form-select form-select-sm"
-                            aria-label=".form-select-sm example">
+                        <select name="tmbStatusPeng" class="form-select form-select-sm" aria-label=".form-select-sm example">
                             <option selected>Pilih Status Penghuni</option>
                             <option value="aktif">Aktif</option>
                             <option value="tidak_aktif">Tidak Aktif</option>

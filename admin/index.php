@@ -4,16 +4,22 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>KostPutri - Dashboard</title>
+    <title>kostputri - Data Penghuni</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href=assets\favicon.ico />
+    <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <!-- CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <!-- <link rel="stylesheet" href="css/themify-icons.css"> -->
+    <link rel="stylesheet" href="css/themify-icons.css">
     <link rel="stylesheet" href="css/metisMenu.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/slicknav.min.css">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+
     <!-- amchart css -->
     <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
     <!-- others css -->
@@ -117,10 +123,34 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="settings-btn">
-                                <i class="bi-gear-fill"></i>
+                            <li class="dropdown">
+                                <i class="bi-gear-fill dropdown-toogle" data-toggle="dropdown"></i>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a data-bs-toggle="modal" data-bs-target="#popup-logout" class="bi-box-arrow-right">
+                                            <span>Logout</span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
+
+                        <div class="modal fade" id="popup-logout" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">PERINGATAN !!</h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span>Apakah anda yakin ingin logout?</span>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary btn-xs" data-bs-dismiss="modal">Cancel</button>
+                                        <a class="btn btn-danger btn-xs" href="../login/">Logout</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -129,13 +159,11 @@
             <div class="page-title-area">
                 <div class="row align-items-center">
                     <div class="col-sm-6">
-                        <div class="container-fluid">
-                            <div class="head-welcome">
-                                <h1 class="head-title">
-                                    Welcome back, Aab!
-                                </h1>
-                                <p class="head-subtitle">Anda punya beberapa notifikasi.</p>
-                            </div>
+                        <div class="head-welcome-1">
+                            <h1 class="head-title">
+                                Welcome back, Aab!
+                            </h1>
+                            <p class="head-subtitle">Anda punya beberapa notifikasi.</p>
                         </div>
                     </div>
                 </div>
@@ -246,13 +274,12 @@
 
                     <div class="col-sm-3">
                         <div class="main-content-inner">
-                            <div class="col-xl-8 col-lg-7 col-md-12 mt-5">
-                                <div class="card-info">
-                                    <?php
-                                    include 'database/config.php';
-                                    $pengaduan = mysqli_query($conn, "SELECT COUNT(id_pgd) AS jumlah_pengaduan FROM `pengaduan`;");
-                                    while ($hasil = mysqli_fetch_array($pengaduan)) {
-                                    ?>
+                            <div class="card-info">
+                                <?php
+                                include 'database/config.php';
+                                $pengaduan = mysqli_query($conn, "SELECT COUNT(id_pgd) AS jumlah_pengaduan FROM `pengaduan`;");
+                                while ($hasil = mysqli_fetch_array($pengaduan)) {
+                                ?>
                                     <div class="card-head align-items-center">
                                         <h4 class="head-title-card fs-info">Pengaduan</h4>
                                     </div>
@@ -261,25 +288,23 @@
                                         <div class="col">
                                             <h3 class="text-inf f-w-info f-center">
                                                 <?php
-                                        echo $hasil['jumlah_pengaduan'];
+                                                echo $hasil['jumlah_pengaduan'];
                                                 ?>
                                             </h3>
                                         </div>
                                     </div>
-                                    <?php
-                                    }
-                                    ?>
-                                </div>
+                                <?php
+                                }
+                                ?>
                             </div>
                             <br>
                             <br>
-                            <div class="col-xl-8 col-lg-7 col-md-12 mt-5">
-                                <div class="card-info">
-                                    <?php
-                                    include 'database/config.php';
-                                    $pemesanan = mysqli_query($conn, "SELECT COUNT(id_psn) AS jumlah_pemesanan FROM `pemesanan`;");
-                                    while ($hasil = mysqli_fetch_array($pemesanan)) {
-                                    ?>
+                            <div class="card-info">
+                                <?php
+                                include 'database/config.php';
+                                $pemesanan = mysqli_query($conn, "SELECT COUNT(id_psn) AS jumlah_pemesanan FROM `pemesanan`;");
+                                while ($hasil = mysqli_fetch_array($pemesanan)) {
+                                ?>
                                     <div class="card-head align-items-center">
                                         <h4 class="head-title-card fs-info">Pemesanan</h4>
                                     </div>
@@ -288,15 +313,14 @@
                                         <div class="col">
                                             <h3 class="text-inf f-w-info f-center">
                                                 <?php
-                                        echo $hasil['jumlah_pemesanan'];
+                                                echo $hasil['jumlah_pemesanan'];
                                                 ?>
                                             </h3>
                                         </div>
                                     </div>
-                                    <?php
-                                    }
-                                    ?>
-                                </div>
+                                <?php
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -304,8 +328,7 @@
             </div>
         </div>
     </div>
-    <!-- offset area end -->
-    <!-- jquery latest version -->
+
     <script src="js/vendor/jquery-2.2.4.min.js"></script>
     <!-- bootstrap 4 js -->
     <script src="js/popper.min.js"></script>
@@ -314,30 +337,20 @@
     <script src="js/metisMenu.min.js"></script>
     <script src="js/jquery.slimscroll.min.js"></script>
     <script src="js/jquery.slicknav.min.js"></script>
-
     <script src="js/calendar.js"></script>
 
-    <!-- start chart js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-    <!-- start highcharts js -->
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <!-- start zingchart js -->
-    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
-    <script>
-        zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
-        ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
-    </script>
-    <!-- all line chart activation -->
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
     <script src="js/line-chart.js"></script>
-    <!-- all pie chart -->
     <script src="js/pie-chart.js"></script>
-    <!-- others plugins -->
     <script src="js/plugins.js"></script>
     <script src="js/scripts.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
-        </script>
+    <!-- Script Tabel + Modal -->
+    <script src="js/tabel.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="js/modal.js"></script>
 </body>
 
 </html>

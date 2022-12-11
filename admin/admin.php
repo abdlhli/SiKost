@@ -123,10 +123,34 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="settings-btn">
-                                <i class="bi-gear-fill"></i>
+                            <li class="dropdown">
+                                <i class="bi-gear-fill dropdown-toogle" data-toggle="dropdown"></i>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a data-bs-toggle="modal" data-bs-target="#popup-logout" class="bi-box-arrow-right">
+                                            <span>Logout</span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
+
+                        <div class="modal fade" id="popup-logout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">PERINGATAN !!</h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span>Apakah anda yakin ingin logout?</span>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary btn-xs" data-bs-dismiss="modal">Cancel</button>
+                                        <a class="btn btn-danger btn-xs" href="../login/">Logout</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -28,6 +28,9 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/calendar.css">
+
+    <!-- Print css -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.2/css/buttons.dataTables.min.css">
     <!-- modernizr css -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
@@ -123,10 +126,34 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="settings-btn">
-                                <i class="bi-gear-fill"></i>
+                            <li class="dropdown">
+                                <i class="bi-gear-fill dropdown-toogle" data-toggle="dropdown"></i>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a data-bs-toggle="modal" data-bs-target="#popup-logout" class="bi-box-arrow-right">
+                                            <span>Logout</span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
+
+                        <div class="modal fade" id="popup-logout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">PERINGATAN !!</h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span>Apakah anda yakin ingin logout?</span>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary btn-xs" data-bs-dismiss="modal">Cancel</button>
+                                        <a class="btn btn-danger btn-xs" href="../login/">Logout</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -176,7 +203,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="table-responsive">
-                                            <table id="tbl" class="display" style="width: 100%;">
+                                            <table id="example" class="display" style="width: 100%;">
                                                 <thead>
                                                     <tr>
                                                         <th>Id Pembayaran</th>
@@ -189,6 +216,24 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>001</td>
+                                                        <td>06-12-2022</td>
+                                                        <td>...</td>
+                                                        <td>01</td>
+                                                        <th><button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail_laporan">
+                                                                <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>002</td>
+                                                        <td>06-12-2022</td>
+                                                        <td>...</td>
+                                                        <td>01</td>
+                                                        <th><button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail_laporan">
+                                                                <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>003</td>
                                                         <td>06-12-2022</td>
                                                         <td>...</td>
                                                         <td>01</td>
@@ -228,9 +273,15 @@
     <script src="js/scripts.js"></script>
 
     <!-- Script Tabel + Modal -->
-    <script src="js/tabel.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="js/modal.js"></script>
+
+    <!-- Script Print -->
+    <script src="js/print.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/select/1.5.0/js/dataTables.select.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.colVis.min.js"></script>
 </body>
 
 </html>
