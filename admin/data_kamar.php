@@ -313,42 +313,10 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>Kamar No 1</td>
-                                                        <td>01</td>
-                                                        <td>01</td>
-                                                        <td>Kamar Mandi Luar</td>
-                                                        <td>Rp 500.000</td>
-                                                        <th><button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit_data_kamar"><i class="bi-pencil" style="padding-right: 10px;"></i>Edit</button>
-                                                            <button class="btn btn-danger btn-xs"><i class="bi-trash" style="padding-right: 10px;"></i>Hapus</button>
-                                                            <button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail_data_kamar">
-                                                                <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
-                                                        </th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Kamar No 2</td>
-                                                        <td>02</td>
-                                                        <td>02</td>
-                                                        <td>Kamar Mandi Dalam</td>
-                                                        <td>Rp 700.000</td>
-                                                        <th><button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit_data_kamar"><i class="bi-pencil" style="padding-right: 10px;"></i>Edit</button>
-                                                            <button class="btn btn-danger btn-xs"><i class="bi-trash" style="padding-right: 10px;"></i>Hapus</button>
-                                                            <button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail_data_kamar">
-                                                                <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
-                                                        </th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Kamar No 3</td>
-                                                        <td>03</td>
-                                                        <td>02</td>
-                                                        <td>Kamar Mandi Dalam</td>
-                                                        <td>Rp 700.000</td>
-                                                        <th><button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit_data_kamar"><i class="bi-pencil" style="padding-right: 10px;"></i>Edit</button>
-                                                            <button class="btn btn-danger btn-xs"><i class="bi-trash" style="padding-right: 10px;"></i>Hapus</button>
-                                                            <button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail_data_kamar">
-                                                                <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
-                                                        </th>
-                                                    </tr>
+                                                    <?php
+                                                    //Menampilkan Data Dari Database Ke Tabel
+                                                    include('method/datakamar/ViewDataKamar.php');
+                                                    ?>
                                                 </tbody>
                                             </table>
                                         </div>

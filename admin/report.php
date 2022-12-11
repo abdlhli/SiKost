@@ -206,10 +206,10 @@
                                             <table id="example" class="display" style="width: 100%;">
                                                 <thead>
                                                     <tr>
-                                                        <th>Id Pembayaran</th>
+                                                        <th>ID Pembayaran</th>
                                                         <th>Tanggal Pembayaran</th>
                                                         <th>Foto Kuitansi</th>
-                                                        <th>Id User</th>
+                                                        <th>ID User</th>
                                                         <th>Aksi</th>
                                                     </tr>
                                                 </thead>

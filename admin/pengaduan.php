@@ -216,7 +216,7 @@
                                             <table id="tbl" class="display" style="width: 100%;">
                                                 <thead>
                                                     <tr>
-                                                        <th>Id Pengaduan</th>
+                                                        <th>ID Pengaduan</th>
                                                         <th>Nama</th>
                                                         <th>No Kamar</th>
                                                         <th>Isi</th>
@@ -224,15 +224,10 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>001</td>
-                                                        <td>Nama Penghuni</td>
-                                                        <td>01</td>
-                                                        <td>.....</td>
-                                                        <th><button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail_pengaduan">
-                                                                <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
-                                                        </th>
-                                                    </tr>
+                                                    <?php
+                                                    //Menampilkan Data Dari Database Ke Tabel
+                                                    include('method/pengaduan/ViewPengaduan.php');
+                                                    ?>
                                                 </tbody>
                                             </table>
                                         </div>

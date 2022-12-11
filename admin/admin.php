@@ -331,42 +331,10 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td align="center">1</td>
-                                                        <td>Admin 1</td>
-                                                        <td>Email@gmail.com</td>
-                                                        <td>085232111232</td>
-                                                        <td>Super Admin</td>
-                                                        <th><button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit-admin"><i class="bi-pencil" style="padding-right: 10px;"></i>Edit</button>
-                                                            <button class="btn btn-danger btn-xs"><i class="bi-trash" style="padding-right: 10px;"></i>Hapus</button>
-                                                            <button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail-admin">
-                                                                <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
-                                                        </th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center">2</td>
-                                                        <td>Admin 1</td>
-                                                        <td>Email@gmail.com</td>
-                                                        <td>085232111232</td>
-                                                        <td>Super Admin</td>
-                                                        <th><button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit-admin"><i class="bi-pencil" style="padding-right: 10px;"></i>Edit</button>
-                                                            <button class="btn btn-danger btn-xs"><i class="bi-trash" style="padding-right: 10px;"></i>Hapus</button>
-                                                            <button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail-admin">
-                                                                <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
-                                                        </th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center">2</td>
-                                                        <td>Admin 1</td>
-                                                        <td>Email@gmail.com</td>
-                                                        <td>085232111232</td>
-                                                        <td>Super Admin</td>
-                                                        <th><button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit-admin"><i class="bi-pencil" style="padding-right: 10px;"></i>Edit</button>
-                                                            <button class="btn btn-danger btn-xs"><i class="bi-trash" style="padding-right: 10px;"></i>Hapus</button>
-                                                            <button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail-admin">
-                                                                <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
-                                                        </th>
-                                                    </tr>
+                                                    <?php
+                                                    //Menampilkan Data Dari Database Ke Tabel
+                                                    include('method/dataadmin/ViewDataAdmin.php');
+                                                    ?>
                                                 </tbody>
                                             </table>
                                         </div>

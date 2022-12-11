@@ -192,14 +192,14 @@
                                                 </thead>
                                                 <?php
                                                 //Menampilkan Modal Tambah, Edit,dan Detail 
-                                                include('method/tmbDataPenghuni.php');
-                                                include('method/EditDataPenghuni.php');
-                                                include('method/DetailDataPenghuni.php');
+                                                include('method/datapenghuni/tmbDataPenghuni.php');
+                                                include('method/datapenghuni/EditDataPenghuni.php');
+                                                include('method/datapenghuni/DetailDataPenghuni.php');
                                                 ?>
                                                 <tbody>
                                                     <?php
                                                     //Menampilkan Data Dari Database Ke Tabel
-                                                    include('method/ViewDataPenghuni.php');
+                                                    include('method/datapenghuni/ViewDataPenghuni.php');
                                                     ?>
                                                 </tbody>
                                             </table>

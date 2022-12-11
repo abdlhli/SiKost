@@ -221,7 +221,7 @@
                                             <table id="tbl" class="display" style="width: 100%;">
                                                 <thead>
                                                     <tr>
-                                                        <th>Id Pemesanan</th>
+                                                        <th>ID Pemesanan</th>
                                                         <th>Jenis Kamar</th>
                                                         <th>No Kamar</th>
                                                         <th>Nama Pemesan</th>
@@ -231,17 +231,10 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>001</td>
-                                                        <td>Kamar Mandi Dalam</td>
-                                                        <td>01</td>
-                                                        <td>Nama Penghuni</td>
-                                                        <td>Jember</td>
-                                                        <td>087824221222</td>
-                                                        <th><button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail_pemesanan">
-                                                                <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
-                                                        </th>
-                                                    </tr>
+                                                    <?php
+                                                    //Menampilkan Data Dari Database Ke Tabel
+                                                    include('method/pemesanan/ViewPemesanan.php');
+                                                    ?>
                                                 </tbody>
                                             </table>
                                         </div>
