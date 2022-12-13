@@ -79,7 +79,7 @@ if (isset($_POST["tmbdatapenghuni"])) {
                         <input type="text" name="tmbAsalKamPeng" class="form-control form-control-sm" id="tmbAsalKamPeng" required>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label" for="">Status</label>
+                        <label class="form-label" for="tmbStatusPeng">Status</label>
                         <select name="tmbStatusPeng" class="form-select form-select-sm" aria-label=".form-select-sm example">
                             <option selected>Pilih Status Penghuni</option>
                             <option value="aktif">Aktif</option>
