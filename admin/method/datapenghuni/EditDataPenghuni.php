@@ -10,21 +10,18 @@ if (isset($_POST["editdatapenghuni"])) {
     $tgl = $_POST['editTglPeng'];
     $asal = $_POST['editAsalKamPeng'];
     $stat = $_POST['editStatusPeng'];
+    $id = $_POST['editIdUser'];
+    $nokamar = $_POST['editNoKamarPeng'];
 
-    $sql = "UPDATE `akun` SET 
-    firstname= '$namadep',
-    lastname= '$namabelak',
-    no_hp= '$telp',
-    alamat= '$alamat',
-    tgl_masuk= '$tgl',
-    asal_kampus= '$asal',
-    status= '$stat'";
-
+    $sql = "UPDATE `akun` SET `firstname`= '$namadep',`lastname`= '$namabelak',`no_hp`= '$telp',`alamat`= '$alamat',`tgl_masuk`= '$tgl',`asal_kampus`= '$asal', `status`= '$stat' WHERE `id_user`= $id";
+    $sql2 = "UPDATE `kamar` SET `id_user` = '$id' WHERE `no_kamar` = $nokamar";
     $query = mysqli_query($conn, $sql);
+    $query2 = mysqli_query($conn, $sql2);
 }
 
 //======================================================== MODAL EDIT DATA ===================================================================================//
-$query = "SELECT * FROM akun";
+
+$query = "SELECT * FROM akun LEFT OUTER JOIN kamar ON akun.id_user = kamar.id_user WHERE `hak_akses` = 1";
 $hasil = mysqli_query($conn, $query);
 while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
 ?>
@@ -43,8 +40,22 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
                             <label class="form-label" for="editNoKamarPeng">No Kamar</label>
                             <select name="editNoKamarPeng" class="form-select form-select-sm" aria-label=".form-select-sm example">
                                 <option disabled selected>Pilih No Kamar</option>
+                                <?php
+                                include 'database/config.php';
+                                $kamar = mysqli_query($conn, "SELECT `no_kamar` FROM `kamar` WHERE id_user IS NULL ORDER BY `kamar`.`no_kamar` * 1 ASC;");
+                                while ($hasilnokamar = mysqli_fetch_array($kamar)) {
+                                ?>
+                                    <option value="<?= $hasilnokamar['no_kamar'] ?>">
+                                        <?= $hasilnokamar['no_kamar'] ?>
+                                    </option>
+                                <?php
+                                }
+                                ?>
                             </select>
                         </div>
+
+                        <input type="hidden" name="editIdUser" value="<?php echo $data['id_user'] ?>">
+
                         <div class="row">
                             <div class="form-group col">
                                 <label class="control-label" for="editNamaDepanPeng">Nama Depan</label>
@@ -75,8 +86,8 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
                             <label class="form-label" for="">Status</label>
                             <select name="editStatusPeng" class="form-select form-select-sm" aria-label=".form-select-sm example">
                                 <option selected><?php echo $data['status']; ?></option>
-                                <option value="aktif">Aktif</option>
-                                <option value="tidak_aktif">Tidak Aktif</option>
+                                <option value="Aktif">Aktif</option>
+                                <option value="Tidak Aktif">Tidak Aktif</option>
                             </select>
                         </div>
                     </div>

@@ -82,8 +82,8 @@ if (isset($_POST["tmbdatapenghuni"])) {
                         <label class="form-label" for="tmbStatusPeng">Status</label>
                         <select name="tmbStatusPeng" class="form-select form-select-sm" aria-label=".form-select-sm example">
                             <option selected>Pilih Status Penghuni</option>
-                            <option value="aktif">Aktif</option>
-                            <option value="tidak_aktif">Tidak Aktif</option>
+                            <option value="Aktif">Aktif</option>
+                            <option value="Tidak Aktif">Tidak Aktif</option>
                         </select>
                     </div>
                 </div>

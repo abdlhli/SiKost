@@ -50,8 +50,7 @@ INSERT INTO `akun` (`id_user`, `firstname`, `lastname`, `pass`, `username`, `no_
 (1, 'Abdullah', 'Ali', 'aab123', 'aab', '081233326540', 'Jl. Jawa No.48 Jember', NULL, '', 'Politeknik Negeri Jember', '0', ''),
 (2, 'Dwi', 'Nafis', 'nafis123', 'Ucik Dika', '081233345678', 'Jl. Kebonsari', NULL, '', 'Politeknik Negeri Jember', '1', 'Aktif'),
 (3, 'Fagil', 'Nuril', 'Fagnurl123', 'NurilNihSenggolDong', '081234469765', 'Jl. Kaliurang No. 38', NULL, '', 'Politeknik Negeri Jember', '1', 'Tidak Aktif'),
-(4, 'Taufiq', 'Rahmadi', 'topek123', 'TaufiqRah', '', '', NULL, '', '', '0', ''),
-(5, 'f9eayhjf', '3g3qdsgf', 'h3ewd', '2g 4f4 2f', '', '', NULL, '', '', '1', 'Tidak Aktif');
+(4, 'Taufiq', 'Rahmadi', 'topek123', 'TaufiqRah', '', '', NULL, '', '', '0', '');
 
 -- --------------------------------------------------------
 
