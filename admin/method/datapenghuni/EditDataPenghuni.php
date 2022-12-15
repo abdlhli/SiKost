@@ -15,6 +15,7 @@ if (isset($_POST["editdatapenghuni"])) {
 
     $sql = "UPDATE `akun` SET `firstname`= '$namadep',`lastname`= '$namabelak',`no_hp`= '$telp',`alamat`= '$alamat',`tgl_masuk`= '$tgl',`asal_kampus`= '$asal', `status`= '$stat' WHERE `id_user`= $id";
     $sql2 = "UPDATE `kamar` SET `id_user` = '$id' WHERE `no_kamar` = $nokamar";
+
     $query = mysqli_query($conn, $sql);
     $query2 = mysqli_query($conn, $sql2);
 }
