@@ -11,9 +11,9 @@ if (isset($_POST["editdatapenghuni"])) {
     $asal = $_POST['editAsalKamPeng'];
     $stat = $_POST['editStatusPeng'];
     $id = $_POST['editIdUser'];
-    // $nokamar = $_POST['editNoKamarPeng'];
+    $nokamar = $_POST['editNoKamarPeng'];
 
-    $sql = "UPDATE `akun` SET `firstname`= '$namadep',`lastname`= '$namabelak',`no_hp`= '$telp',`alamat`= '$alamat',`tgl_masuk`= '$tgl',`asal_kampus`= '$asal', `status`= '$stat' WHERE `id_user`= $id";
+    $sql = "UPDATE `akun` SET `firstname`= '$namadep',`lastname`= '$namabelak',`no_hp`= '$telp',`alamat`= '$alamat',`tgl_masuk`= '$tgl',`asal_kampus`= '$asal', `status`= '$stat', `no_kamar`= '$nokamar' WHERE `id_user`= $id";
 
     $query = mysqli_query($conn, $sql);
 }
