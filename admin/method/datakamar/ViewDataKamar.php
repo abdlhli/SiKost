@@ -2,7 +2,7 @@
 <?php
 include 'database/config.php';
 
-$sql = "SELECT * FROM `kamar` JOIN jenis_kamar ON kamar.id_jenis_kamar = jenis_kamar.id_jenis_kamar  ORDER BY `kamar`.`no_kamar` * 1 ASC;";
+$sql = "SELECT * FROM `kamar` LEFT JOIN jenis_kamar ON kamar.id_jenis_kamar = jenis_kamar.id_jenis_kamar ORDER BY CASE WHEN no_kamar LIKE 'Kosong%' THEN 1 ELSE 2 END, `kamar`.`no_kamar` * 1 ASC;";
 $hasil = mysqli_query($conn, $sql);
 while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
 ?>
@@ -12,7 +12,7 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
             <?php echo $data['no_kamar']; ?>
         </td>
         <td>
-            <?php echo $data['id_user']; ?>
+            <?php echo $data['status_kmr']; ?>
         </td>
         <td>
             <?php echo $data['id_jenis_kamar']; ?>

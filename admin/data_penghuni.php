@@ -195,6 +195,7 @@
                                                 include('method/datapenghuni/tmbDataPenghuni.php');
                                                 include('method/datapenghuni/EditDataPenghuni.php');
                                                 include('method/datapenghuni/DetailDataPenghuni.php');
+                                                include('method/datapenghuni/HapusDataPenghuni.php');
                                                 ?>
                                                 <tbody>
                                                     <?php

@@ -12,13 +12,13 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
             <?php echo $data['id_psn']; ?>
         </td>
         <td>
-            <?php echo $data['nama_psn']; ?>
+            <?php echo $data['jenis_kamar_psn']; ?>
         </td>
         <td>
             <?php echo $data['no_kamar_psn']; ?>
         </td>
         <td>
-            <?php echo $data['tgl_psn']; ?>
+            <?php echo $data['nama_psn']; ?>
         </td>
         <td>
             <?php echo $data['alamat_psn']; ?>
@@ -27,7 +27,7 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
             <?php echo $data['no_hp_psn']; ?>
         </td>
         <th>
-            <button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail_pengaduan">
+            <button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail_pemesanan<?php echo $data['id_psn']; ?>">
                 <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail
             </button>
         </th>

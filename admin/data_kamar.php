@@ -301,11 +301,11 @@
                                             <button type="button" class="btn btn-primary btn-xs" data-bs-toggle="modal" data-bs-target="#tmb_data_kamar">
                                                 <i class="bi-plus-lg"></i>
                                                 Tambah Data</button>
-                                            <table id="tbl" class="display" style="width: 100%;">
+                                            <table data-order="[]" id="tbl" class="display" style="width: 100%;">
                                                 <thead>
                                                     <tr>
                                                         <th>No Kamar</th>
-                                                        <th>Id User</th>
+                                                        <th>Status Kamar</th>
                                                         <th>Id Jenis Kamar</th>
                                                         <th>Keterangan</th>
                                                         <th>Harga</th>
