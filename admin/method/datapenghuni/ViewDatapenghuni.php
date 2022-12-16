@@ -2,7 +2,7 @@
 <?php
 include 'database/config.php';
 
-$sql = "SELECT * FROM akun LEFT OUTER JOIN kamar ON akun.id_user = kamar.id_user WHERE `hak_akses` = 1 ORDER BY CASE WHEN kamar.no_kamar IS NULL THEN 1 ELSE 0 END , kamar.no_kamar ASC;";
+$sql = "SELECT * FROM `akun` WHERE `hak_akses` = '1'";
 $hasil = mysqli_query($conn, $sql);
 while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
 ?>

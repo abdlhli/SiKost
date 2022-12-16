@@ -36,7 +36,7 @@ if (isset($_POST["tmbdatapenghuni"])) {
                             <option disabled selected>Pilih No Kamar</option>
                             <?php
                             include 'database/config.php';
-                            $kamar = mysqli_query($conn, "SELECT `no_kamar` FROM `kamar` WHERE id_user IS NULL ORDER BY `kamar`.`no_kamar` * 1 ASC;");
+                            $kamar = mysqli_query($conn, "SELECT `no_kamar` FROM `kamar` WHERE status_kmr = 'KOSONG' ORDER BY CASE WHEN no_kamar LIKE 'Kosong%' THEN 1 ELSE 2 END, no_kamar * 1 ASC;");
                             while ($hasil = mysqli_fetch_array($kamar)) {
                             ?>
                                 <option value="<?= $hasil['no_kamar'] ?>">

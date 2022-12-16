@@ -11,18 +11,16 @@ if (isset($_POST["editdatapenghuni"])) {
     $asal = $_POST['editAsalKamPeng'];
     $stat = $_POST['editStatusPeng'];
     $id = $_POST['editIdUser'];
-    $nokamar = $_POST['editNoKamarPeng'];
+    // $nokamar = $_POST['editNoKamarPeng'];
 
     $sql = "UPDATE `akun` SET `firstname`= '$namadep',`lastname`= '$namabelak',`no_hp`= '$telp',`alamat`= '$alamat',`tgl_masuk`= '$tgl',`asal_kampus`= '$asal', `status`= '$stat' WHERE `id_user`= $id";
-    $sql2 = "UPDATE `kamar` SET `id_user` = '$id' WHERE `no_kamar` = $nokamar";
 
     $query = mysqli_query($conn, $sql);
-    $query2 = mysqli_query($conn, $sql2);
 }
 
 //======================================================== MODAL EDIT DATA ===================================================================================//
 
-$query = "SELECT * FROM akun LEFT OUTER JOIN kamar ON akun.id_user = kamar.id_user WHERE `hak_akses` = 1";
+$query = "SELECT * FROM `akun` WHERE `hak_akses` = '1'";
 $hasil = mysqli_query($conn, $query);
 while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
 ?>
@@ -43,7 +41,7 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
                                 <option disabled selected>Pilih No Kamar</option>
                                 <?php
                                 include 'database/config.php';
-                                $kamar = mysqli_query($conn, "SELECT `no_kamar` FROM `kamar` WHERE id_user IS NULL ORDER BY `kamar`.`no_kamar` * 1 ASC;");
+                                $kamar = mysqli_query($conn, "SELECT `no_kamar` FROM `kamar` WHERE status_kmr = 'KOSONG' ORDER BY CASE WHEN no_kamar LIKE 'Kosong%' THEN 1 ELSE 2 END, no_kamar * 1 ASC;");
                                 while ($hasilnokamar = mysqli_fetch_array($kamar)) {
                                 ?>
                                     <option value="<?= $hasilnokamar['no_kamar'] ?>">
@@ -55,7 +53,7 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
                             </select>
                         </div>
 
-                        <input type="hidden" name="editIdUser" value="<?php echo $data['id_user'] ?>">
+                        <input type="" name="editIdUser" value="<?php echo $data['id_user'] ?>">
 
                         <div class="row">
                             <div class="form-group col">

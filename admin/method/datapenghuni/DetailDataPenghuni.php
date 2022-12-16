@@ -1,5 +1,5 @@
 <?php
-$query = "SELECT * FROM akun LEFT OUTER JOIN kamar ON akun.id_user = kamar.id_user WHERE `hak_akses` = 1";
+$query = "SELECT * FROM akun WHERE `hak_akses` = 1";
 $hasil = mysqli_query($conn, $query);
 while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
 ?>
