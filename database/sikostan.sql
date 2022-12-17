@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Des 2022 pada 03.36
+-- Waktu pembuatan: 17 Des 2022 pada 06.50
 -- Versi server: 10.4.25-MariaDB
 -- Versi PHP: 8.1.10
 
@@ -49,9 +49,26 @@ CREATE TABLE `akun` (
 
 INSERT INTO `akun` (`id_user`, `firstname`, `lastname`, `pass`, `username`, `no_hp`, `alamat`, `tgl_masuk`, `foto_profile`, `asal_kampus`, `hak_akses`, `no_kamar`, `status`) VALUES
 (9, 'Abdullah', 'Ali', '123', 'aab', '08896748326', 'Jl. Jawa No.48', '2022-12-08', '', 'POLINEJ', '0', 'Kosong', 'AKTIF'),
-(10, 'opfmew', 'mfepoop', 'pfomek', 'fompeo', 'pofoemp', 'ofep', '2022-12-09', '', '', '1', 'Kosong', 'AKTIF'),
-(12, 'Ayudia', 'Azkia', '123', 'Azkia', '081299988765', '', NULL, '', '', '1', 'Kosong', NULL),
-(14, 'Sintyah', 'Minasa', '', '', '081988769879', 'Jl. Panjaitan No.29 Jember', '2022-12-08', '', 'UNEJ', '1', 'F', 'Aktif');
+(10, 'Brenda', 'Friesen', 'pfomek', 'fompeo', '081277765987', '776 Gordon Flats', '2022-12-09', '', 'UNEJ', '1', 'Kosong', 'Aktif'),
+(12, 'Ayudia', 'Azkia', '123', 'Azkia', '081299988765', '98531 Rowland Land', '2022-11-16', '', 'Morar - Wilkinson', '1', 'Kosong', 'Aktif'),
+(14, 'Sintyah', 'Minasa', 'cisa123', 'cisa', '081988769879', 'Jl. Panjaitan No.29 Jember', '2022-12-08', '', 'UNEJ', '1', 'Kosong', 'Aktif'),
+(15, 'Ambrose', 'Kreiger', 'gqMsxJkupPugRM_', 'Johnnie_Schaefer11', '781-502-8333', '231 Farrell Manors', '2022-12-05', '', 'Goyette - Mitchell', '1', 'Kosong', 'Aktif');
+
+--
+-- Trigger `akun`
+--
+DELIMITER $$
+CREATE TRIGGER `rubah_status_kamar` AFTER UPDATE ON `akun` FOR EACH ROW BEGIN
+UPDATE kamar SET status_kmr = 'Terisi' WHERE new.no_kamar = kamar.no_kamar;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `rubah_status_kamar_kosong` AFTER UPDATE ON `akun` FOR EACH ROW BEGIN
+UPDATE kamar SET status_kmr = 'Kosong' WHERE new.no_kamar = kamar.no_kamar = 'Kosong';
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -130,7 +147,7 @@ INSERT INTO `kamar` (`no_kamar`, `id_jenis_kamar`, `status_kmr`) VALUES
 ('F', '1', 'Kosong'),
 ('G', '1', 'Kosong'),
 ('H', '1', 'Kosong'),
-('Kosong', '1', 'Kosong');
+('Kosong', '1', 'Terisi');
 
 -- --------------------------------------------------------
 
@@ -167,14 +184,7 @@ CREATE TABLE `pemesanan` (
 --
 
 INSERT INTO `pemesanan` (`id_psn`, `jenis_kamar_psn`, `no_kamar_psn`, `nama_psn`, `alamat_psn`, `no_hp_psn`, `lampiran_ktp_psn`, `tgl_psn`) VALUES
-(1, 'Kamar Mandi Dalam', 'D', 'Abdullah Ali', 'Jl. Jawa No.48 Jember', '081233326540', '', '2022-11-27'),
-(2, 'Kamar Mandi Luar', '17', 'Andaokwdoa dwa', 'Jl. Jawa No.48 Jember', '081233326540', '', '2022-11-27'),
-(3, 'Kamar Mandi Luar', '17', 'Andaokwdoa dwa', 'Jl. Jawa No.48 Jember', '081233326540', '', '2022-11-27'),
-(4, 'Kamar Mandi Luar', '17', 'Andaokwdoa dwa', 'Jl. Jawa No.48 Jember', '081233326540', '', '2022-11-27'),
-(5, 'Kamar Mandi Luar', '17', 'Andaokwdoa dwa', 'Jl. Jawa No.48 Jember', '081233326540', '', '2022-11-27'),
-(6, 'Kamar Mandi Luar', '17', 'Andaokwdoa dwa', 'Jl. Jawa No.48 Jember', '081233326540', '', '2022-11-27'),
-(7, 'Kamar Mandi Luar', '17', 'Andaokwdoa dwa', 'Jl. Jawa No.48 Jember', '081233326540', '', '2022-11-27'),
-(8, 'Kamar Mandi Dalam', '15', 'Test', 'Jl. Jawa No.48 Jember', '081233326540', '', '2022-11-27');
+(1, 'Kamar Mandi Dalam', 'D', 'Abdullah Ali', 'Jl. Jawa No.48 Jember', '081233326540', '', '2022-11-27');
 
 -- --------------------------------------------------------
 
@@ -267,7 +277,7 @@ ALTER TABLE `rincian_barang`
 -- AUTO_INCREMENT untuk tabel `akun`
 --
 ALTER TABLE `akun`
-  MODIFY `id_user` int(255) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_user` int(255) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `barang_tambahan`
