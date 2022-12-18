@@ -18,7 +18,7 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
                 <form method="post" enctype="multipart/form-data">
                     <div class="modal-body">
                         <div class="form-group">
-                            <label class="control-label" for="">Id Pemesanan</label>
+                            <label class="control-label" for="">ID Pemesanan</label>
                             <input type="number" name="" class="form-control form-control-sm" id="" value="<?php echo $data['id_psn']; ?>" readonly>
                         </div>
                         <div class="form-group">

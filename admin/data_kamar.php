@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    header("Location: ../login/");
+}
+
+?>
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -44,7 +54,7 @@
             <div class="sidebar-header brand">KOST PUTRI</div>
             <div class="sidebar-user">
                 <img src="img/46r.jpg" class="img-fluid rounded-circle mb-2" alt="...">
-                <div class="fw-bold">Abdullah Ali</div>
+                <div class="fw-bold"><?php echo $_SESSION['firstname'], " ", $_SESSION['lastname'] ?></div>
                 <small>Developer</small>
             </div>
             <div class="main-menu">
@@ -145,7 +155,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary btn-xs" data-bs-dismiss="modal">Cancel</button>
-                                        <a class="btn btn-danger btn-xs" href="../login/">Logout</a>
+                                        <a class="btn btn-danger btn-xs" href="logout.php">Logout</a>
                                     </div>
                                 </div>
                             </div>
@@ -167,134 +177,6 @@
                     <div class="col-tb-1">
                         <div class="card-table">
                             <div class="card-body">
-                                <div class="modal fade" id="tmb_data_kamar" tabindex="-1" aria-labelledby="exampleModalLabel">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title fs-5" id="exampleModalLabel">Tambah Data Kamar</h4>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <form method="post" enctype="multipart/form-data">
-                                                <div class="modal-body">
-                                                    <div class="mb-3">
-                                                        <label class="form-label" for="">No Kamar</label>
-                                                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                                            <option selected>Pilih No Kamar</option>
-                                                            <option value="1">Kamar No 1</option>
-                                                            <option value="2">Kamar No 2</option>
-                                                            <option value="3">Kamar No 3</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Id User</label>
-                                                        <input type="number" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Id Jenis Kamar</label>
-                                                        <input type="number" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Keterangan</label>
-                                                        <textarea class="form-control" id="exampleFormControlTextArea1" rows="3"></textarea>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Harga</label>
-                                                        <input type="number" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                                <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="modal fade" id="edit_data_kamar" tabindex="-1" aria-labelledby="exampleModalLabel">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title fs-5" id="exampleModalLabel">Edit Data Kamar</h4>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <form method="post" enctype="multipart/form-data">
-                                                <div class="modal-body">
-                                                    <div class="mb-3">
-                                                        <label class="form-label" for="">No Kamar</label>
-                                                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                                            <option selected>Pilih No Kamar</option>
-                                                            <option value="1">Kamar No 1</option>
-                                                            <option value="2">Kamar No 2</option>
-                                                            <option value="3">Kamar No 3</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Id User</label>
-                                                        <input type="number" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Id Jenis Kamar</label>
-                                                        <input type="number" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Keterangan</label>
-                                                        <textarea class="form-control" id="exampleFormControlTextArea1" rows="3"></textarea>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Harga</label>
-                                                        <input type="number" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                                <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="modal fade" id="detail_data_kamar" tabindex="-1" aria-labelledby="exampleModalLabel">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title fs-5" id="exampleModalLabel">Detail Data Kamar</h4>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <form method="post" enctype="multipart/form-data">
-                                                <div class="modal-body">
-                                                    <div class="mb-3">
-                                                        <label class="form-label" for="">No Kamar</label>
-                                                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                                            <option selected>Pilih No Kamar</option>
-                                                            <option value="1">Kamar No 1</option>
-                                                            <option value="2">Kamar No 2</option>
-                                                            <option value="3">Kamar No 3</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Id User</label>
-                                                        <input type="number" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Id Jenis Kamar</label>
-                                                        <input type="number" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Keterangan</label>
-                                                        <textarea class="form-control" id="exampleFormControlTextArea1" rows="3"></textarea>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Harga</label>
-                                                        <input type="number" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="table-responsive">
@@ -312,6 +194,11 @@
                                                         <th>Aksi</th>
                                                     </tr>
                                                 </thead>
+                                                <?php
+                                                //Menampilkan Modal Tambah, Edit,dan Detail 
+                                                include('method/datakamar/TmbDataKamar.php');
+                                                include('method/datakamar/DetailDataKamar.php');
+                                                ?>
                                                 <tbody>
                                                     <?php
                                                     //Menampilkan Data Dari Database Ke Tabel

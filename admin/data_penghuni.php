@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    header("Location: ../login/");
+}
+
+?>
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -34,9 +44,9 @@
 </head>
 
 <body>
-    <!-- <div id="preloader">
+    <div id="preloader">
         <div class="loader"></div>
-    </div> -->
+    </div>
     <!-- preloader area end -->
     <!-- page container area start -->
     <div class="page-container">
@@ -45,7 +55,7 @@
             <div class="sidebar-header brand">KOST PUTRI</div>
             <div class="sidebar-user">
                 <img src="img/46r.jpg" class="img-fluid rounded-circle mb-2" alt="...">
-                <div class="fw-bold">Abdullah Ali</div>
+                <div class="fw-bold"><?php echo $_SESSION['firstname'], " ", $_SESSION['lastname'] ?></div>
                 <small>Developer</small>
             </div>
             <div class="main-menu">
@@ -151,7 +161,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary btn-xs" data-bs-dismiss="modal">Cancel</button>
-                                        <a class="btn btn-danger btn-xs" href="../login/">Logout</a>
+                                        <a class="btn btn-danger btn-xs" href="logout.php">Logout</a>
                                     </div>
                                 </div>
                             </div>
@@ -173,6 +183,13 @@
                     <div class="col-tb-1">
                         <div class="card-table">
                             <div class="card-body">
+                                <?php
+                                //Menampilkan Modal Tambah, Edit,dan Detail 
+                                include('method/datapenghuni/tmbDataPenghuni.php');
+                                include('method/datapenghuni/EditDataPenghuni.php');
+                                include('method/datapenghuni/DetailDataPenghuni.php');
+                                include('method/datapenghuni/HapusDataPenghuni.php');
+                                ?>
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="table-responsive">
@@ -190,13 +207,6 @@
                                                         <th>Aksi</th>
                                                     </tr>
                                                 </thead>
-                                                <?php
-                                                //Menampilkan Modal Tambah, Edit,dan Detail 
-                                                include('method/datapenghuni/tmbDataPenghuni.php');
-                                                include('method/datapenghuni/EditDataPenghuni.php');
-                                                include('method/datapenghuni/DetailDataPenghuni.php');
-                                                include('method/datapenghuni/HapusDataPenghuni.php');
-                                                ?>
                                                 <tbody>
                                                     <?php
                                                     //Menampilkan Data Dari Database Ke Tabel

@@ -89,8 +89,7 @@ if (isset($_POST["tmbdatapenghuni"])) {
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" name="tmbdatapenghuni" class="btn btn-primary">Simpan
-                        Perubahan</button>
+                    <button type="submit" name="tmbdatapenghuni" class="btn btn-primary">Simpan Perubahan</button>
                 </div>
             </form>
         </div>

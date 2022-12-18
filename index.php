@@ -168,12 +168,14 @@
                             <strong>Beberapa Fasilitas Pada Kost.</strong><br>
                             <p class="ukuran-teks-kecil">
                                 ● FREE WIFI <br>
-                                ● Dapur <br>
+                                ● Air Sanyo <br>
+                                ● Listrik <br>
+                                ● Tempat Parkir Motor <br>
                                 ● Tempat Cuci Baju <br>
                                 ● Tempat Jemuran <br>
-                                ● Alat Setrika <br>
-                                ● Kulkas <br>
-                                ● Ruang TV <br>
+                                ● Alat Setrika Bersama<br>
+                                ● Kulkas Bersama <br>
+                                ● Dapur Bersama, Dilengkapi Kompor Gas, Tabung LPG<br>
                             </p>
                         </div>
                     </div>

@@ -38,12 +38,12 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
                         <div class="mb-3">
                             <label class="form-label" for="editNoKamarPeng">No Kamar</label>
                             <select name="editNoKamarPeng" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                <option selected hidden ><?php echo $data['no_kamar'] ?></option>
                                 <?php
                                 include 'database/config.php';
-                                $kamar = mysqli_query($conn, "SELECT `no_kamar` FROM `kamar` WHERE status_kmr = 'KOSONG' ORDER BY CASE WHEN no_kamar LIKE 'Kosong%' THEN 1 ELSE 2 END, no_kamar * 1 ASC;");
+                                $kamar = mysqli_query($conn, "SELECT `no_kamar` FROM `kamar` WHERE status_kmr = 'Kosong' ORDER BY CASE WHEN no_kamar LIKE 'Kosong%' THEN 1 ELSE 2 END, no_kamar * 1 ASC;");
                                 while ($hasilnokamar = mysqli_fetch_array($kamar)) {
                                 ?>
-                                    <option selected><?php echo $data['no_kamar'] ?></option>
                                     <option value="<?= $hasilnokamar['no_kamar'] ?>"><?= $hasilnokamar['no_kamar'] ?></option>
                                 <?php
                                 }

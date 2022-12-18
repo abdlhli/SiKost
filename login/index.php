@@ -1,3 +1,33 @@
+<?php
+
+include 'database/config.php';
+
+error_reporting(0);
+
+session_start();
+
+if (isset($_SESSION['username'])) {
+    header("location:../admin/");
+}
+
+if (isset($_POST['submit'])) {
+    $username = $_POST['username'];
+    $pass = $_POST['pass'];
+
+    $sql = "SELECT * FROM akun WHERE username='$username' AND pass='$pass'";
+    $result = mysqli_query($conn, $sql);
+    if ($result->num_rows > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $_SESSION['username'] = $row['username'];
+        $_SESSION['firstname'] = $row['firstname'];
+        $_SESSION['lastname'] = $row['lastname'];
+        header("location:../admin/");
+    } else {
+        echo "<script>alert('Email atau password Anda salah. Silahkan coba lagi!')</script>";
+    }
+}
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -25,21 +55,19 @@
                                     <h3 class="font-weight-bold mb-4">Login</h3>
                                 </div>
                             </div>
-                            <form action="LoginMethod.php" method="POST" class="signin-form">
+
+                            <form action="" method="POST" class="signin-form">
                                 <div class="form-group mt-3">
                                     <input type="text" class="form-control" name="username" required>
                                     <label class="form-control-placeholder" for="username">Username</label>
                                 </div>
                                 <div class="form-group">
-                                    <input id="password-field" type="password" name="pass" class="form-control"
-                                        required>
+                                    <input id="password-field" type="password" name="pass" class="form-control" required>
                                     <label class="form-control-placeholder" for="password">Password</label>
-                                    <span toggle="#password-field"
-                                        class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit"
-                                        class="form-control btn btn-primary rounded submit px-3">Login</button>
+                                    <button name="submit" class="form-control btn btn-primary rounded submit px-3">Login</button>
                                 </div>
                                 <div class="form-group d-md-flex">
                                     <div class="w-50 text-left">

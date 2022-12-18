@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    header("Location: ../login/");
+}
+
+?>
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -47,7 +57,7 @@
             <div class="sidebar-header brand">KOST PUTRI</div>
             <div class="sidebar-user">
                 <img src="img/46r.jpg" class="img-fluid rounded-circle mb-2" alt="...">
-                <div class="fw-bold">Abdullah Ali</div>
+                <div class="fw-bold"><?php echo $_SESSION['firstname'], " ", $_SESSION['lastname'] ?></div>
                 <small>Developer</small>
             </div>
             <div class="main-menu">
@@ -149,7 +159,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary btn-xs" data-bs-dismiss="modal">Cancel</button>
-                                        <a class="btn btn-danger btn-xs" href="../login/">Logout</a>
+                                        <a class="btn btn-danger btn-xs" href="logout.php">Logout</a>
                                     </div>
                                 </div>
                             </div>

@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    header("Location: ../login/");
+}
+
+?>
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -44,7 +54,7 @@
             <div class="sidebar-header brand">KOST PUTRI</div>
             <div class="sidebar-user">
                 <img src="img/46r.jpg" class="img-fluid rounded-circle mb-2" alt="...">
-                <div class="fw-bold">Abdullah Ali</div>
+                <div class="fw-bold"><?php echo $_SESSION['firstname'], " ", $_SESSION['lastname'] ?></div>
                 <small>Developer</small>
             </div>
             <div class="main-menu">
@@ -146,7 +156,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary btn-xs" data-bs-dismiss="modal">Cancel</button>
-                                        <a class="btn btn-danger btn-xs" href="../login/">Logout</a>
+                                        <a class="btn btn-danger btn-xs" href="logout.php">Logout</a>
                                     </div>
                                 </div>
                             </div>
@@ -168,155 +178,16 @@
                     <div class="col-tb-1">
                         <div class="card-table">
                             <div class="card-body">
-                                <div class="modal fade" id="tmb-admin" tabindex="-1" aria-labelledby="exampleModalLabel">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Data Admin</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <form method="post" enctype="multipart/form-data">
-                                                <div class="modal-body">
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">No</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Nama Admin</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Email</label>
-                                                        <input type="email" name="" class="form-control form-control-sm" placeholder="name@example.com" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">No Telepon</label>
-                                                        <input type="number" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label class="form-label" for="">Status</label>
-                                                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                                            <option selected>Pilih Status</option>
-                                                            <option value="1">Super Admin</option>
-                                                            <option value="2">Admin</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Alamat</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Alamat</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                                <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="modal fade" id="edit-admin" tabindex="-1" aria-labelledby="exampleModalLabel">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Data Admin</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <form method="post" enctype="multipart/form-data">
-                                                <div class="modal-body">
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">No</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Nama Admin</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Email</label>
-                                                        <input type="email" name="" class="form-control form-control-sm" placeholder="name@example.com" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">No Telepon</label>
-                                                        <input type="number" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label class="form-label" for="">Status</label>
-                                                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                                            <option selected>Pilih Status</option>
-                                                            <option value="1">Super Admin</option>
-                                                            <option value="2">Admin</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Alamat</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Alamat</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                                <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="modal fade" id="detail-admin" tabindex="-1" aria-labelledby="exampleModalLabel">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Data Admin</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <form method="post" enctype="multipart/form-data">
-                                                <div class="modal-body">
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">No</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Nama Admin</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Email</label>
-                                                        <input type="email" name="" class="form-control form-control-sm" placeholder="name@example.com" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">No Telepon</label>
-                                                        <input type="number" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Status</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Alamat</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Alamat</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-
+                                <?php
+                                //Menampilkan Modal Tambah, Edit,dan Detail 
+                                include('method/dataadmin/TmbDataAdmin.php');
+                                include('method/dataadmin/EditDataAdmin.php');
+                                include('method/dataadmin/DetailDataAdmin.php');
+                                ?>
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="table-responsive">
-                                            <button type="button" class="btn btn-primary btn-xs" data-bs-toggle="modal" data-bs-target="#tmb-admin">
+                                            <button type="button" class="btn btn-primary btn-xs" data-bs-toggle="modal" data-bs-target="#tmb_data_admin">
                                                 <i class="bi-plus-lg"></i>
                                                 Tambah Data</button>
                                             <table id="tbl" class="display" style="width: 100%;">

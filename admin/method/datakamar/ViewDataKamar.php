@@ -30,7 +30,7 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
             <button class="btn btn-danger btn-xs">
                 <i class="bi-trash" style="padding-right: 10px;"></i>Hapus
             </button>
-            <button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail_data_kamar">
+            <button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail_data_kamar<?php echo $data['id_user']; ?>">
                 <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail
             </button>
         </th>

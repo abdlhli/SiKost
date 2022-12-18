@@ -17,28 +17,28 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
                 <form method="post" enctype="multipart/form-data">
                     <div class="modal-body">
                         <div class="form-group">
-                            <label class="control-label" for="">Id Pengaduan</label>
-                            <input type="number" name="" class="form-control form-control-sm" id="" value="<?php echo $data['id_pgd']; ?>" required>
+                            <label class="control-label" for="">ID Pengaduan</label>
+                            <input type="number" name="" class="form-control form-control-sm" id="" value="<?php echo $data['id_pgd']; ?>" readonly>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="">Nama</label>
-                            <input type="text" name="" class="form-control form-control-sm" id="" value="<?php echo $data['nama_pgd']; ?>" required>
+                            <input type="text" name="" class="form-control form-control-sm" id="" value="<?php echo $data['nama_pgd']; ?>" readonly>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="">No Kamar</label>
-                            <input type="number" name="" class="form-control form-control-sm" id="" value="<?php echo $data['no_kamar_pgd']; ?>" required>
+                            <input type="number" name="" class="form-control form-control-sm" id="" value="<?php echo $data['no_kamar_pgd']; ?>" readonly>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="">Judul</label>
-                            <input type="text" name="" class="form-control form-control-sm" id="" value="<?php echo $data['judul_pgd']; ?>" required>
+                            <input type="text" name="" class="form-control form-control-sm" id="" value="<?php echo $data['judul_pgd']; ?>" readonly>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="">Isi</label>
-                            <input type="text" name="" class="form-control form-control-sm" id="" value="<?php echo $data['isi_pgd']; ?>" required>
+                            <textarea class="form-control" rows="3" readonly><?php echo $data['isi_pgd']; ?></textarea>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="">Lampiran</label>
-                            <input type="text" name="" class="form-control form-control-sm" id="" value="<?php echo $data['lampiran_pgd']; ?>" required>
+                            <input type="text" name="" class="form-control form-control-sm" id="" value="<?php echo $data['lampiran_pgd']; ?>" readonly>
                         </div>
                     </div>
                 </form>
