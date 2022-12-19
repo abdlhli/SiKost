@@ -14,7 +14,22 @@ if (isset($_POST["tmbdatapenghuni"])) {
     $sql = "INSERT INTO akun (firstname, lastname, no_hp, alamat, tgl_masuk, asal_kampus, status) 
     VALUES ('$namadep','$namabelak','$telp','$alamat','$tgl','$asal','$stat')";
 
-    $query = mysqli_query($conn, $sql);
+    if (mysqli_query($conn, $sql)) {
+?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            Data Berhasil Ditambahkan
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php
+
+    } else {
+    ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            Data Gagal Ditambahkan
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+<?php
+    }
 }
 
 ?>

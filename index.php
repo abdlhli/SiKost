@@ -16,7 +16,9 @@
     <!-- Navigasi -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="#page-top">Kost Putri 48</a>
+            <a class="navbar-brand" href="#page-top">
+                <img src="assets/img/kost.png" class="img-fluid rounded-circle mb-2" alt="kost" width="40px" height="20px">
+                Kost Putri 48</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars"></i>

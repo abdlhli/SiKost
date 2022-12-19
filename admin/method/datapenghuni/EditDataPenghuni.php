@@ -15,7 +15,22 @@ if (isset($_POST["editdatapenghuni"])) {
 
     $sql = "UPDATE `akun` SET `firstname`= '$namadep',`lastname`= '$namabelak',`no_hp`= '$telp',`alamat`= '$alamat',`tgl_masuk`= '$tgl',`asal_kampus`= '$asal', `status`= '$stat', `no_kamar`= '$nokamar' WHERE `id_user`= $id";
 
-    $query = mysqli_query($conn, $sql);
+    if (mysqli_query($conn, $sql)) {
+?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            Data Berhasil Diubah
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php
+
+    } else {
+    ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            Data Gagal Diubah
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php
+    }
 }
 
 //======================================================== MODAL EDIT DATA ===================================================================================//
@@ -23,7 +38,7 @@ if (isset($_POST["editdatapenghuni"])) {
 $query = "SELECT * FROM `akun` WHERE `hak_akses` = '1'";
 $hasil = mysqli_query($conn, $query);
 while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
-?>
+    ?>
 
     <div class="modal fade" id="edit_data_penghuni<?php echo $data['id_user']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel">
         <div class="modal-dialog">
@@ -38,7 +53,7 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
                         <div class="mb-3">
                             <label class="form-label" for="editNoKamarPeng">No Kamar</label>
                             <select name="editNoKamarPeng" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                <option selected hidden ><?php echo $data['no_kamar'] ?></option>
+                                <option selected hidden><?php echo $data['no_kamar'] ?></option>
                                 <?php
                                 include 'database/config.php';
                                 $kamar = mysqli_query($conn, "SELECT `no_kamar` FROM `kamar` WHERE status_kmr = 'Kosong' ORDER BY CASE WHEN no_kamar LIKE 'Kosong%' THEN 1 ELSE 2 END, no_kamar * 1 ASC;");

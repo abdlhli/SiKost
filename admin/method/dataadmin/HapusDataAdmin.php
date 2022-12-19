@@ -2,7 +2,7 @@
 <?php
 include 'database/config.php';
 
-if (isset($_POST["hapusdatapenghuni"])) {
+if (isset($_POST["hapusdataadmin"])) {
     $id = $_POST['hapusiduser'];
 
     $sql = "DELETE FROM akun WHERE id_user = $id";
@@ -27,12 +27,12 @@ if (isset($_POST["hapusdatapenghuni"])) {
 ?>
 <!-- //======================================================== MODAL HAPUS DATA ===================================================================================// -->
 <?php
-$query = "SELECT * FROM akun WHERE `hak_akses` = 1";
+$query = "SELECT * FROM akun WHERE `hak_akses` = 0";
 $hasil = mysqli_query($conn, $query);
 while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
 ?>
 
-    <div class="modal fade" id="hapus_data_penghuni<?php echo $data['id_user']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="hapus_data_admin<?php echo $data['id_user']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -51,14 +51,14 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="invalidCheck2" required>
                                 <label class="form-check-label text-danger" for="invalidCheck2">
-                                    Centang Untuk Setuju Menghapus Data Penghuni - <?php echo $data['firstname'], " ", $data['lastname']; ?>
+                                    Centang Untuk Setuju Menghapus Data Admin - <?php echo $data['firstname'], " ", $data['lastname']; ?>
                                 </label>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary btn-xs" data-bs-dismiss="modal">Tidak</button>
-                        <button type="submit" class="btn btn-danger btn-xs" name="hapusdatapenghuni">Iya</button>
+                        <button type="submit" class="btn btn-danger btn-xs" name="hapusdataadmin">Iya</button>
                     </div>
                 </form>
             </div>
