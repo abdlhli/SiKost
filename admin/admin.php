@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    header("Location: ../login/");
+}
+
+?>
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -6,7 +16,8 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>KostPutri - Data Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href=".../assets/img/favicon.ico" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
@@ -41,10 +52,13 @@
     <div class="page-container">
         <!-- sidebar menu area start -->
         <div class="sidebar-menu">
-            <div class="sidebar-header brand">KOST PUTRI</div>
+            <div class="sidebar-header brand">
+                <img src="img/kost.png" class="img-fluid rounded-circle mb-2" alt="..." width="75px" height="40px">
+                KOST PUTRI
+            </div>
             <div class="sidebar-user">
                 <img src="img/46r.jpg" class="img-fluid rounded-circle mb-2" alt="...">
-                <div class="fw-bold">Abdullah Ali</div>
+                <div class="fw-bold"><?php echo $_SESSION['firstname'], " ", $_SESSION['lastname'] ?></div>
                 <small>Developer</small>
             </div>
             <div class="main-menu">
@@ -146,7 +160,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary btn-xs" data-bs-dismiss="modal">Cancel</button>
-                                        <a class="btn btn-danger btn-xs" href="../login/">Logout</a>
+                                        <a class="btn btn-danger btn-xs" href="logout.php">Logout</a>
                                     </div>
                                 </div>
                             </div>
@@ -168,155 +182,17 @@
                     <div class="col-tb-1">
                         <div class="card-table">
                             <div class="card-body">
-                                <div class="modal fade" id="tmb-admin" tabindex="-1" aria-labelledby="exampleModalLabel">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Data Admin</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <form method="post" enctype="multipart/form-data">
-                                                <div class="modal-body">
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">No</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Nama Admin</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Email</label>
-                                                        <input type="email" name="" class="form-control form-control-sm" placeholder="name@example.com" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">No Telepon</label>
-                                                        <input type="number" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label class="form-label" for="">Status</label>
-                                                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                                            <option selected>Pilih Status</option>
-                                                            <option value="1">Super Admin</option>
-                                                            <option value="2">Admin</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Alamat</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Alamat</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                                <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="modal fade" id="edit-admin" tabindex="-1" aria-labelledby="exampleModalLabel">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Data Admin</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <form method="post" enctype="multipart/form-data">
-                                                <div class="modal-body">
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">No</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Nama Admin</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Email</label>
-                                                        <input type="email" name="" class="form-control form-control-sm" placeholder="name@example.com" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">No Telepon</label>
-                                                        <input type="number" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label class="form-label" for="">Status</label>
-                                                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                                            <option selected>Pilih Status</option>
-                                                            <option value="1">Super Admin</option>
-                                                            <option value="2">Admin</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Alamat</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Alamat</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                                <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="modal fade" id="detail-admin" tabindex="-1" aria-labelledby="exampleModalLabel">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Data Admin</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <form method="post" enctype="multipart/form-data">
-                                                <div class="modal-body">
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">No</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Nama Admin</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Email</label>
-                                                        <input type="email" name="" class="form-control form-control-sm" placeholder="name@example.com" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">No Telepon</label>
-                                                        <input type="number" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Status</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Alamat</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Alamat</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-
+                                <?php
+                                //Menampilkan Modal Tambah, Edit,dan Detail 
+                                include('method/dataadmin/TmbDataAdmin.php');
+                                include('method/dataadmin/EditDataAdmin.php');
+                                include('method/dataadmin/DetailDataAdmin.php');
+                                include('method/dataadmin/HapusDataAdmin.php');
+                                ?>
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="table-responsive">
-                                            <button type="button" class="btn btn-primary btn-xs" data-bs-toggle="modal" data-bs-target="#tmb-admin">
+                                            <button type="button" class="btn btn-primary btn-xs" data-bs-toggle="modal" data-bs-target="#tmb_data_admin">
                                                 <i class="bi-plus-lg"></i>
                                                 Tambah Data</button>
                                             <table id="tbl" class="display" style="width: 100%;">
@@ -331,42 +207,10 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td align="center">1</td>
-                                                        <td>Admin 1</td>
-                                                        <td>Email@gmail.com</td>
-                                                        <td>085232111232</td>
-                                                        <td>Super Admin</td>
-                                                        <th><button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit-admin"><i class="bi-pencil" style="padding-right: 10px;"></i>Edit</button>
-                                                            <button class="btn btn-danger btn-xs"><i class="bi-trash" style="padding-right: 10px;"></i>Hapus</button>
-                                                            <button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail-admin">
-                                                                <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
-                                                        </th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center">2</td>
-                                                        <td>Admin 1</td>
-                                                        <td>Email@gmail.com</td>
-                                                        <td>085232111232</td>
-                                                        <td>Super Admin</td>
-                                                        <th><button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit-admin"><i class="bi-pencil" style="padding-right: 10px;"></i>Edit</button>
-                                                            <button class="btn btn-danger btn-xs"><i class="bi-trash" style="padding-right: 10px;"></i>Hapus</button>
-                                                            <button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail-admin">
-                                                                <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
-                                                        </th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center">2</td>
-                                                        <td>Admin 1</td>
-                                                        <td>Email@gmail.com</td>
-                                                        <td>085232111232</td>
-                                                        <td>Super Admin</td>
-                                                        <th><button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit-admin"><i class="bi-pencil" style="padding-right: 10px;"></i>Edit</button>
-                                                            <button class="btn btn-danger btn-xs"><i class="bi-trash" style="padding-right: 10px;"></i>Hapus</button>
-                                                            <button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail-admin">
-                                                                <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
-                                                        </th>
-                                                    </tr>
+                                                    <?php
+                                                    //Menampilkan Data Dari Database Ke Tabel
+                                                    include('method/dataadmin/ViewDataAdmin.php');
+                                                    ?>
                                                 </tbody>
                                             </table>
                                         </div>

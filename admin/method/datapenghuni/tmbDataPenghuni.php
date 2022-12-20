@@ -1,3 +1,40 @@
+<!-- //======================================================== QUERY TAMBAH DATA ===================================================================================// -->
+<?php
+include 'database/config.php';
+
+if (isset($_POST["tmbdatapenghuni"])) {
+    $namadep = $_POST['tmbNamaDepanPeng'];
+    $namabelak = $_POST['tmbNamaBelakangPeng'];
+    $telp = $_POST['tmbTelpPeng'];
+    $alamat = $_POST['tmbAlamatPeng'];
+    $tgl = $_POST['tmbTglPeng'];
+    $asal = $_POST['tmbAsalKamPeng'];
+    $stat = $_POST['tmbStatusPeng'];
+
+    $sql = "INSERT INTO akun (firstname, lastname, no_hp, alamat, tgl_masuk, asal_kampus, status) 
+    VALUES ('$namadep','$namabelak','$telp','$alamat','$tgl','$asal','$stat')";
+
+    if (mysqli_query($conn, $sql)) {
+?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            Data Berhasil Ditambahkan.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php
+
+    } else {
+    ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            Data Gagal Ditambahkan.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+<?php
+    }
+}
+
+?>
+
+<!-- //======================================================== MODAL TAMBAH DATA ===================================================================================// -->
 <div class="modal fade" id="tmb_data_penghuni" tabindex="-1" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -6,7 +43,7 @@
                 </h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" enctype="multipart/form-data">
+            <form action="" method="POST" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="mb-3">
                         <label class="form-label" for="tmbNoKamarPeng">No Kamar</label>
@@ -14,7 +51,7 @@
                             <option disabled selected>Pilih No Kamar</option>
                             <?php
                             include 'database/config.php';
-                            $kamar = mysqli_query($conn, "SELECT `no_kamar` FROM `kamar` WHERE id_user IS NULL ORDER BY `kamar`.`no_kamar` * 1 ASC;");
+                            $kamar = mysqli_query($conn, "SELECT `no_kamar` FROM `kamar` WHERE status_kmr = 'KOSONG' ORDER BY CASE WHEN no_kamar LIKE 'Kosong%' THEN 1 ELSE 2 END, no_kamar * 1 ASC;");
                             while ($hasil = mysqli_fetch_array($kamar)) {
                             ?>
                                 <option value="<?= $hasil['no_kamar'] ?>">
@@ -34,7 +71,7 @@
                         <div class="form-group col">
                             <label class="control-label" for="tmbNamaBelakangPeng">Nama
                                 belakang</label>
-                            <input type="text" name="tmbNamaBelakangPeng" class="form-control form-control-sm" id="tmbNamaBelakangPeng" required>
+                            <input type="text" name="tmbNamaBelakangPeng" class="form-control form-control-sm" id="tmbNamaBelakangPeng">
                         </div>
                     </div>
                     <div class="form-group">
@@ -57,18 +94,17 @@
                         <input type="text" name="tmbAsalKamPeng" class="form-control form-control-sm" id="tmbAsalKamPeng" required>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label" for="">Status</label>
+                        <label class="form-label" for="tmbStatusPeng">Status</label>
                         <select name="tmbStatusPeng" class="form-select form-select-sm" aria-label=".form-select-sm example">
                             <option selected>Pilih Status Penghuni</option>
-                            <option value="aktif">Aktif</option>
-                            <option value="tidak_aktif">Tidak Aktif</option>
+                            <option value="Aktif">Aktif</option>
+                            <option value="Tidak Aktif">Tidak Aktif</option>
                         </select>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" name="tmbdatapenghuni" class="btn btn-primary">Simpan
-                        Perubahan</button>
+                    <button type="submit" name="tmbdatapenghuni" class="btn btn-primary">Simpan Perubahan</button>
                 </div>
             </form>
         </div>

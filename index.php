@@ -8,9 +8,7 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
 </head>
 
@@ -18,10 +16,10 @@
     <!-- Navigasi -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="#page-top">Kost Putri 48</a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                aria-label="Toggle navigation">
+            <a class="navbar-brand" href="#page-top">
+                <img src="assets/img/kost.png" class="img-fluid rounded-circle mb-2" alt="kost" width="40px" height="20px">
+                Kost Putri 48</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars"></i>
             </button>
@@ -71,33 +69,34 @@
 
     <?php
     include 'login/database/config.php';
-    $kamar_kosong = mysqli_query($conn, "SELECT SUM(CASE WHEN id_user is null THEN 1 ELSE 0 END) AS kamar_kosong FROM kamar;");
+    $kamar_kosong = mysqli_query($conn, "SELECT COUNT(kamar.status_kmr)-1 AS kamar_kosong FROM `kamar`;");
     while ($hasil = mysqli_fetch_array($kamar_kosong)) {
     ?>
 
-    <section class="projects-section bg-light" id="info">
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
-                <div class="card py-4 h-100">
-                    <div class="card-body text-center">
-                        <i class="fas fa-door text-primary mb-2"></i>
-                        <h4 class="text-uppercase m-0">--= Ketersediaan Kamar =--</h4>
-                        <hr class="my-4 mx-auto" />
-                        <div class="medium text-black-50">
-                            Tersedia
-                            <?php
-        echo $hasil['kamar_kosong'];
-                            ?>
-                            kamar kosong
-                            <?php
-    }
-                            ?>
+        <section class="projects-section bg-light" id="info">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
+                    <div class="card py-4 h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-door text-primary mb-2"></i>
+                            <h4 class="text-uppercase m-0">--= Ketersediaan Kamar =--</h4>
+                            <hr class="my-4 mx-auto" />
+                            <div class="medium text-black-50">
+                                Tersedia
+                                <?php
+                                echo $hasil['kamar_kosong'];
+                                ?>
+                                kamar kosong
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+    <?php
+    }
+    ?>
     <!-- Foto Kamar -->
     <section class="projects-section bg-light" id="projects">
         <div class="container px-4 px-lg-5">
@@ -115,14 +114,10 @@
             <!-- Foto Kamar Slide -->
             <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
-                        aria-label="Slide 4"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -154,13 +149,11 @@
                         </div>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
@@ -168,38 +161,42 @@
             <div class="accordion" id="accordionPanelsStayOpenExample">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                        <button class="accordion-button text-center" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                            aria-controls="panelsStayOpen-collapseOne">
+                        <button class="accordion-button text-center" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
                             Detail Fasilitas Kost
                         </button>
                     </h2>
-                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-                        aria-labelledby="panelsStayOpen-headingOne">
+                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
                         <div class="accordion-body">
-                            <strong>Beberapa fasilitas yang ada pada kost.</strong><br>
-                            * FREE WIFI 24/7 Jam <br>
-                            * Dapur Bersama <br>
-                            * Tempat Cuci Baju Bersama <br>
-                            * Tempat Jemuran <br>
-                            * Kulkas Bersama <br>
-                            * Ruang TV <br>
+                            <strong>Beberapa Fasilitas Pada Kost.</strong><br>
+                            <p class="ukuran-teks-kecil">
+                                ● FREE WIFI <br>
+                                ● Air Sanyo <br>
+                                ● Listrik <br>
+                                ● Tempat Parkir Motor <br>
+                                ● Tempat Cuci Baju <br>
+                                ● Tempat Jemuran <br>
+                                ● Alat Setrika Bersama<br>
+                                ● Kulkas Bersama <br>
+                                ● Dapur Bersama, Dilengkapi Kompor Gas, Tabung LPG<br>
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
-                            aria-controls="panelsStayOpen-collapseTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
                             Detail Fasilitas Kamar Kost
                         </button>
                     </h2>
-                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
-                        aria-labelledby="panelsStayOpen-headingTwo">
+                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
                         <div class="accordion-body">
                             <strong>Beberapa Fasilitas Kamar Kost.</strong><br>
-
+                            <p class="ukuran-teks-kecil">
+                                ● Tempat Tidur Beserta Kasur <br>
+                                ● Lemari <br>
+                                ● Meja Belajar <br>
+                                ● Kamar Mandi Dalam ( Untuk Pilihan Kamar Dengan Kamar Mandi Dalam ) <br>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -215,10 +212,7 @@
                     <i class="far fa-paper-plane fa-2x mb-2 text-black"></i>
                     <h2 class="text-black mb-5">Kunjungi Kami atau Dapat Melakukan Pemesanan Melalui Aplikasi Kami</h2>
                     <div class="google-maps">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.3237414962473!2d113.71510481486553!3d-8.170102794119515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd6958b6a886429%3A0xfad4c53259737eb!2sKost%20Putri%20Jawa%2048!5e0!3m2!1sen!2sid!4v1668953292928!5m2!1sen!2sid"
-                            width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.3237414962473!2d113.71510481486553!3d-8.170102794119515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd6958b6a886429%3A0xfad4c53259737eb!2sKost%20Putri%20Jawa%2048!5e0!3m2!1sen!2sid!4v1668953292928!5m2!1sen!2sid" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
                 </div>
@@ -275,8 +269,7 @@
                             <div class="small text-black-50">Untuk Dapat Melihat Foto Ataupun Video Penginapan Dengan
                                 Jelas dan Lengkap dapat mengakses Instagram Melalui link Dibawah Ini
                             </div>
-                            <div class="small text-black-50"><a
-                                    href="https://www.instagram.com/kost_putri_jawa48_jember/">Link Instagram</a></div>
+                            <div class="small text-black-50"><a href="https://www.instagram.com/kost_putri_jawa48_jember/">Link Instagram</a></div>
                         </div>
                     </div>
                 </div>

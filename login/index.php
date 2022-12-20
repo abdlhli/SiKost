@@ -1,11 +1,42 @@
+<?php
+
+include 'database/config.php';
+
+error_reporting(0);
+
+session_start();
+
+if (isset($_SESSION['username'])) {
+    header("location:../admin/");
+}
+
+if (isset($_POST['submit'])) {
+    $username = $_POST['username'];
+    $pass = $_POST['pass'];
+
+    $sql = "SELECT * FROM akun WHERE username='$username' AND pass='$pass'";
+    $result = mysqli_query($conn, $sql);
+    if ($result->num_rows > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $_SESSION['username'] = $row['username'];
+        $_SESSION['firstname'] = $row['firstname'];
+        $_SESSION['lastname'] = $row['lastname'];
+        header("location:../admin/");
+    } else {
+        echo "<script>alert('Email atau password Anda salah. Silahkan coba lagi!')</script>";
+    }
+}
+?>
+
 <!doctype html>
 <html lang="en">
 
 <head>
-    <title>Login Admin - Kost Putri Jawa 48</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    <title>Login Admin - Kost Putri Jawa 48</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -25,21 +56,19 @@
                                     <h3 class="font-weight-bold mb-4">Login</h3>
                                 </div>
                             </div>
-                            <form action="LoginMethod.php" method="POST" class="signin-form">
+
+                            <form action="" method="POST" class="signin-form">
                                 <div class="form-group mt-3">
                                     <input type="text" class="form-control" name="username" required>
                                     <label class="form-control-placeholder" for="username">Username</label>
                                 </div>
                                 <div class="form-group">
-                                    <input id="password-field" type="password" name="pass" class="form-control"
-                                        required>
+                                    <input id="password-field" type="password" name="pass" class="form-control" required>
                                     <label class="form-control-placeholder" for="password">Password</label>
-                                    <span toggle="#password-field"
-                                        class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit"
-                                        class="form-control btn btn-primary rounded submit px-3">Login</button>
+                                    <button name="submit" class="form-control btn btn-primary rounded submit px-3">Login</button>
                                 </div>
                                 <div class="form-group d-md-flex">
                                     <div class="w-50 text-left">

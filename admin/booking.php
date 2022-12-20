@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    header("Location: ../login/");
+}
+
+?>
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -6,7 +16,8 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>KostPutri - Pemesanan</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
@@ -41,10 +52,13 @@
     <div class="page-container">
         <!-- sidebar menu area start -->
         <div class="sidebar-menu">
-            <div class="sidebar-header brand">KOST PUTRI</div>
+        <div class="sidebar-header brand">
+                <img src="img/kost.png" class="img-fluid rounded-circle mb-2" alt="..." width="75px" height="40px">
+                KOST PUTRI
+            </div>
             <div class="sidebar-user">
                 <img src="img/46r.jpg" class="img-fluid rounded-circle mb-2" alt="...">
-                <div class="fw-bold">Abdullah Ali</div>
+                <div class="fw-bold"><?php echo $_SESSION['firstname'], " ", $_SESSION['lastname'] ?></div>
                 <small>Developer</small>
             </div>
             <div class="main-menu">
@@ -147,7 +161,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary btn-xs" data-bs-dismiss="modal">Cancel</button>
-                                        <a class="btn btn-danger btn-xs" href="../login/">Logout</a>
+                                        <a class="btn btn-danger btn-xs" href="logout.php">Logout</a>
                                     </div>
                                 </div>
                             </div>
@@ -168,60 +182,13 @@
                     <div class="col-tb-1">
                         <div class="card-table">
                             <div class="card-body">
-                                <div class="modal fade" id="detail_pemesanan" tabindex="-1" aria-labelledby="exampleModalLabel">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title fs-5" id="exampleModalLabel">Detail Pemesanan
-                                                </h4>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <form method="post" enctype="multipart/form-data">
-                                                <div class="modal-body">
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Id Pemesanan</label>
-                                                        <input type="number" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Jenis Kamar</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">No Kamar</label>
-                                                        <input type="number" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Nama Pemesan</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Alamat Pemesan</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">No HP Pemesan</label>
-                                                        <input type="number" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Lampiran KTP Pemesan</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Tanggal Pemesanan</label>
-                                                        <input type="date" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="table-responsive">
                                             <table id="tbl" class="display" style="width: 100%;">
                                                 <thead>
                                                     <tr>
-                                                        <th>Id Pemesanan</th>
+                                                        <th>ID Pemesanan</th>
                                                         <th>Jenis Kamar</th>
                                                         <th>No Kamar</th>
                                                         <th>Nama Pemesan</th>
@@ -230,18 +197,15 @@
                                                         <th>Aksi</th>
                                                     </tr>
                                                 </thead>
+                                                <?php
+                                                //Menampilkan Detail 
+                                                include('method/pemesanan/DetailPemesanan.php');
+                                                ?>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>001</td>
-                                                        <td>Kamar Mandi Dalam</td>
-                                                        <td>01</td>
-                                                        <td>Nama Penghuni</td>
-                                                        <td>Jember</td>
-                                                        <td>087824221222</td>
-                                                        <th><button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail_pemesanan">
-                                                                <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
-                                                        </th>
-                                                    </tr>
+                                                    <?php
+                                                    //Menampilkan Data Dari Database Ke Tabel
+                                                    include('method/pemesanan/ViewPemesanan.php');
+                                                    ?>
                                                 </tbody>
                                             </table>
                                         </div>

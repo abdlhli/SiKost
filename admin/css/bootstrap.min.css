@@ -232,7 +232,7 @@ svg:not(:root) {
 
 table {
     border-collapse: collapse;
-    
+
 }
 
 caption {
@@ -647,11 +647,13 @@ pre code {
     margin-left: -5px;
     margin-top: -5px;
 }
-.column-in{
+
+.column-in {
     float: left;
     width: 50%;
     margin-bottom: 20px;
 }
+
 .column-text {
     float: right;
     width: 50%;
@@ -872,7 +874,7 @@ pre code {
     margin-left: 10px;
 }
 
-.col-tb-1{
+.col-tb-1 {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
@@ -2000,7 +2002,7 @@ pre code {
 .table tbody+tbody {
     border-top: 2px solid #dee2e6;
     overflow-y: scroll;
-    
+
 }
 
 .table .table {
@@ -5933,10 +5935,10 @@ button.close {
     outline: 0
 }
 
-.modal-open .modal {
+/* .modal-open .modal {
     overflow-x: hidden;
     overflow-y: auto
-}
+} */
 
 .modal-dialog {
     position: relative;
