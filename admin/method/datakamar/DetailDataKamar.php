@@ -1,4 +1,6 @@
 <?php
+include 'database/config.php';
+
 $query = "SELECT * FROM `kamar` JOIN jenis_kamar ON kamar.id_jenis_kamar = jenis_kamar.id_jenis_kamar;";
 $hasil = mysqli_query($conn, $query);
 while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {

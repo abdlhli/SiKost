@@ -181,7 +181,13 @@ if (!isset($_SESSION['username'])) {
                     <div class="col-tb-1">
                         <div class="card-table">
                             <div class="card-body">
-
+                                <?php
+                                //Menampilkan Modal Tambah, Edit,dan Detail 
+                                include('method/datakamar/TmbDataKamar.php');
+                                include('method/datakamar/EditDataKamar.php');
+                                include('method/datakamar/DetailDataKamar.php');
+                                include('method/datakamar/HapusDataKamar.php');
+                                ?>
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="table-responsive">
@@ -199,12 +205,6 @@ if (!isset($_SESSION['username'])) {
                                                         <th>Aksi</th>
                                                     </tr>
                                                 </thead>
-                                                <?php
-                                                //Menampilkan Modal Tambah, Edit,dan Detail 
-                                                include('method/datakamar/TmbDataKamar.php');
-                                                include('method/datakamar/EditDataKamar.php');
-                                                include('method/datakamar/DetailDataKamar.php');
-                                                ?>
                                                 <tbody>
                                                     <?php
                                                     //Menampilkan Data Dari Database Ke Tabel

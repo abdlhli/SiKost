@@ -11,7 +11,7 @@ if (isset($_POST["tmbdatakamar"])) {
     if (mysqli_query($conn, $sql)) {
 ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            Data Berhasil Ditambahkan
+            Data Berhasil Ditambahkan.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php
@@ -19,7 +19,7 @@ if (isset($_POST["tmbdatakamar"])) {
     } else {
     ?>
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            Data Gagal Ditambahkan
+            Data Gagal Ditambahkan.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
 <?php
@@ -29,7 +29,7 @@ if (isset($_POST["tmbdatakamar"])) {
 ?>
 
 <!-- //======================================================== MODAL TAMBAH DATA ===================================================================================// -->
-<div class="modal fade" id="tmb_data_kamar" tabindex="-1" aria-labelledby="exampleModalLabel" >
+<div class="modal fade" id="tmb_data_kamar" tabindex="-1" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -47,13 +47,13 @@ if (isset($_POST["tmbdatakamar"])) {
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="tmbjeniskamar">ID Jenis Kamar</label>
-                        <select name="tmbjeniskamar" class="form-select form-select-sm" aria-label=".form-select-sm example" required>
-                            <option hidden selected>Pilih Jenis Kamar</option>
+                        <select name="tmbjeniskamar" class="form-select form-select-sm" aria-label=".form-select-sm example" id="" required>
                             <?php
                             include 'database/config.php';
                             $jeniskamar = mysqli_query($conn, "SELECT * FROM `jenis_kamar`");
                             while ($hasilJK = mysqli_fetch_array($jeniskamar)) {
                             ?>
+                                <option hidden>Pilih Jenis Kamar</option>
                                 <option value="<?= $hasilJK['id_jenis_kamar'] ?>"><?= $hasilJK['keterangan'] ?></option>
                             <?php
                             }
@@ -67,6 +67,7 @@ if (isset($_POST["tmbdatakamar"])) {
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                         <button type="submit" name="tmbdatakamar" class="btn btn-primary">Simpan Perubahan</button>
                     </div>
+                </div>
             </form>
         </div>
     </div>

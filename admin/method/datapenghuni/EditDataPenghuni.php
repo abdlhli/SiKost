@@ -18,7 +18,7 @@ if (isset($_POST["editdatapenghuni"])) {
     if (mysqli_query($conn, $sql)) {
 ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            Data Berhasil Diubah
+            Data Berhasil Diubah.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php
@@ -26,7 +26,7 @@ if (isset($_POST["editdatapenghuni"])) {
     } else {
     ?>
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            Data Gagal Diubah
+            Data Gagal Diubah.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php

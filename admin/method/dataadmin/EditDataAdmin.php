@@ -14,7 +14,22 @@ if (isset($_POST["editdataadmin"])) {
 
     $sql = "UPDATE `akun` SET `firstname`= '$namadep',`lastname`= '$namabelak',`pass`= '$pass',`username`= '$user',`no_hp`= '$telp',`alamat`= '$alamat',`tgl_masuk`= '$tgl' WHERE `id_user`= $id";
 
-    $query = mysqli_query($conn, $sql);
+    if (mysqli_query($conn, $sql)) {
+?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            Data Berhasil Diubah.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php
+
+    } else {
+    ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            Data Gagal Diubah.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php
+    }
 }
 
 //======================================================== MODAL EDIT DATA ===================================================================================//
@@ -22,7 +37,7 @@ if (isset($_POST["editdataadmin"])) {
 $query = "SELECT * FROM `akun` WHERE `hak_akses` = '0'";
 $hasil = mysqli_query($conn, $query);
 while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
-?>
+    ?>
     <div class="modal fade" id="edit_data_admin<?php echo $data['id_user']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel">
         <div class="modal-dialog">
             <div class="modal-content">

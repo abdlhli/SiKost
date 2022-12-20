@@ -10,7 +10,7 @@ if (isset($_POST["hapusdataadmin"])) {
     if (mysqli_query($conn, $sql)) {
 ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            Data Berhasil Terhapus
+            Data Berhasil Terhapus.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php
@@ -18,7 +18,7 @@ if (isset($_POST["hapusdataadmin"])) {
     } else {
     ?>
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            Data Gagal Terhapus
+            Data Gagal Terhapus.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
 <?php

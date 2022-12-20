@@ -11,7 +11,7 @@ if (isset($_POST["editdatakamar"])) {
     if (mysqli_query($conn, $sql)) {
 ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            Data Berhasil Diubah
+            Data Berhasil Diubah.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php
@@ -19,19 +19,19 @@ if (isset($_POST["editdatakamar"])) {
     } else {
     ?>
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            Data Gagal Diubah
+            Data Gagal Diubah.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php
     }
 }
+//======================================================== MODAL EDIT DATA ===================================================================================//
 
-//======================================================== MODAL EDIT DATA ===================================================================================// 
 $query = "SELECT * FROM `kamar` JOIN jenis_kamar ON kamar.id_jenis_kamar = jenis_kamar.id_jenis_kamar;";
 $hasil = mysqli_query($conn, $query);
 while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
     ?>
-    <div class="modal fade" id="edit_data_kamar<?php echo $data['no_kamar'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" >
+    <div class="modal fade" id="edit_data_kamar<?php echo $data['no_kamar']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -55,6 +55,7 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                             <button type="submit" name="editdatakamar" class="btn btn-primary">Simpan Perubahan</button>
                         </div>
+                    </div>
                 </form>
             </div>
         </div>
