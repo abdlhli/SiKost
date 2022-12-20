@@ -14,7 +14,7 @@ if (!isset($_SESSION['username'])) {
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>KostPutri - Laporan Pembayaran</title>
+    <title>KostPutri - Data Barang</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -40,8 +40,6 @@ if (!isset($_SESSION['username'])) {
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/calendar.css">
 
-    <!-- Print css -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.2/css/buttons.dataTables.min.css">
     <!-- modernizr css -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
@@ -82,7 +80,7 @@ if (!isset($_SESSION['username'])) {
                                 <a href="data_penghuni.php"><img src="img/group.png" width="24" height="24"><span>Data
                                         Penghuni</span></a>
                             </li>
-                            <li class="active">
+                            <li class="">
                                 <a href="report.php"><img src="img/report.png" width="24" height="24"><span>Laporan
                                         Pembayaran</span></a>
                             </li>
@@ -91,6 +89,9 @@ if (!isset($_SESSION['username'])) {
                             </li>
                             <li class="">
                                 <a href="booking.php"><img src="img/booking.png" width="24" height="24"><span>Pemesanan</span></a>
+                            </li>
+                            <li class="active">
+                                <a href="barang.php"><span>Barang</span></a>
                             </li>
                         </ul>
                     </nav>
@@ -176,7 +177,7 @@ if (!isset($_SESSION['username'])) {
                 <div class="row lign-items-center">
                     <div class="col-sm-6">
                         <div class="head-welcome-1">
-                            <h1 class="head-title">Laporan Pembayaran</h1>
+                            <h1 class="head-title">Data Barang</h1>
                         </div>
                     </div>
                 </div>
@@ -280,7 +281,7 @@ if (!isset($_SESSION['username'])) {
                                             <button type="button" class="btn btn-primary btn-xs" data-bs-toggle="modal" data-bs-target="#tmb_data_penghuni">
                                                 <i class="bi-plus-lg">
                                                 </i>Tambah Data</button>
-                                            <table id="example" class="display" style="width: 100%;">
+                                            <table id="tbl" class="display" style="width: 100%;">
                                                 <thead>
                                                     <tr>
                                                         <th>ID Pembayaran</th>
@@ -368,16 +369,9 @@ if (!isset($_SESSION['username'])) {
     <script src="js/scripts.js"></script>
 
     <!-- Script Tabel + Modal -->
+    <script src="js/tabel.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="js/modal.js"></script>
-
-    <!-- Script Print -->
-    <script src="js/print.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.3.2/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.print.min.js"></script>
-    <script src="https://cdn.datatables.net/select/1.5.0/js/dataTables.select.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.colVis.min.js"></script>
-
 </body>
 
 </html>

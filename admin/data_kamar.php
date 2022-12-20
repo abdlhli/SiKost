@@ -90,6 +90,9 @@ if (!isset($_SESSION['username'])) {
                             <li class="">
                                 <a href="booking.php"><img src="img/booking.png" width="24" height="24"><span>Pemesanan</span></a>
                             </li>
+                            <li class="">
+                                <a href="barang.php"><span>Barang</span></a>
+                            </li>
                         </ul>
                     </nav>
                 </div>

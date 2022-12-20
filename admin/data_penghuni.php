@@ -53,7 +53,7 @@ if (!isset($_SESSION['username'])) {
     <div class="page-container">
         <!-- sidebar menu area start -->
         <div class="sidebar-menu">
-        <div class="sidebar-header brand">
+            <div class="sidebar-header brand">
                 <img src="img/kost.png" class="img-fluid rounded-circle mb-2" alt="..." width="75px" height="40px">
                 KOST PUTRI
             </div>
@@ -93,6 +93,9 @@ if (!isset($_SESSION['username'])) {
                             <li class="">
                                 <a href="booking.php"><img src="img/booking.png" width="24" height="24">
                                     <span>Pemesanan</span></a>
+                            </li>
+                            <li class="">
+                                <a href="barang.php"><span>Barang</span></a>
                             </li>
                         </ul>
                     </nav>
