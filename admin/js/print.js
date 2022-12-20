@@ -4,14 +4,14 @@ $(document).ready(function () {
     fixedColumns: true,
     lengthChange: false,
     pageLength: 7,
-    
+
     dom: "Bfrtip",
     buttons: [
       {
         extend: "print",
         text: "Print all",
         exportOptions: {
-            columns: ':visible',
+          columns: ':visible',
         },
       },
       {
@@ -24,8 +24,8 @@ $(document).ready(function () {
     select: true,
 
     columnDefs: [{
-        targets: -1,
-        visible: false
+      targets: -1,
+      visible: false
     }]
   });
 });
