@@ -12,9 +12,9 @@ if (isset($_SESSION['username'])) {
 
 if (isset($_POST['submit'])) {
     $username = $_POST['username'];
-    $pass = $_POST['pass'];
+    $pass = md5($_POST['pass']);
 
-    $sql = "SELECT * FROM akun WHERE username='$username' AND pass='$pass'";
+    $sql = "SELECT * FROM akun WHERE username='$username' AND pass='$pass' AND hak_akses = 0";
     $result = mysqli_query($conn, $sql);
     if ($result->num_rows > 0) {
         $row = mysqli_fetch_assoc($result);

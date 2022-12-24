@@ -49,8 +49,8 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
                         </div>
                         <div class="col-13 row">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="invalidCheck2" required>
-                                <label class="form-check-label text-danger" for="invalidCheck2">
+                                <input class="form-check-input" type="checkbox" id="<?php echo $data['id_user']; ?>" required>
+                                <label class="form-check-label text-danger" for="<?php echo $data['id_user']; ?>">
                                     Centang Untuk Setuju Menghapus Data Admin - <?php echo $data['firstname'], " ", $data['lastname']; ?>
                                 </label>
                             </div>

@@ -9,3 +9,8 @@ RewriteRule ^Kamar/([0-9]+)/?$ Kamar.php?id=$1 [NC,L]
 RewriteRule ^Pemesanan/?$ Pemesanan.php [NC,L]
 
 RewriteRule ^Pengaduan/?$ Pengaduan.php [NC,L]
+
+RewriteRule ^Login/?$ Login.php [NC,L]
+RewriteRule ^Login/([0-9]+)/?$ Login.php?username=$1 [NC,L]
+
+RewriteRule ^Register/?$ Register.php [NC,L]

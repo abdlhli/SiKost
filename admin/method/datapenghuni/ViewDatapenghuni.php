@@ -3,11 +3,15 @@
 include 'database/config.php';
 
 $sql = "SELECT * FROM `akun` WHERE `hak_akses` = '1'";
+$count = 1;
 $hasil = mysqli_query($conn, $sql);
 while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
 ?>
 
     <tr>
+        <td>
+            <?php echo $count++; ?>
+        </td>
         <td>
             <?php echo $data['no_kamar']; ?>
         </td>

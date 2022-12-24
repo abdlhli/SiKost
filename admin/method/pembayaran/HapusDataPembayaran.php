@@ -2,10 +2,10 @@
 <?php
 include 'database/config.php';
 
-if (isset($_POST["hapusdatakamar"])) {
-    $no_kamar = $_POST['hapuskamar'];
+if (isset($_POST["hapusdatapembayaran"])) {
+    $id = $_POST['hapusidpem'];
 
-    $sql = "DELETE FROM `kamar` WHERE `kamar`.`no_kamar` = '$no_kamar'";
+    $sql = "DELETE FROM pembayaran WHERE id_pembayaran = '$id'";
 
     if (mysqli_query($conn, $sql)) {
 ?>
@@ -21,18 +21,18 @@ if (isset($_POST["hapusdatakamar"])) {
             Data Gagal Terhapus.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-    <?php
+<?php
     }
 }
-
-//======================================================== MODAL HAPUS DATA ===================================================================================// 
-
-$query = "SELECT * FROM `kamar`;";
+?>
+<!-- //======================================================== MODAL HAPUS DATA ===================================================================================// -->
+<?php
+$query = "SELECT * FROM `pembayaran` JOIN akun ON pembayaran.id_user = akun.id_user";
 $hasil = mysqli_query($conn, $query);
 while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
-    ?>
+?>
 
-    <div class="modal fade" id="hapus_data_kamar<?php echo $data['no_kamar']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="hapus_data_pembayaran<?php echo $data['id_pembayaran']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -41,7 +41,7 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
                 </div>
                 <form action="" method="POST" enctype="multipart/form-data">
                     <div class="col-12">
-                        <input type="hidden" name="hapuskamar" value="<?php echo $data['no_kamar']; ?>">
+                        <input type="hidden" name="hapusidpem" value="<?php echo $data['id_pembayaran'] ?>">
                         <div class="col-15">
                             <div class="modal-body">
                                 Apakah Anda Yakin Ingin Menghapus Data Ini?
@@ -49,16 +49,16 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
                         </div>
                         <div class="col-13 row">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="<?php echo $data['no_kamar']; ?>" required>
-                                <label class="form-check-label text-danger" for="<?php echo $data['no_kamar']; ?>">
-                                    Centang Untuk Setuju Menghapus Data Pada Kamar <?php echo $data['no_kamar']; ?>.
+                                <input class="form-check-input" type="checkbox" id="<?php echo $data['id_pembayaran']; ?>" required>
+                                <label class="form-check-label text-danger" for="<?php echo $data['id_pembayaran']; ?>">
+                                    Centang Untuk Setuju Menghapus Data Pembayaran Penghuni - <?php echo $data['firstname'], " ", $data['lastname']; ?>
                                 </label>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary btn-xs" data-bs-dismiss="modal">Tidak</button>
-                        <button type="submit" class="btn btn-danger btn-xs" name="hapusdatakamar">Iya</button>
+                        <button type="submit" class="btn btn-danger btn-xs" name="hapusdatapembayaran">Iya</button>
                     </div>
                 </form>
             </div>

@@ -92,6 +92,9 @@ if (!isset($_SESSION['username'])) {
                             <li class="">
                                 <a href="booking.php"><img src="img/booking.png" width="24" height="24"><span>Pemesanan</span></a>
                             </li>
+                            <li class="">
+                                <a href="barang.php"><span>Barang</span></a>
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -184,158 +187,38 @@ if (!isset($_SESSION['username'])) {
                     <div class="col-tb-1">
                         <div class="card-table">
                             <div class="card-body">
-                                <div class="modal fade" id="tmb_data_penghuni" tabindex="-1" aria-labelledby="exampleModalLabel">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title fs-5" id="exampleModalLabel">Tambah Data Pembayaran
-                                                </h4>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <form action="" method="POST" enctype="multipart/form-data">
-                                                <div class="modal-body">
-                                                    <div class="row">
-                                                        <div class="form-group col">
-                                                            <label class="control-label" for="tmbNamaDepanPeng">Nama
-                                                                Depan</label>
-                                                            <input type="text" name="tmbNamaDepanPeng" class="form-control form-control-sm" id="tmbNamaDepanPeng" required>
-                                                        </div>
-                                                        <div class="form-group col">
-                                                            <label class="control-label" for="tmbNamaBelakangPeng">Nama
-                                                                belakang</label>
-                                                            <input type="text" name="tmbNamaBelakangPeng" class="form-control form-control-sm" id="tmbNamaBelakangPeng">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="tmbTelpPeng">No
-                                                            Telepon</label>
-                                                        <input type="number" name="tmbTelpPeng" class="form-control form-control-sm" id="tmbTelpPeng" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="tmbAlamatPeng">Alamat</label>
-                                                        <input type="text" name="tmbAlamatPeng" class="form-control form-control-sm" id="tmbAlamatPeng" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="tmbTglPeng">Tanggal
-                                                            Masuk</label>
-                                                        <input type="date" name="tmbTglPeng" class="form-control form-control-sm" id="tmbTglPeng" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="tmbAsalKamPeng">Asal
-                                                            Kampus</label>
-                                                        <input type="text" name="tmbAsalKamPeng" class="form-control form-control-sm" id="tmbAsalKamPeng" required>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label class="form-label" for="tmbStatusPeng">Status</label>
-                                                        <select name="tmbStatusPeng" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                                            <option selected>Pilih Status Penghuni</option>
-                                                            <option value="Aktif">Aktif</option>
-                                                            <option value="Tidak Aktif">Tidak Aktif</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                                    <button type="submit" name="tmbdatapenghuni" class="btn btn-primary">Simpan Perubahan</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="modal fade" id="detail_laporan" tabindex="-1" aria-labelledby="exampleModalLabel">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title fs-5" id="exampleModalLabel">Detail Laporan</h4>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <form method="post" enctype="multipart/form-data">
-                                                <div class="modal-body">
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Id Pembayaran</label>
-                                                        <input type="number" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Tanggal Pembayaran</label>
-                                                        <input type="date" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Foto Kuitansi</label>
-                                                        <input type="text" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="">Id User</label>
-                                                        <input type="number" name="" class="form-control form-control-sm" id="" required>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-
+                                <?php
+                                //Menampilkan Modal Tambah, Edit,dan Detail 
+                                include('method/pembayaran/TmbDataPembayaran.php');
+                                include('method/pembayaran/EditDataPembayaran.php');
+                                include('method/pembayaran/HapusDataPembayaran.php');
+                                ?>
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="table-responsive">
-                                            <button type="button" class="btn btn-primary btn-xs" data-bs-toggle="modal" data-bs-target="#tmb_data_penghuni">
+                                            <button type="button" class="btn btn-primary btn-xs" data-bs-toggle="modal" data-bs-target="#tmb_data_pembayaran">
                                                 <i class="bi-plus-lg">
                                                 </i>Tambah Data</button>
+                                            <br><br>
                                             <table id="example" class="display" style="width: 100%;">
                                                 <thead>
                                                     <tr>
+                                                        <th>No</th>
                                                         <th>ID Pembayaran</th>
+                                                        <th>Nama</th>
+                                                        <th>No Kamar</th>
                                                         <th>Tanggal Pembayaran</th>
+                                                        <th>Harga</th>
                                                         <th>Foto Kuitansi</th>
-                                                        <th>ID User</th>
+                                                        <th>Status Pembayaran</th>
                                                         <th>Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>001</td>
-                                                        <td>06-12-2022</td>
-                                                        <td>...</td>
-                                                        <td>01</td>
-                                                        <th> <button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit_data_penghuni<?php echo $data['id_user']; ?>">
-                                                                <i class="bi-pencil" style="padding-right: 10px;">
-                                                                </i>Edit</button>
-                                                            <button class="btn btn-danger btn-xs" data-bs-toggle="modal" data-bs-target="#hapus_data_penghuni<?php echo $data['id_user']; ?>">
-                                                                <i class="bi-trash" style="padding-right: 10px;">
-                                                                </i>Hapus</button>
-                                                            <button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail_laporan">
-                                                                <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
-                                                        </th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>002</td>
-                                                        <td>06-12-2022</td>
-                                                        <td>...</td>
-                                                        <td>01</td>
-                                                        <th> <button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit_data_penghuni<?php echo $data['id_user']; ?>">
-                                                                <i class="bi-pencil" style="padding-right: 10px;">
-                                                                </i>Edit</button>
-                                                            <button class="btn btn-danger btn-xs" data-bs-toggle="modal" data-bs-target="#hapus_data_penghuni<?php echo $data['id_user']; ?>">
-                                                                <i class="bi-trash" style="padding-right: 10px;">
-                                                                </i>Hapus</button>
-                                                            <button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail_laporan">
-                                                                <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
-                                                        </th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>003</td>
-                                                        <td>06-12-2022</td>
-                                                        <td>...</td>
-                                                        <td>01</td>
-                                                        <th> <button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit_data_penghuni<?php echo $data['id_user']; ?>">
-                                                                <i class="bi-pencil" style="padding-right: 10px;">
-                                                                </i>Edit</button>
-                                                            <button class="btn btn-danger btn-xs" data-bs-toggle="modal" data-bs-target="#hapus_data_penghuni<?php echo $data['id_user']; ?>">
-                                                                <i class="bi-trash" style="padding-right: 10px;">
-                                                                </i>Hapus</button>
-                                                            <button class="btn btn-secondary btn-xs" data-bs-toggle="modal" data-bs-target="#detail_laporan">
-                                                                <i class="bi-info-circle-fill" style="padding-right: 10px;"></i>Detail</button>
-                                                        </th>
-                                                    </tr>
+                                                    <?php
+                                                    //Menampilkan Data Dari Database Ke Tabel
+                                                    include('method/pembayaran/ViewDataPembayaran.php');
+                                                    ?>
                                                 </tbody>
                                             </table>
                                         </div>

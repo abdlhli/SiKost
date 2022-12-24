@@ -113,7 +113,6 @@ if (!isset($_SESSION['username'])) {
                             <span></span>
                             <span></span>
                         </div>
-
                     </div>
                     <!-- profile info & task notification -->
                     <div class="col-md-6 col-sm-4 clearfix">
@@ -196,57 +195,31 @@ if (!isset($_SESSION['username'])) {
                                 </div>
                                 <br>
                                 <br>
+
                                 <div class="card-body-1">
-                                    <div class="row-in">
-                                        <div class="column-in">
-                                            <p>Nama Penghuni 1</p>
+                                    <?php
+                                    include 'database/config.php';
+                                    $pembayaran = mysqli_query($conn, "SELECT * FROM `pembayaran` JOIN akun ON pembayaran.id_user = akun.id_user JOIN kamar ON akun.no_kamar = kamar.no_kamar JOIN jenis_kamar ON kamar.id_jenis_kamar = jenis_kamar.id_jenis_kamar WHERE pembayaran.status_pembayaran = 'Lunas' ORDER BY (CASE DAYOFWEEK(pembayaran.tgl_pembayaran) WHEN 1 THEN 7 ELSE DAYOFWEEK(pembayaran.tgl_pembayaran) END);");
+                                    while ($data = mysqli_fetch_array($pembayaran)) {
+                                    ?>
+                                        <div class="row-in">
+                                            <div class="column-in">
+                                                <p> <?php echo $data['firstname'], " ", $data['lastname']; ?></p>
+                                            </div>
+                                            <div class="column-text">
+                                                <p><?php echo $data['tgl_pembayaran'] ?></p>
+                                                <br>
+                                                <p><?php echo $data['harga'] ?></p>
+                                            </div>
                                         </div>
-                                        <div class="column-text">
-                                            <p>23-November 2022</p>
-                                            <br>
-                                            <p>Rp 350.000</p>
-                                        </div>
-                                        <br>
-                                        <div class="column-in">
-                                            <p>Nama Penghuni 2</p>
-                                        </div>
-                                        <div class="column-text">
-                                            <p>24-November 2022</p>
-                                            <br>
-                                            <p>Rp 350.000</p>
-                                        </div>
-                                        <br>
-                                        <div class="column-in">
-                                            <p>Nama Penghuni 3</p>
-                                        </div>
-                                        <div class="column-text">
-                                            <p>25-November 2022</p>
-                                            <br>
-                                            <p>Rp 350.000</p>
-                                        </div>
-                                        <br>
-                                        <div class="column-in">
-                                            <p>Nama Penghuni 4</p>
-                                        </div>
-                                        <div class="column-text">
-                                            <p>26-November 2022</p>
-                                            <br>
-                                            <p>Rp 350.000</p>
-                                        </div>
-                                        <br>
-                                        <div class="column-in">
-                                            <p>Nama Penghuni 4</p>
-                                        </div>
-                                        <div class="column-text">
-                                            <p>26-November 2022</p>
-                                            <br>
-                                            <p>Rp 350.000</p>
-                                        </div>
-                                    </div>
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-sm-4">
                         <div class="calendar-container">
                             <div class="calendar">

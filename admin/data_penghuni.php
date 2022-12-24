@@ -206,6 +206,7 @@ if (!isset($_SESSION['username'])) {
                                             <table data-order="[]" id="tbl" class="display" style="width: 100%;">
                                                 <thead>
                                                     <tr>
+                                                        <th>No</th>
                                                         <th>No Kamar</th>
                                                         <th>Nama Penghuni</th>
                                                         <th>No Telepon</th>

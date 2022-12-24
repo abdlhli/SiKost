@@ -22,24 +22,29 @@ class User
         echo json_encode($response);
     }
 
-    public function get_UserById($id_user = 0)
+    public function login_user()
     {
         global $mysqli;
-        $query = "SELECT * FROM akun";
-        if ($id_user != 0) {
-            $query .= " WHERE id_user=" . $id_user . " LIMIT 1";
+        $username = $_POST['username'];
+        $pass = md5($_POST['pass']);
+
+        $sql = "SELECT * FROM akun WHERE username='$username' AND pass='$pass' AND hak_akses = 1";
+        $result = mysqli_query($mysqli, $sql);
+
+        // Memeriksa hasil perintah SQL
+        if (mysqli_num_rows($result) > 0) {
+            $response = array(
+                'Response Code' => http_response_code(),
+                'status' => 1,
+                'message' => 'Login Berhasil.'
+            );
+        } else {
+            $response = array(
+                'Response Code' => http_response_code(),
+                'status' => 0,
+                'message' => 'Login gagal.'
+            );
         }
-        $data = array();
-        $result = $mysqli->query($query);
-        while ($row = mysqli_fetch_object($result)) {
-            $data[] = $row;
-        }
-        $response = array(
-            'Response Code' => http_response_code(),
-            'status' => 1,
-            'message' => 'Get Akun By ID Sukses.',
-            'data' => $data
-        );
         header('Content-Type: application/json');
         echo json_encode($response);
     }
@@ -47,58 +52,23 @@ class User
     public function insert_User()
     {
         global $mysqli;
-        $arrcheckpost = array(
-            'id_user' => '',
-            'firstname' => '',
-            'lastname' => '',
-            'pass' => '',
-            'username' => '',
-            'no_hp' => '',
-            'alamat' => '',
-            'tgl_lahir' => '',
-            'foto_profile' => '',
-            'asal_kampus' => '',
-            'hak_akses' => '',
+        $user = $_POST["username"];
+        $pass = md5($_POST["pass"]);
 
-        );
-        $hitung = count(array_intersect_key($_POST, $arrcheckpost));
-        if ($hitung == count($arrcheckpost)) {
+        $sql = "INSERT INTO `akun` (`username`, `pass`) VALUES ('$user','$pass')";
+        $result = mysqli_query($mysqli, $sql);
 
-            $result = mysqli_query(
-                $mysqli,
-                "INSERT INTO akun SET
-                id_user = '$_POST[id_user]',
-                firstname = '$_POST[firstname]',
-                lastname = '$_POST[lastname]',
-                pass = '$_POST[pass]',
-                username = '$_POST[username]',
-                no_hp = '$_POST[no_hp]',
-                alamat = '$_POST[alamat]',
-                tgl_lahir = '$_POST[tgl_lahir]',
-                foto_profile = '$_POST[foto_profile]',
-                asal_kampus = '$_POST[asal_kampus]',
-                hak_akses = '$_POST[hak_akses]'
-                "
+        if ($result) {
+            $response = array(
+                'Response Code' => http_response_code(),
+                'status' => 1,
+                'message' => 'Akun Sukses Ditambahkan.'
             );
-
-            if ($result) {
-                $response = array(
-                    'Response Code' => http_response_code(),
-                    'status' => 1,
-                    'message' => 'Akun Sukses Ditambahkan.'
-                );
-            } else {
-                $response = array(
-                    'Response Code' => http_response_code(),
-                    'status' => 0,
-                    'message' => 'Akun Gagal Ditambahkan.'
-                );
-            }
         } else {
             $response = array(
                 'Response Code' => http_response_code(),
                 'status' => 0,
-                'message' => 'Parameter Insert Tidak Sama'
+                'message' => 'Akun Gagal Ditambahkan, Username sudah digunakan.'
             );
         }
         header('Content-Type: application/json');
@@ -144,13 +114,13 @@ class User
                 $response = array(
                     'Response Code' => http_response_code(),
                     'status' => 1,
-                    'message' => 'Mahasiswa Added Successfully.'
+                    'message' => 'Akun Updated Successfully.'
                 );
             } else {
                 $response = array(
                     'Response Code' => http_response_code(),
                     'status' => 0,
-                    'message' => 'Mahasiswa Addition Failed.'
+                    'message' => 'Akun Updated Failed.'
                 );
             }
         } else {

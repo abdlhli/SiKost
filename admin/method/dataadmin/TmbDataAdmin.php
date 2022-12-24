@@ -6,7 +6,7 @@ if (isset($_POST["tmbdataAdmin"])) {
     $namadep = $_POST['tmbNamaDepanAdmin'];
     $namabelak = $_POST['tmbNamaBelakangAdmin'];
     $user = $_POST['tmbUserAdmin'];
-    $pass = $_POST['tmbPassAdmin'];
+    $pass = md5($_POST['tmbPassAdmin']);
     $telp = $_POST['tmbTelpAdmin'];
     $alamat = $_POST['tmbAlamatAdmin'];
     $tgl = $_POST['tmbTglAdmin'];

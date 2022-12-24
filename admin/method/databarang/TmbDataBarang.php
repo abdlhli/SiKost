@@ -2,11 +2,11 @@
 <?php
 include 'database/config.php';
 
-if (isset($_POST["tmbdatakamar"])) {
-    $nokamar = $_POST['tmbnokamar'];
-    $jeniskamar = $_POST['tmbjeniskamar'];
+if (isset($_POST["tmbdatabarang"])) {
+    $namabarang = $_POST['tmbnamabarang'];
+    $hargakamar = $_POST['tmbhargakamar'];
 
-    $sql = "INSERT INTO `kamar`(`no_kamar`, `id_jenis_kamar`) VALUES ('$nokamar','$jeniskamar')";
+    $sql = "INSERT INTO `barang_tambahan`(`nama_barang`, `harga_barang`) VALUES ('$namabarang','$hargakamar')";
 
     if (mysqli_query($conn, $sql)) {
 ?>
@@ -29,37 +29,26 @@ if (isset($_POST["tmbdatakamar"])) {
 ?>
 
 <!-- //======================================================== MODAL TAMBAH DATA ===================================================================================// -->
-<div class="modal fade" id="tmb_data_kamar" tabindex="-1" aria-labelledby="exampleModalLabel">
+<div class="modal fade" id="tmb_data_barang" tabindex="-1" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title fs-5" id="exampleModalLabel">Tambah Data Kamar</h4>
+                <h4 class="modal-title fs-5" id="exampleModalLabel">Tambah Data Barang</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="" method="POST" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label class="control-label" for="tmbnokamar">No Kamar</label>
-                        <input type="text" name="tmbnokamar" class="form-control form-control-sm" id="" required>
+                        <label class="control-label" for="tmbnamabarang">Nama Barang</label>
+                        <input type="text" name="tmbnamabarang" class="form-control form-control-sm" id="" required>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="tmbjeniskamar">ID Jenis Kamar</label>
-                        <select name="tmbjeniskamar" class="form-select form-select-sm" aria-label=".form-select-sm example" id="" required>
-                            <?php
-                            include 'database/config.php';
-                            $jeniskamar = mysqli_query($conn, "SELECT * FROM `jenis_kamar`");
-                            while ($hasilJK = mysqli_fetch_array($jeniskamar)) {
-                            ?>
-                                <option hidden>Pilih Jenis Kamar</option>
-                                <option value="<?= $hasilJK['id_jenis_kamar'] ?>"><?= $hasilJK['keterangan'] ?></option>
-                            <?php
-                            }
-                            ?>
-                        </select>
+                    <div class="form-group">
+                        <label class="control-label" for="tmbhargakamar">Harga Barang</label>
+                        <input type="number" name="tmbhargakamar" class="form-control form-control-sm" id="" required>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button type="submit" name="tmbdatakamar" class="btn btn-primary">Simpan Perubahan</button>
+                        <button type="submit" name="tmbdatabarang" class="btn btn-primary">Simpan Perubahan</button>
                     </div>
                 </div>
             </form>

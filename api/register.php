@@ -1,10 +1,10 @@
 <?php
 require_once "UserMethod.php";
-$user = new User();
+$register = new User();
 $request_method = $_SERVER["REQUEST_METHOD"];
 switch ($request_method) {
-    case 'GET':
-        $user->get_UserAll();
+    case 'POST':
+        $register->insert_User();
         break;
     default:
         // Invalid Request Method
