@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Des 2022 pada 06.50
--- Versi server: 10.4.25-MariaDB
--- Versi PHP: 8.1.10
+-- Generation Time: Dec 24, 2022 at 02:32 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,15 +24,15 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `akun`
+-- Table structure for table `akun`
 --
 
 CREATE TABLE `akun` (
   `id_user` int(255) UNSIGNED NOT NULL,
   `firstname` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
-  `pass` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
+  `pass` varchar(255) NOT NULL,
   `no_hp` varchar(255) NOT NULL,
   `alamat` varchar(255) NOT NULL,
   `tgl_masuk` date DEFAULT NULL,
@@ -40,26 +40,29 @@ CREATE TABLE `akun` (
   `asal_kampus` varchar(255) NOT NULL,
   `hak_akses` char(1) NOT NULL DEFAULT '1',
   `no_kamar` char(255) NOT NULL DEFAULT 'Kosong',
-  `status` varchar(20) DEFAULT NULL
+  `status` enum('Aktif','Tidak Aktif') NOT NULL DEFAULT 'Tidak Aktif'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `akun`
+-- Dumping data for table `akun`
 --
 
-INSERT INTO `akun` (`id_user`, `firstname`, `lastname`, `pass`, `username`, `no_hp`, `alamat`, `tgl_masuk`, `foto_profile`, `asal_kampus`, `hak_akses`, `no_kamar`, `status`) VALUES
-(9, 'Abdullah', 'Ali', '123', 'aab', '08896748326', 'Jl. Jawa No.48', '2022-12-08', '', 'POLINEJ', '0', 'Kosong', 'AKTIF'),
-(10, 'Brenda', 'Friesen', 'pfomek', 'fompeo', '081277765987', '776 Gordon Flats', '2022-12-09', '', 'UNEJ', '1', 'Kosong', 'Aktif'),
-(12, 'Ayudia', 'Azkia', '123', 'Azkia', '081299988765', '98531 Rowland Land', '2022-11-16', '', 'Morar - Wilkinson', '1', 'Kosong', 'Aktif'),
-(14, 'Sintyah', 'Minasa', 'cisa123', 'cisa', '081988769879', 'Jl. Panjaitan No.29 Jember', '2022-12-08', '', 'UNEJ', '1', 'Kosong', 'Aktif'),
-(15, 'Ambrose', 'Kreiger', 'gqMsxJkupPugRM_', 'Johnnie_Schaefer11', '781-502-8333', '231 Farrell Manors', '2022-12-05', '', 'Goyette - Mitchell', '1', 'Kosong', 'Aktif');
+INSERT INTO `akun` (`id_user`, `firstname`, `lastname`, `username`, `pass`, `no_hp`, `alamat`, `tgl_masuk`, `foto_profile`, `asal_kampus`, `hak_akses`, `no_kamar`, `status`) VALUES
+(1, '', '', '', 'ff9718ffb0c2fa716e8c9367f3906917', '', '', '0000-00-00', '', '', '', 'Kosong', 'Tidak Aktif'),
+(9, 'Abdullah', 'Ali', 'aab', '202cb962ac59075b964b07152d234b70', '08896748326', 'Jl. Jawa No.48', '2022-12-08', '', '', '0', 'Kosong', ''),
+(10, 'Brenda', 'Friesen', 'fompeo', 'pfomek', '081277765987', '776 Gordon Flats', '2022-12-09', '', 'UNEJ', '1', 'Kosong', 'Aktif'),
+(12, 'Ayudia', 'Azkia', 'Azkia', '$2y$10$IXXMJAC8n2ZPDJubG5uTY.bMu.emeQd1dFuIXeFK1pY0PUPgqr6wm', '081299988765', '98531 Rowland Land', '2022-11-16', '', 'Morar - Wilkinson', '1', 'C', 'Aktif'),
+(14, 'Sintyah', 'Minasa', 'cisa', 'cisa123', '081988769879', 'Jl. Panjaitan No.29 Jember', '2022-12-08', '', 'UNEJ', '1', 'Kosong', 'Aktif'),
+(18, 'Aryanna', 'Kirlin', 'Annkir', 'coba123', '081299876549', '592 Mann Valley', '2022-11-29', '', '', '0', 'Kosong', ''),
+(24, 'Violette', 'Stracke', 'Alyson', '202cb962ac59075b964b07152d234b70', '0812998765', '297 Heller Views', '2022-11-29', '', '', '0', 'Kosong', ''),
+(66, '', '', 'GrimJack', '202cb962ac59075b964b07152d234b70', '', '', NULL, '', '', '1', 'Kosong', 'Tidak Aktif');
 
 --
--- Trigger `akun`
+-- Triggers `akun`
 --
 DELIMITER $$
-CREATE TRIGGER `rubah_status_kamar` AFTER UPDATE ON `akun` FOR EACH ROW BEGIN
-UPDATE kamar SET status_kmr = 'Terisi' WHERE new.no_kamar = kamar.no_kamar;
+CREATE TRIGGER `kamar_kosong_status_kamar_tetap_kosong` AFTER UPDATE ON `akun` FOR EACH ROW BEGIN
+UPDATE kamar SET status_kmr = 'Kosong' WHERE new.no_kamar = 'Kosong';
 END
 $$
 DELIMITER ;
@@ -69,23 +72,67 @@ UPDATE kamar SET status_kmr = 'Kosong' WHERE new.no_kamar = kamar.no_kamar = 'Ko
 END
 $$
 DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `rubah_status_kamar_terisi` AFTER UPDATE ON `akun` FOR EACH ROW BEGIN
+UPDATE kamar SET status_kmr = 'Terisi' WHERE new.no_kamar = kamar.no_kamar;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `barang_tambahan`
+-- Table structure for table `barang_tambahan`
 --
 
 CREATE TABLE `barang_tambahan` (
   `id_barang` int(255) UNSIGNED NOT NULL,
   `nama_barang` varchar(255) NOT NULL,
-  `harga_tambahan` varchar(255) NOT NULL
+  `harga_barang` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `barang_tambahan`
+--
+
+INSERT INTO `barang_tambahan` (`id_barang`, `nama_barang`, `harga_barang`) VALUES
+(1, 'Komputer', '40000'),
+(2, 'Televisi', '25000'),
+(3, 'Kipas Angin', '25000'),
+(4, 'Hair Dryer', '25000'),
+(5, 'Dispenser', '50000'),
+(6, 'Oven Listrik', '50000'),
+(7, 'Kompor Listrik', '50000'),
+(8, 'Bread Toaster', '25000'),
+(9, 'Juicer', '25000'),
+(10, 'Coffe Maker', '25000'),
+(11, 'Mixer', '25000'),
+(12, 'Mug Air', '40000'),
+(13, 'Setrika', '30000'),
+(14, 'Kulkas', '35000'),
+(15, 'Microwave', '50000'),
+(16, 'Vacuum Cleaner', '50000'),
+(17, 'Mesin Cuci', '45000'),
+(18, 'Alat Music Listrik', '40000');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `detail_barang`
+--
+
+CREATE TABLE `detail_barang` (
+  `id_detail_barang` varchar(255) NOT NULL,
+  `id_user` int(255) UNSIGNED NOT NULL,
+  `id_barang` int(255) UNSIGNED NOT NULL,
+  `jumlah` varchar(255) NOT NULL,
+  `total_harga` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jenis_kamar`
+-- Table structure for table `jenis_kamar`
 --
 
 CREATE TABLE `jenis_kamar` (
@@ -95,17 +142,18 @@ CREATE TABLE `jenis_kamar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `jenis_kamar`
+-- Dumping data for table `jenis_kamar`
 --
 
 INSERT INTO `jenis_kamar` (`id_jenis_kamar`, `keterangan`, `harga`) VALUES
 ('1', 'Kamar Mandi Dalam', '700000'),
-('2', 'Kamar Mandi Luar', '500000');
+('2', 'Kamar Mandi Luar', '500000'),
+('3', 'Kosong', 'Kosong');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kamar`
+-- Table structure for table `kamar`
 --
 
 CREATE TABLE `kamar` (
@@ -115,7 +163,7 @@ CREATE TABLE `kamar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `kamar`
+-- Dumping data for table `kamar`
 --
 
 INSERT INTO `kamar` (`no_kamar`, `id_jenis_kamar`, `status_kmr`) VALUES
@@ -147,25 +195,33 @@ INSERT INTO `kamar` (`no_kamar`, `id_jenis_kamar`, `status_kmr`) VALUES
 ('F', '1', 'Kosong'),
 ('G', '1', 'Kosong'),
 ('H', '1', 'Kosong'),
-('Kosong', '1', 'Terisi');
+('Kosong', '3', 'Kosong');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pembayaran`
+-- Table structure for table `pembayaran`
 --
 
 CREATE TABLE `pembayaran` (
   `id_pembayaran` int(255) UNSIGNED NOT NULL,
+  `id_user` int(255) UNSIGNED DEFAULT NULL,
   `tgl_pembayaran` date NOT NULL,
   `foto_kuitansi` varchar(255) NOT NULL,
-  `id_user` int(255) UNSIGNED DEFAULT NULL
+  `status_pembayaran` enum('Lunas','Belum Lunas') NOT NULL DEFAULT 'Belum Lunas'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pembayaran`
+--
+
+INSERT INTO `pembayaran` (`id_pembayaran`, `id_user`, `tgl_pembayaran`, `foto_kuitansi`, `status_pembayaran`) VALUES
+(1, 12, '2022-11-16', '', 'Belum Lunas');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pemesanan`
+-- Table structure for table `pemesanan`
 --
 
 CREATE TABLE `pemesanan` (
@@ -180,7 +236,7 @@ CREATE TABLE `pemesanan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `pemesanan`
+-- Dumping data for table `pemesanan`
 --
 
 INSERT INTO `pemesanan` (`id_psn`, `jenis_kamar_psn`, `no_kamar_psn`, `nama_psn`, `alamat_psn`, `no_hp_psn`, `lampiran_ktp_psn`, `tgl_psn`) VALUES
@@ -189,7 +245,7 @@ INSERT INTO `pemesanan` (`id_psn`, `jenis_kamar_psn`, `no_kamar_psn`, `nama_psn`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pengaduan`
+-- Table structure for table `pengaduan`
 --
 
 CREATE TABLE `pengaduan` (
@@ -201,136 +257,133 @@ CREATE TABLE `pengaduan` (
   `judul_pgd` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Struktur dari tabel `rincian_barang`
+-- Dumping data for table `pengaduan`
 --
 
-CREATE TABLE `rincian_barang` (
-  `jumlah` varchar(255) NOT NULL,
-  `id_user` int(255) UNSIGNED NOT NULL,
-  `id_barang` int(255) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `pengaduan` (`id_pgd`, `nama_pgd`, `no_kamar_pgd`, `isi_pgd`, `lampiran_pgd`, `judul_pgd`) VALUES
+(1, 'Abdullah Ali', '16', 'Keran pada kamar mandi A6 rusak, air keluar terus menerus', '', 'Keran Kamar Mandi Rusak');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `akun`
+-- Indexes for table `akun`
 --
 ALTER TABLE `akun`
   ADD PRIMARY KEY (`id_user`),
+  ADD UNIQUE KEY `username` (`username`),
   ADD KEY `fk_nokamar` (`no_kamar`);
 
 --
--- Indeks untuk tabel `barang_tambahan`
+-- Indexes for table `barang_tambahan`
 --
 ALTER TABLE `barang_tambahan`
   ADD PRIMARY KEY (`id_barang`);
 
 --
--- Indeks untuk tabel `jenis_kamar`
+-- Indexes for table `detail_barang`
+--
+ALTER TABLE `detail_barang`
+  ADD PRIMARY KEY (`id_detail_barang`),
+  ADD KEY `id_user` (`id_user`) USING BTREE,
+  ADD KEY `id_barang` (`id_barang`);
+
+--
+-- Indexes for table `jenis_kamar`
 --
 ALTER TABLE `jenis_kamar`
   ADD PRIMARY KEY (`id_jenis_kamar`);
 
 --
--- Indeks untuk tabel `kamar`
+-- Indexes for table `kamar`
 --
 ALTER TABLE `kamar`
   ADD PRIMARY KEY (`no_kamar`),
   ADD KEY `id_jenis_kamar` (`id_jenis_kamar`);
 
 --
--- Indeks untuk tabel `pembayaran`
+-- Indexes for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
   ADD PRIMARY KEY (`id_pembayaran`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indeks untuk tabel `pemesanan`
+-- Indexes for table `pemesanan`
 --
 ALTER TABLE `pemesanan`
   ADD PRIMARY KEY (`id_psn`);
 
 --
--- Indeks untuk tabel `pengaduan`
+-- Indexes for table `pengaduan`
 --
 ALTER TABLE `pengaduan`
   ADD PRIMARY KEY (`id_pgd`);
 
 --
--- Indeks untuk tabel `rincian_barang`
---
-ALTER TABLE `rincian_barang`
-  ADD PRIMARY KEY (`id_user`,`id_barang`),
-  ADD KEY `id_barang` (`id_barang`);
-
---
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `akun`
+-- AUTO_INCREMENT for table `akun`
 --
 ALTER TABLE `akun`
-  MODIFY `id_user` int(255) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_user` int(255) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
--- AUTO_INCREMENT untuk tabel `barang_tambahan`
+-- AUTO_INCREMENT for table `barang_tambahan`
 --
 ALTER TABLE `barang_tambahan`
-  MODIFY `id_barang` int(255) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_barang` int(255) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT untuk tabel `pembayaran`
+-- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id_pembayaran` int(255) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pembayaran` int(255) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT untuk tabel `pemesanan`
+-- AUTO_INCREMENT for table `pemesanan`
 --
 ALTER TABLE `pemesanan`
   MODIFY `id_psn` int(255) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `pengaduan`
+-- AUTO_INCREMENT for table `pengaduan`
 --
 ALTER TABLE `pengaduan`
-  MODIFY `id_pgd` int(255) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pgd` int(255) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `akun`
+-- Constraints for table `akun`
 --
 ALTER TABLE `akun`
   ADD CONSTRAINT `fk_nokamar` FOREIGN KEY (`no_kamar`) REFERENCES `kamar` (`no_kamar`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Ketidakleluasaan untuk tabel `kamar`
+-- Constraints for table `detail_barang`
+--
+ALTER TABLE `detail_barang`
+  ADD CONSTRAINT `detail_barang_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `akun` (`id_user`),
+  ADD CONSTRAINT `detail_barang_ibfk_2` FOREIGN KEY (`id_barang`) REFERENCES `barang_tambahan` (`id_barang`);
+
+--
+-- Constraints for table `kamar`
 --
 ALTER TABLE `kamar`
   ADD CONSTRAINT `kamar_ibfk_2` FOREIGN KEY (`id_jenis_kamar`) REFERENCES `jenis_kamar` (`id_jenis_kamar`);
 
 --
--- Ketidakleluasaan untuk tabel `pembayaran`
+-- Constraints for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
   ADD CONSTRAINT `pembayaran_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `akun` (`id_user`);
-
---
--- Ketidakleluasaan untuk tabel `rincian_barang`
---
-ALTER TABLE `rincian_barang`
-  ADD CONSTRAINT `rincian_barang_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `akun` (`id_user`),
-  ADD CONSTRAINT `rincian_barang_ibfk_2` FOREIGN KEY (`id_barang`) REFERENCES `barang_tambahan` (`id_barang`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
