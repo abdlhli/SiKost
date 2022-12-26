@@ -102,7 +102,7 @@
         <div class="container px-4 px-lg-5">
             <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
                 <div class="col-xl-8 col-lg-7">
-                    <img class="img-fluid" src="assets\img\pexels-adel-krim-14523322.jpg" />
+                    <img class="img-fluid" src="assets\img\depankos.png" />
                 </div>
                 <div class="col-xl-4 col-lg-5">
                     <div class="featured-text text-center text-lg-left">
