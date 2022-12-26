@@ -60,7 +60,9 @@ if (!isset($_SESSION['username'])) {
                 KOST PUTRI
             </div>
             <div class="sidebar-user">
-                <img src="img/46r.jpg" class="img-fluid rounded-circle mb-2" alt="...">
+                <div class="profile-picture picture-frame" id="profilePicture">
+                    <img src="../file/profile/<?php echo $_SESSION['foto_profile'] ?>">
+                </div>
                 <div class="fw-bold"><?php echo $_SESSION['firstname'], " ", $_SESSION['lastname'] ?></div>
                 <small>Developer</small>
             </div>
@@ -177,6 +179,9 @@ if (!isset($_SESSION['username'])) {
 
             <div class="page-title-area">
                 <div class="row lign-items-center">
+                    <?php
+                    include('method/editprofile.php');
+                    ?>
                     <div class="col-sm-6">
                         <div class="head-welcome-1">
                             <h1 class="head-title">Laporan Pembayaran</h1>
@@ -261,6 +266,12 @@ if (!isset($_SESSION['username'])) {
     <script src="https://cdn.datatables.net/select/1.5.0/js/dataTables.select.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.colVis.min.js"></script>
 
+    <script>
+        document.getElementById("profilePicture").addEventListener("click", function() {
+            $('#changePictureModal').modal('show');
+        });
+    </script>
+    
 </body>
 
 </html>

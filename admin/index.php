@@ -60,10 +60,13 @@ if (!isset($_SESSION['username'])) {
                 KOST PUTRI
             </div>
             <div class="sidebar-user">
-                <img src="img/46r.jpg" class="img-fluid rounded-circle mb-2" alt="...">
+                <div class="profile-picture picture-frame" id="profilePicture">
+                    <img src="../file/profile/<?php echo $_SESSION['foto_profile'] ?>">
+                </div>
                 <div class="fw-bold"><?php echo $_SESSION['firstname'], " ", $_SESSION['lastname'] ?></div>
                 <small>Developer</small>
             </div>
+
             <div class="main-menu">
                 <div class="menu-inner">
                     <nav>
@@ -177,6 +180,9 @@ if (!isset($_SESSION['username'])) {
             <!-- page title area start -->
             <div class="page-title-area">
                 <div class="row align-items-center">
+                    <?php
+                    include('method/editprofile.php');
+                    ?>
                     <div class="col-sm-6">
                         <div class="head-welcome-1">
                             <h1 class="head-title">
@@ -209,7 +215,7 @@ if (!isset($_SESSION['username'])) {
                                             <div class="column-text">
                                                 <p><?php echo $data['tgl_pembayaran'] ?></p>
                                                 <br>
-                                                <p><?php echo $data['harga'] ?></p>
+                                                <p><?php echo $data['harga_kamar'] ?></p>
                                             </div>
                                         </div>
                                     <?php
@@ -344,6 +350,14 @@ if (!isset($_SESSION['username'])) {
     <script src="js/tabel.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="js/modal.js"></script>
+
+    <script>
+        document.getElementById("profilePicture").addEventListener("click", function() {
+            $('#changePictureModal').modal('show');
+        });
+    </script>
+
+
 </body>
 
 </html>

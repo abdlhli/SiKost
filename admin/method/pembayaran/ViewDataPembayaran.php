@@ -2,7 +2,7 @@
 <?php
 include 'database/config.php';
 
-$sql = "SELECT * FROM `pembayaran` JOIN akun ON pembayaran.id_user = akun.id_user JOIN kamar ON akun.no_kamar = kamar.no_kamar JOIN jenis_kamar ON kamar.id_jenis_kamar = jenis_kamar.id_jenis_kamar;";
+$sql = "SELECT * FROM `pembayaran` JOIN akun ON pembayaran.id_user = akun.id_user JOIN kamar ON akun.no_kamar = kamar.no_kamar;";
 $count = 1;
 $hasil = mysqli_query($conn, $sql);
 while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
@@ -19,23 +19,46 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
             <?php echo $data['firstname'], " ", $data['lastname']; ?>
         </td>
         <td>
-            <?php echo $data['no_kamar']; ?>
+            <?php echo $data['kamar']; ?>
         </td>
         <td>
             <?php echo $data['tgl_pembayaran']; ?>
         </td>
         <td>
-            <?php echo $data['harga']; ?>
+            <?php echo $data['harga_kamar']; ?>
         </td>
-        <td>
-            <?php echo $data['foto_kuitansi']; ?>
+        <td align="center">
+            <a href="#" data-toggle="modal" data-target="#showgambar">
+                <img src="../file/kuitansi/<?php echo $data['foto_kuitansi']; ?>" alt="..." width="150px">
+            </a>
+
+            <div id="showgambar" class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <img src="../file/kuitansi/<?php echo $data['foto_kuitansi']; ?>" alt="..." width="100%" height="100%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </td>
         <td>
             <?php echo $data['status_pembayaran']; ?>
         </td>
-        <th> <button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit_data_pembayaran<?php echo $data['id_pembayaran']; ?>">
-                <i class="bi-pencil" style="padding-right: 10px;">
-                </i>Edit</button>
+        <th>
+            <?php
+            if ($data['status_pembayaran'] == "Lunas") {
+                // Jika status adalah "Lunas", maka tidak menampilkan tombol edit
+            } else {
+                // Jika status bukan "Lunas", maka menampilkan tombol edit
+            ?>
+                <button class="btn btn-success btn-xs" data-bs-toggle="modal" data-bs-target="#edit_data_pembayaran<?php echo $data['id_pembayaran']; ?>">
+                    <i class="bi-pencil" style="padding-right: 10px;">
+                    </i>Ubah Menjadi Lunas</button>
+            <?php
+            }
+            ?>
             <button class="btn btn-danger btn-xs" data-bs-toggle="modal" data-bs-target="#hapus_data_pembayaran<?php echo $data['id_pembayaran']; ?>">
                 <i class="bi-trash" style="padding-right: 10px;">
                 </i>Hapus</button>

@@ -5,9 +5,11 @@ include 'database/config.php';
 if (isset($_POST["tmbdatapembayaran"])) {
     $idpem = $_POST['tmbIdUserPem'];
     $tglpem = $_POST['tmbTglPem'];
+    $harga = $_POST['tmbHargakam'];
+    $nokam = $_POST['tmbNoKamarPem'];
 
-    $sql = "INSERT INTO `pembayaran`(`id_user`, `tgl_pembayaran`) 
-    VALUES ('$idpem','$tglpem')";
+    $sql = "INSERT INTO `pembayaran`(`id_user`, `kamar`, `tgl_pembayaran`, `harga_kamar`) 
+    VALUES ('$idpem','$tglpem','$harga','$nokam')";
 
     if (mysqli_query($conn, $sql)) {
 ?>
@@ -56,9 +58,30 @@ if (isset($_POST["tmbdatapembayaran"])) {
                             ?>
                         </select>
                     </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="tmbNoKamarPem">No Kamar</label>
+                        <select name="tmbNoKamarPem" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                            <option disabled selected>Pilih No Kamar</option>
+                            <?php
+                            include 'database/config.php';
+                            $kamar = mysqli_query($conn, "SELECT `no_kamar` FROM `kamar` WHERE status_kmr = 'KOSONG' ORDER BY CASE WHEN no_kamar LIKE 'Kosong%' THEN 1 ELSE 2 END, no_kamar * 1 ASC;");
+                            while ($hasil = mysqli_fetch_array($kamar)) {
+                            ?>
+                                <option value="<?= $hasil['no_kamar'] ?>">
+                                    <?= $hasil['no_kamar'] ?>
+                                </option>
+                            <?php
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="tmbHargakam">Harga Kamar</label>
+                        <input type="number" name="tmbHargakam" class="form-control form-control-sm" id="tmbHargakam" required>
+                    </div>
                     <div class="form-group">
                         <label class="control-label" for="tmbTglPem">Tanggal Awal Pembayaran</label>
-                        <input type="date" name="tmbTglPem" class="form-control form-control-sm" id="tmbTglPeng" required>
+                        <input type="date" name="tmbTglPem" class="form-control form-control-sm" id="tmbTglPem" required>
                     </div>
                 </div>
                 <div class="modal-footer">

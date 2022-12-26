@@ -5,41 +5,53 @@ include 'database/config.php';
 if (isset($_POST["editdatapembayaran"])) {
     $idpem = $_POST['editIdPem'];
     $iduser = $_POST['editIduser'];
-    // $kuitansi = $_POST['kuitansipem'];
-    $statuspem = $_POST['editStatusPem'];
+    $kamar = $_POST['editkamar'];
+    $harga = $_POST['editharga'];
     $tglpem = $_POST['tglpem'];
 
-    $sql = "UPDATE `pembayaran` SET `status_pembayaran`='$statuspem' WHERE id_pembayaran = $idpem";
+    $sumber = @$_FILES['kuitansipem']['tmp_name'];
+    $target = '../file/kuitansi/';
+    $nama_gambar = @$_FILES['kuitansipem']['name'];
 
-    if (mysqli_query($conn, $sql)) { ?>
+    $pindah = move_uploaded_file($sumber, $target . $nama_gambar);
 
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            Data Berhasil Diubah.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    <?php
+    $sql = "UPDATE `pembayaran` SET `foto_kuitansi`= '$nama_gambar',`status_pembayaran`='Lunas' WHERE id_pembayaran = $idpem";
 
-        $dt = strtotime($tglpem);
-        $tglpemblndpn = date("Y-m-d", strtotime("+1 month", $dt)) . "\n";
+    echo $sql, $pindah;
+    if ($pindah) {
+        if (mysqli_query($conn, $sql)) { ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Data Berhasil Diubah Menjadi Lunas.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div> <?php
+                    $dt = strtotime($tglpem);
+                    $tglpemblndpn = date("Y-m-d", strtotime("+1 month", $dt)) . "\n";
 
-        $sql1 = "INSERT INTO `pembayaran`(`id_user`, `tgl_pembayaran`) 
-                VALUES ('$iduser','$tglpemblndpn')";
-        mysqli_query($conn, $sql1);
-    } else {    ?>
-
+                    $sql1 = "INSERT INTO `pembayaran`(`id_user`, `kamar`, `tgl_pembayaran`, `harga_kamar`) 
+                    VALUES ('$iduser','$kamar','$tglpemblndpn','$harga')";
+                    mysqli_query($conn, $sql1);
+                } else {    ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Data Gagal Diubah Menjadi Lunas.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php
+                }
+            } else {
+        ?>
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            Data Gagal Diubah.
+            Upload Kuitansi Gagal.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php
-    }
-}
+            }
+        }
 
 
-//======================================================== MODAL EDIT DATA ===================================================================================// -->
-$query = "SELECT * FROM `pembayaran` JOIN akun ON pembayaran.id_user = akun.id_user";
-$hasil = mysqli_query($conn, $query);
-while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
+        //======================================================== MODAL EDIT DATA ===================================================================================// -->
+        $query = "SELECT * FROM `pembayaran` JOIN akun ON pembayaran.id_user = akun.id_user";
+        $hasil = mysqli_query($conn, $query);
+        while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
     ?>
 
     <div class="modal fade" id="edit_data_pembayaran<?php echo $data['id_pembayaran']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel">
@@ -57,18 +69,15 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
 
                         <input type="hidden" name="editIduser" value="<?php echo $data['id_user'] ?>">
 
+                        <input type="hidden" name="editkamar" value="<?php echo $data['kamar'] ?>">
+
+                        <input type="hidden" name="editharga" value="<?php echo $data['harga_kamar'] ?>">
+
                         <input type="hidden" name="tglpem" value="<?php echo $data['tgl_pembayaran'] ?>">
 
                         <div class="mb-3">
                             <label for="kuitansipem" class="form-label">Input File Foto Kuitansi</label>
-                            <input class="form-control form-control-sm" id="kuitansipem" type="file">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="">Status Pembayaran</label>
-                            <select name="editStatusPem" class="form-select form-select-sm" aria-label=".form-select-sm example" required>
-                                <option hidden disabled selected><?php echo $data['status_pembayaran']; ?></option>
-                                <option value="Lunas">Lunas</option>
-                            </select>
+                            <input class="form-control form-control-sm" name="kuitansipem" id="kuitansipem" type="file" required>
                         </div>
                         <div class="col-13 row">
                             <div class="form-check">
@@ -88,5 +97,5 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
         </div>
     </div>
 <?php
-}
+        }
 ?>

@@ -2,7 +2,7 @@
 <?php
 include 'database/config.php';
 
-$sql = "SELECT * FROM akun WHERE `hak_akses` = 0";
+$sql = "SELECT * FROM akun WHERE `hak_akses` = '0'";
 $count = 1;
 $hasil = mysqli_query($conn, $sql);
 while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {

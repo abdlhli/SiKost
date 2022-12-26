@@ -3,41 +3,38 @@
 include 'database/config.php';
 
 if (isset($_POST["editdataadmin"])) {
-    $namadep = $_POST['tmbNamaDepanAdmin'];
-    $namabelak = $_POST['tmbNamaBelakangAdmin'];
-    $user = $_POST['tmbUserAdmin'];
-    $pass = $_POST['tmbPassAdmin'];
-    $telp = $_POST['tmbTelpAdmin'];
-    $alamat = $_POST['tmbAlamatAdmin'];
-    $tgl = $_POST['tmbTglAdmin'];
+    $namadep = $_POST['editNamaDepanAdmin'];
+    $namabelak = $_POST['editNamaBelakangAdmin'];
+    $user = $_POST['editUserAdmin'];
+    $pass = $_POST['editPassAdmin'];
+    $telp = $_POST['editTelpAdmin'];
+    $alamat = $_POST['editAlamatAdmin'];
+    $tgl = $_POST['editTglAdmin'];
     $id = $_POST['editIdUser'];
 
     $sql = "UPDATE `akun` SET `firstname`= '$namadep',`lastname`= '$namabelak',`pass`= '$pass',`username`= '$user',`no_hp`= '$telp',`alamat`= '$alamat',`tgl_masuk`= '$tgl' WHERE `id_user`= $id";
 
-    if (mysqli_query($conn, $sql)) {
-?>
+    if (mysqli_query($conn, $sql)) { ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             Data Berhasil Diubah.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php
 
-    } else {
-    ?>
+    } else { ?>
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             Data Gagal Diubah.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    <?php
-    }
-}
+        </div> <?php
+            }
+        }
 
-//======================================================== MODAL EDIT DATA ===================================================================================//
+        //======================================================== MODAL EDIT DATA ===================================================================================//
 
-$query = "SELECT * FROM `akun` WHERE `hak_akses` = '0'";
-$hasil = mysqli_query($conn, $query);
-while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
-    ?>
+        $query = "SELECT * FROM `akun` WHERE `hak_akses` = '0'";
+        $hasil = mysqli_query($conn, $query);
+        while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
+                ?>
     <div class="modal fade" id="edit_data_admin<?php echo $data['id_user']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -52,33 +49,33 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
 
                         <div class="row">
                             <div class="form-group col">
-                                <label class="control-label" for="tmbNamaDepanAdmin">Nama Depan</label>
-                                <input type="text" name="tmbNamaDepanAdmin" class="form-control form-control-sm" id="tmbNamaDepanAdmin" value="<?php echo $data['firstname']; ?>" required>
+                                <label class="control-label" for="editNamaDepanAdmin">Nama Depan</label>
+                                <input type="text" name="editNamaDepanAdmin" class="form-control form-control-sm" id="editNamaDepanAdmin" value="<?php echo $data['firstname']; ?>" required>
                             </div>
                             <div class="form-group col">
-                                <label class="control-label" for="tmbNamaBelakangAdmin">Nama belakang</label>
-                                <input type="text" name="tmbNamaBelakangAdmin" class="form-control form-control-sm" id="tmbNamaBelakangAdmin" value="<?php echo $data['lastname']; ?>">
+                                <label class="control-label" for="editNamaBelakangAdmin">Nama belakang</label>
+                                <input type="text" name="editNamaBelakangAdmin" class="form-control form-control-sm" id="editNamaBelakangAdmin" value="<?php echo $data['lastname']; ?>">
                             </div>
                         </div>
                         <div class="form-group col">
-                            <label class="control-label" for="tmbUserAdmin">Username</label>
-                            <input type="text" name="tmbUserAdmin" class="form-control form-control-sm" id="tmbUserAdmin" value="<?php echo $data['username']; ?>" required>
+                            <label class="control-label" for="editUserAdmin">Username</label>
+                            <input type="text" name="editUserAdmin" class="form-control form-control-sm" id="editUserAdmin" value="<?php echo $data['username']; ?>" required>
                         </div>
                         <div class="form-group col">
-                            <label class="control-label" for="tmbPassAdmin">Password</label>
-                            <input type="password" name="tmbPassAdmin" class="form-control form-control-sm" id="tmbPassAdmin" required>
+                            <label class="control-label" for="editPassAdmin">Password</label>
+                            <input type="password" name="editPassAdmin" class="form-control form-control-sm" id="editPassAdmin" required>
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="tmbTelpAdmin">No Telepon</label>
-                            <input type="number" name="tmbTelpAdmin" class="form-control form-control-sm" id="tmbTelpAdmin" value="<?php echo $data['no_hp']; ?>" required>
+                            <label class="control-label" for="editTelpAdmin">No Telepon</label>
+                            <input type="number" name="editTelpAdmin" class="form-control form-control-sm" id="editTelpAdmin" value="<?php echo $data['no_hp']; ?>" required>
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="tmbAlamatAdmin">Alamat</label>
-                            <input type="text" name="tmbAlamatAdmin" class="form-control form-control-sm" id="tmbAlamatAdmin" value="<?php echo $data['alamat']; ?>" required>
+                            <label class="control-label" for="editAlamatAdmin">Alamat</label>
+                            <input type="text" name="editAlamatAdmin" class="form-control form-control-sm" id="editAlamatAdmin" value="<?php echo $data['alamat']; ?>" required>
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="tmbTglAdmin">Tanggal Masuk</label>
-                            <input type="date" name="tmbTglAdmin" class="form-control form-control-sm" id="tmbTglAdmin" value="<?php echo $data['tgl_masuk']; ?>" required>
+                            <label class="control-label" for="editTglAdmin">Tanggal Masuk</label>
+                            <input type="date" name="editTglAdmin" class="form-control form-control-sm" id="editTglAdmin" value="<?php echo $data['tgl_masuk']; ?>" required>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -90,5 +87,5 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
         </div>
     </div>
 <?php
-}
+        }
 ?>
