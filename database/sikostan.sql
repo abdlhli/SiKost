@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 24, 2022 at 02:32 AM
+-- Generation Time: Dec 27, 2022 at 04:30 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -48,33 +48,26 @@ CREATE TABLE `akun` (
 --
 
 INSERT INTO `akun` (`id_user`, `firstname`, `lastname`, `username`, `pass`, `no_hp`, `alamat`, `tgl_masuk`, `foto_profile`, `asal_kampus`, `hak_akses`, `no_kamar`, `status`) VALUES
-(1, '', '', '', 'ff9718ffb0c2fa716e8c9367f3906917', '', '', '0000-00-00', '', '', '', 'Kosong', 'Tidak Aktif'),
-(9, 'Abdullah', 'Ali', 'aab', '202cb962ac59075b964b07152d234b70', '08896748326', 'Jl. Jawa No.48', '2022-12-08', '', '', '0', 'Kosong', ''),
+(0, '', '', '', '', '', '', '0000-00-00', '', '', '', 'Kosong', 'Tidak Aktif'),
+(9, 'Abdullah', 'Ali', 'aab', '202cb962ac59075b964b07152d234b70', '08896748326', 'Jl. Jawa No.48', '2022-12-08', 'photo-1529665253569-6d01c0eaf7b6.jpeg', '', '0', 'Kosong', 'Tidak Aktif'),
 (10, 'Brenda', 'Friesen', 'fompeo', 'pfomek', '081277765987', '776 Gordon Flats', '2022-12-09', '', 'UNEJ', '1', 'Kosong', 'Aktif'),
-(12, 'Ayudia', 'Azkia', 'Azkia', '$2y$10$IXXMJAC8n2ZPDJubG5uTY.bMu.emeQd1dFuIXeFK1pY0PUPgqr6wm', '081299988765', '98531 Rowland Land', '2022-11-16', '', 'Morar - Wilkinson', '1', 'C', 'Aktif'),
+(12, 'Ayudia', 'Azkia', 'Azkia', '$2y$10$IXXMJAC8n2ZPDJubG5uTY.bMu.emeQd1dFuIXeFK1pY0PUPgqr6wm', '081299988765', '98531 Rowland Land', '2022-11-16', '', 'Morar - Wilkinson', '1', 'Kosong', 'Aktif'),
 (14, 'Sintyah', 'Minasa', 'cisa', 'cisa123', '081988769879', 'Jl. Panjaitan No.29 Jember', '2022-12-08', '', 'UNEJ', '1', 'Kosong', 'Aktif'),
-(18, 'Aryanna', 'Kirlin', 'Annkir', 'coba123', '081299876549', '592 Mann Valley', '2022-11-29', '', '', '0', 'Kosong', ''),
-(24, 'Violette', 'Stracke', 'Alyson', '202cb962ac59075b964b07152d234b70', '0812998765', '297 Heller Views', '2022-11-29', '', '', '0', 'Kosong', ''),
-(66, '', '', 'GrimJack', '202cb962ac59075b964b07152d234b70', '', '', NULL, '', '', '1', 'Kosong', 'Tidak Aktif');
+(18, 'Aryanna', 'Kirlin', 'Annkir', '202cb962ac59075b964b07152d234b70', '081299876549', '592 Mann Valley', '2022-11-29', '4e9f035d05faeb0561835197a51a51f5.jpg', '', '0', 'Kosong', 'Tidak Aktif'),
+(24, 'Violette', 'Stracke', 'Alyson', '202cb962ac59075b964b07152d234b70', '0812998765', '297 Heller Views', '2022-11-29', '', '', '0', 'Kosong', 'Tidak Aktif');
 
 --
 -- Triggers `akun`
 --
 DELIMITER $$
-CREATE TRIGGER `kamar_kosong_status_kamar_tetap_kosong` AFTER UPDATE ON `akun` FOR EACH ROW BEGIN
-UPDATE kamar SET status_kmr = 'Kosong' WHERE new.no_kamar = 'Kosong';
-END
-$$
-DELIMITER ;
-DELIMITER $$
 CREATE TRIGGER `rubah_status_kamar_kosong` AFTER UPDATE ON `akun` FOR EACH ROW BEGIN
-UPDATE kamar SET status_kmr = 'Kosong' WHERE new.no_kamar = kamar.no_kamar = 'Kosong';
+UPDATE kamar SET status_kmr = 'Kosong' WHERE old.no_kamar = kamar.no_kamar;
 END
 $$
 DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `rubah_status_kamar_terisi` AFTER UPDATE ON `akun` FOR EACH ROW BEGIN
-UPDATE kamar SET status_kmr = 'Terisi' WHERE new.no_kamar = kamar.no_kamar;
+UPDATE kamar SET status_kmr = 'Terisi' WHERE new.no_kamar = kamar.no_kamar AND no_kamar NOT IN('Kosong');
 END
 $$
 DELIMITER ;
@@ -206,7 +199,9 @@ INSERT INTO `kamar` (`no_kamar`, `id_jenis_kamar`, `status_kmr`) VALUES
 CREATE TABLE `pembayaran` (
   `id_pembayaran` int(255) UNSIGNED NOT NULL,
   `id_user` int(255) UNSIGNED DEFAULT NULL,
+  `kamar` char(255) NOT NULL,
   `tgl_pembayaran` date NOT NULL,
+  `harga_kamar` varchar(255) NOT NULL,
   `foto_kuitansi` varchar(255) NOT NULL,
   `status_pembayaran` enum('Lunas','Belum Lunas') NOT NULL DEFAULT 'Belum Lunas'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -215,8 +210,10 @@ CREATE TABLE `pembayaran` (
 -- Dumping data for table `pembayaran`
 --
 
-INSERT INTO `pembayaran` (`id_pembayaran`, `id_user`, `tgl_pembayaran`, `foto_kuitansi`, `status_pembayaran`) VALUES
-(1, 12, '2022-11-16', '', 'Belum Lunas');
+INSERT INTO `pembayaran` (`id_pembayaran`, `id_user`, `kamar`, `tgl_pembayaran`, `harga_kamar`, `foto_kuitansi`, `status_pembayaran`) VALUES
+(1, 12, 'D', '2022-11-16', '700000', 'showimg.jpeg', 'Lunas'),
+(32, 12, 'D', '2022-12-16', '700000', 'showimg.jpeg', 'Lunas'),
+(33, 12, 'D', '2023-01-16', '700000', '', 'Belum Lunas');
 
 -- --------------------------------------------------------
 
@@ -342,7 +339,7 @@ ALTER TABLE `barang_tambahan`
 -- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id_pembayaran` int(255) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_pembayaran` int(255) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `pemesanan`

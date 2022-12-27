@@ -79,34 +79,28 @@ class User
     {
         global $mysqli;
         $arrcheckpost = array(
-            'id_user' => '',
             'firstname' => '',
             'lastname' => '',
             'pass' => '',
             'username' => '',
             'no_hp' => '',
             'alamat' => '',
-            'tgl_lahir' => '',
             'foto_profile' => '',
-            'asal_kampus' => '',
-            'hak_akses' => ''
+            'asal_kampus' => ''
 
         );
         $hitung = count(array_intersect_key($_POST, $arrcheckpost));
         if ($hitung == count($arrcheckpost)) {
 
             $result = mysqli_query($mysqli, "UPDATE akun SET
-                id_user = '$_POST[id_user]',
                 firstname = '$_POST[firstname]',
                 lastname = '$_POST[lastname]',
                 pass = '$_POST[pass]',
                 username = '$_POST[username]',
                 no_hp = '$_POST[no_hp]',
                 alamat = '$_POST[alamat]',
-                tgl_lahir = '$_POST[tgl_lahir]',
                 foto_profile = '$_POST[foto_profile]',
                 asal_kampus = '$_POST[asal_kampus]',
-                hak_akses = '$_POST[hak_akses]'
                 WHERE id_user='$id_user'
                 ");
 
