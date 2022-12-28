@@ -13,20 +13,56 @@ if (isset($_POST["editdataadmin"])) {
     $id = $_POST['editIdUser'];
     $stat = $_POST['editStatusAdmin'];
 
-    $sql = "UPDATE `akun` SET `firstname`= '$namadep',`lastname`= '$namabelak',`pass`= '$pass',`username`= '$user',`no_hp`= '$telp',`alamat`= '$alamat',`tgl_masuk`= '$tgl',`status`= '$stat' WHERE `id_user`= $id";
+    $sqledit = "UPDATE `akun` SET `firstname`= '$namadep',`lastname`= '$namabelak',`username`= '$user',`no_hp`= '$telp',`alamat`= '$alamat',`tgl_masuk`= '$tgl',`status`= '$stat' WHERE `id_user`= $id";
+    $sqledit1 = "UPDATE `akun` SET `firstname`= '$namadep',`lastname`= '$namabelak',`pass`= '$pass',`username`= '$user',`no_hp`= '$telp',`alamat`= '$alamat',`tgl_masuk`= '$tgl',`status`= '$stat' WHERE `id_user`= $id";
 
-    if (mysqli_query($conn, $sql)) { ?>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            Data Berhasil Diubah.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    <?php
+    $password = $_POST['editPassAdmin'];;
+    $password_confirm = $_POST['password_confirm'];;
 
-    } else { ?>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            Data Gagal Diubah.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div> <?php
+    if (isset($_POST['ubah_password']) && $_POST['ubah_password'] == 1) {
+        // Proses validasi password baru
+        if ($password != $password_confirm) {
+            // Tampilkan pesan error jika password dan konfirmasi password tidak sama dan kembali ke form edit akun
+?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Password Yang Diinputkan Tidak Sama.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <?php
+        } else {
+            // Proses update akun termasuk password baru
+            if (mysqli_query($conn, $sqledit1)) { ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    Data Berhasil Diubah Beserta Passwordnya.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php
+
+            } else {
+            ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    Data Gagal Diubah.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php
+            }
+        }
+    } else {
+        // Proses update akun tanpa merubah password
+        if (mysqli_query($conn, $sqledit)) {
+            ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Data Berhasil Diubah.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php
+
+        } else { ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Data Gagal Diubah.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div> <?php
+                }
             }
         }
 
@@ -35,7 +71,7 @@ if (isset($_POST["editdataadmin"])) {
         $query = "SELECT * FROM `akun` WHERE `hak_akses` = '0'";
         $hasil = mysqli_query($conn, $query);
         while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
-                ?>
+                    ?>
     <div class="modal fade" id="edit_data_admin<?php echo $data['id_user']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -58,13 +94,9 @@ if (isset($_POST["editdataadmin"])) {
                                 <input type="text" name="editNamaBelakangAdmin" class="form-control form-control-sm" id="editNamaBelakangAdmin" value="<?php echo $data['lastname']; ?>">
                             </div>
                         </div>
-                        <div class="form-group col">
+                        <div class="form-group">
                             <label class="control-label" for="editUserAdmin">Username</label>
                             <input type="text" name="editUserAdmin" class="form-control form-control-sm" id="editUserAdmin" value="<?php echo $data['username']; ?>" required>
-                        </div>
-                        <div class="form-group col">
-                            <label class="control-label" for="editPassAdmin">Password</label>
-                            <input type="password" name="editPassAdmin" class="form-control form-control-sm" id="editPassAdmin" required>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="editTelpAdmin">No Telepon</label>
@@ -86,6 +118,23 @@ if (isset($_POST["editdataadmin"])) {
                                 <option value="Admin">Admin</option>
                             </select>
                         </div>
+                        <div class="form-group">
+                            <label for="ubah_password">Ubah Password</label>
+                            <div class="form-group">
+                                <input type="checkbox" id="ubah_password" name="ubah_password" value="1">
+                                <label class="prevent-select" for="ubah_password"> Ya, saya ingin mengubah password</label>
+                            </div>
+                        </div>
+                        <div id="form_password" style="display: none;">
+                            <div class="form-group">
+                                <label for="editPassAdmin">Password Baru</label>
+                                <input type="password" class="form-control form-control-sm" id="editPassAdmin" name="editPassAdmin" placeholder="Masukkan password baru">
+                            </div>
+                            <div class="form-group">
+                                <label for="password_confirm">Konfirmasi Password</label>
+                                <input type="password" class="form-control form-control-sm" id="password_confirm" name="password_confirm" placeholder="Masukkan kembali password baru">
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
@@ -95,6 +144,20 @@ if (isset($_POST["editdataadmin"])) {
             </div>
         </div>
     </div>
+
+    <script>
+        var checkbox = document.getElementById("ubah_password");
+        var formPassword = document.getElementById("form_password");
+
+        checkbox.addEventListener("change", function() {
+            if (this.checked) {
+                formPassword.style.display = "block";
+            } else {
+                formPassword.style.display = "none";
+            }
+        });
+    </script>
+
 <?php
         }
 ?>

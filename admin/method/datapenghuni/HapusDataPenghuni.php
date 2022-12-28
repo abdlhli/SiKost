@@ -50,7 +50,7 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
                         <div class="col-13 row">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="<?php echo $data['id_user']; ?>" required>
-                                <label class="form-check-label text-danger" for="<?php echo $data['id_user']; ?>">
+                                <label class="form-check-label text-danger prevent-select" for="<?php echo $data['id_user']; ?>">
                                     Centang Untuk Setuju Menghapus Data Penghuni - <?php echo $data['firstname'], " ", $data['lastname']; ?>
                                 </label>
                             </div>

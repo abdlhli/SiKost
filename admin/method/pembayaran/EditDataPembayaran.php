@@ -81,7 +81,7 @@ if (isset($_POST["editdatapembayaran"])) {
                         <div class="col-13 row">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" required>
-                                <label class="form-check-label text-danger">
+                                <label class="form-check-label text-danger prevent-select">
                                     Centang Untuk Setuju Mengubah Pembayaran Penghuni <?php echo $data['firstname'], " ", $data['lastname']; ?> Menjadi LUNAS
                                 </label>
                             </div>
