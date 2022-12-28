@@ -17,7 +17,6 @@ if (isset($_POST["editdatapembayaran"])) {
 
     $sql = "UPDATE `pembayaran` SET `foto_kuitansi`= '$nama_gambar',`status_pembayaran`='Lunas' WHERE id_pembayaran = $idpem";
 
-    echo $sql, $pindah;
     if ($pindah) {
         if (mysqli_query($conn, $sql)) { ?>
             <div class="alert alert-success alert-dismissible fade show" role="alert">

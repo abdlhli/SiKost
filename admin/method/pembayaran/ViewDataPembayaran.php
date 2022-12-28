@@ -27,12 +27,21 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
         <td>
             <?php echo $data['harga_kamar']; ?>
         </td>
-        <td align="center">
-            <a href="#" data-toggle="modal" data-target="#showgambar">
-                <img src="../file/kuitansi/<?php echo $data['foto_kuitansi']; ?>" alt="..." width="150px">
-            </a>
+        <td align="">
+            <?php
+            if (empty($data['foto_kuitansi'])) {
+                echo 'Kuitansi Kosong';
+            } else {
+            ?>
+                <a href="#" data-toggle="modal" data-target="#showgambar<?php echo $data['id_pembayaran']; ?>">
+                    <img src="../file/kuitansi/<?php echo $data['foto_kuitansi']; ?>" alt="..." width="150px">
+                </a>
+            <?php
+            }
+            ?>
 
-            <div id="showgambar" class="modal fade" tabindex="-1" role="dialog">
+
+            <div id="showgambar<?php echo $data['id_pembayaran']; ?>" class="modal fade" tabindex="-1" role="dialog">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-body">

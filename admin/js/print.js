@@ -3,7 +3,7 @@ $(document).ready(function () {
     paging: true,
     fixedColumns: true,
     lengthChange: false,
-    pageLength: 7,
+    pageLength: 4,
 
     dom: "Bfrtip",
     buttons: [

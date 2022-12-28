@@ -61,7 +61,7 @@ if (!isset($_SESSION['username'])) {
                     <img src="../file/profile/<?php echo $_SESSION['foto_profile'] ?>">
                 </div>
                 <div class="fw-bold"><?php echo $_SESSION['firstname'], " ", $_SESSION['lastname'] ?></div>
-                <small>Developer</small>
+                <small><?php echo $_SESSION['status'] ?></small>
             </div>
             <div class="main-menu">
                 <div class="menu-inner">
@@ -70,10 +70,11 @@ if (!isset($_SESSION['username'])) {
                             <li class="">
                                 <a href="index.php"><img src="img/home.png" width="24" height="24"></i><span>Dashboard</span></a>
                             </li>
-                            <li class="">
-                                <a href="admin.php"><img src="img/setting.png" width="24" height="24"><span>Data
-                                        Admin</span></a>
-                            </li>
+                            <?php
+                            if ($_SESSION['status'] == 'Super Admin') {
+                                echo '<li class=""><a href="admin.php"><img src="img/setting.png" width="24" height="24"><span>Data Admin</span></a></li>';
+                            }
+                            ?>
                             <li class="">
                                 <a href="data_kamar.php"><img src="img/bed.png" width="24" height="24"><span>Data
                                         Kamar</span></a>
@@ -91,9 +92,6 @@ if (!isset($_SESSION['username'])) {
                             </li>
                             <li class="">
                                 <a href="booking.php"><img src="img/booking.png" width="24" height="24"><span>Pemesanan</span></a>
-                            </li>
-                            <li class="">
-                                <a href="barang.php"><span>Barang</span></a>
                             </li>
                         </ul>
                     </nav>
@@ -250,7 +248,7 @@ if (!isset($_SESSION['username'])) {
     <script src="js/tabel.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="js/modal.js"></script>
-    
+
     <script>
         document.getElementById("profilePicture").addEventListener("click", function() {
             $('#changePictureModal').modal('show');

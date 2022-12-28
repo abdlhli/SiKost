@@ -9,10 +9,11 @@ if (isset($_POST["tmbdataAdmin"])) {
     $pass = md5($_POST['tmbPassAdmin']);
     $telp = $_POST['tmbTelpAdmin'];
     $alamat = $_POST['tmbAlamatAdmin'];
+    $stat = $_POST['tmbStatusAdmin'];
     $tgl = $_POST['tmbTglAdmin'];
 
-    $sql = "INSERT INTO akun (firstname, lastname, pass, username, no_hp, alamat, tgl_masuk, hak_akses) 
-    VALUES ('$namadep','$namabelak','$pass','$user','$telp','$alamat','$tgl','0')";
+    $sql = "INSERT INTO akun (firstname, lastname, pass, username, no_hp, alamat, tgl_masuk, hak_akses, status) 
+    VALUES ('$namadep','$namabelak','$pass','$user','$telp','$alamat','$tgl','0','$stat' )";
 
     if (mysqli_query($conn, $sql)) {
 ?>
@@ -73,6 +74,14 @@ if (isset($_POST["tmbdataAdmin"])) {
                     <div class="form-group">
                         <label class="control-label" for="tmbTglAdmin">Tanggal Masuk</label>
                         <input type="date" name="tmbTglAdmin" class="form-control form-control-sm" id="tmbTglAdmin" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="">Status</label>
+                        <select name="tmbStatusAdmin" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                            <option hidden selected>Pilih Status Admin</option>
+                            <option value="Super Admin">Super Admin</option>
+                            <option value="Admin">Admin</option>
+                        </select>
                     </div>
                 </div>
                 <div class="modal-footer">

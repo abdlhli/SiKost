@@ -22,6 +22,7 @@ if (isset($_POST['submit'])) {
         $_SESSION['firstname'] = $row['firstname'];
         $_SESSION['lastname'] = $row['lastname'];
         $_SESSION['foto_profile'] = $row['foto_profile'];
+        $_SESSION['status'] = $row['status'];
         header("location:../admin/");
     } else {
         echo "<script>alert('Email atau password Anda salah. Silahkan coba lagi!')</script>";

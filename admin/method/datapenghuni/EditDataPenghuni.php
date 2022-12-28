@@ -97,7 +97,7 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
                         <div class="mb-3">
                             <label class="form-label" for="">Status</label>
                             <select name="editStatusPeng" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                <option selected><?php echo $data['status']; ?></option>
+                                <option hidden selected><?php echo $data['status']; ?></option>
                                 <option value="Aktif">Aktif</option>
                                 <option value="Tidak Aktif">Tidak Aktif</option>
                             </select>

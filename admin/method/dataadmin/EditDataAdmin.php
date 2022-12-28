@@ -6,13 +6,14 @@ if (isset($_POST["editdataadmin"])) {
     $namadep = $_POST['editNamaDepanAdmin'];
     $namabelak = $_POST['editNamaBelakangAdmin'];
     $user = $_POST['editUserAdmin'];
-    $pass = $_POST['editPassAdmin'];
+    $pass = md5($_POST['editPassAdmin']);
     $telp = $_POST['editTelpAdmin'];
     $alamat = $_POST['editAlamatAdmin'];
     $tgl = $_POST['editTglAdmin'];
     $id = $_POST['editIdUser'];
+    $stat = $_POST['editStatusAdmin'];
 
-    $sql = "UPDATE `akun` SET `firstname`= '$namadep',`lastname`= '$namabelak',`pass`= '$pass',`username`= '$user',`no_hp`= '$telp',`alamat`= '$alamat',`tgl_masuk`= '$tgl' WHERE `id_user`= $id";
+    $sql = "UPDATE `akun` SET `firstname`= '$namadep',`lastname`= '$namabelak',`pass`= '$pass',`username`= '$user',`no_hp`= '$telp',`alamat`= '$alamat',`tgl_masuk`= '$tgl',`status`= '$stat' WHERE `id_user`= $id";
 
     if (mysqli_query($conn, $sql)) { ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -76,6 +77,14 @@ if (isset($_POST["editdataadmin"])) {
                         <div class="form-group">
                             <label class="control-label" for="editTglAdmin">Tanggal Masuk</label>
                             <input type="date" name="editTglAdmin" class="form-control form-control-sm" id="editTglAdmin" value="<?php echo $data['tgl_masuk']; ?>" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="">Status</label>
+                            <select name="editStatusAdmin" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                <option hidden selected><?php echo $data['status']; ?></option>
+                                <option value="Super Admin">Super Admin</option>
+                                <option value="Admin">Admin</option>
+                            </select>
                         </div>
                     </div>
                     <div class="modal-footer">

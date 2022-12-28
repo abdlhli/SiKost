@@ -120,7 +120,7 @@
     background-color: #fff;
     -webkit-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
-    height: 560px;
+    height: 100%;
     width: 100%;
     margin-bottom: 10px;
 }
