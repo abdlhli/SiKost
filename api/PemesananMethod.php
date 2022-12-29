@@ -24,37 +24,36 @@ class Pemesanan
     public function insert_Pemesanan()
     {
         global $mysqli;
-        $arrcheckpost = array(
-            'id_psn' => '',
-            'jenis_kamar_psn' => '',
-            'no_kamar_psn' => '',
-            'nama_psn' => '',
-            'alamat_psn' => '',
-            'no_hp_psn' => '',
-            'lampiran_ktp_psn' => '',
-            'tgl_psn' => '',
+        $jenis_psn = $_POST['jenis_kamar_psn'];
+        $nokam_psn = $_POST['no_kamar_psn'];
+        $nama_psn = $_POST['nama_psn'];
+        $alamat_psn = $_POST['alamat_psn'];
+        $nohp_psn = $_POST['no_hp_psn'];
+
+        $sumber = $_FILES['lampiran_ktp_psn']['tmp_name'];
+        $nama_gambar = $_FILES['lampiran_ktp_psn']['name'];
+
+        $result = mysqli_query(
+            $mysqli,
+            "INSERT INTO `pemesanan`(`jenis_kamar_psn`, `no_kamar_psn`, `nama_psn`, `alamat_psn`, `no_hp_psn`, `lampiran_ktp_psn`) 
+            VALUES ('$jenis_psn','$nokam_psn','$nama_psn','$alamat_psn','$nohp_psn','$nama_gambar')"
         );
 
-        $hitung = count(array_intersect_key($_POST, $arrcheckpost));
-        if ($hitung == count($arrcheckpost)) {
-            $result = mysqli_query(
-                $mysqli,
-                "INSERT INTO pemesanan SET
-                id_psn = '$_POST[id_psn]',
-                jenis_kamar_psn = '$_POST[jenis_kamar_psn]',
-                no_kamar_psn = '$_POST[no_kamar_psn]',
-                nama_psn = '$_POST[nama_psn]',
-                alamat_psn = '$_POST[alamat_psn]',
-                no_hp_psn = '$_POST[no_hp_psn]',
-                lampiran_ktp_psn = '$_POST[lampiran_ktp_psn]',
-                tgl_psn = '$_POST[tgl_psn]'"
+        if (!move_uploaded_file($sumber, '../file/pemesanan/' . $nama_gambar)) {
+            $response = array(
+                'Response Code' => http_response_code(),
+                'status' => 0,
+                'message' => 'File gagal diupload ke server.'
             );
 
+            header('Content-Type: application/json');
+            echo json_encode($response);
+        } else {
             if ($result) {
                 $response = array(
                     'Response Code' => http_response_code(),
                     'status' => 1,
-                    'message' => 'Pemesanan Sukses Ditambahkan.'
+                    'message' => 'pemesanan Sukses Ditambahkan.'
                 );
             } else {
                 $response = array(
@@ -63,14 +62,9 @@ class Pemesanan
                     'message' => 'Pemesanan Gagal Ditambahkan.'
                 );
             }
-        } else {
-            $response = array(
-                'Response Code' => http_response_code(),
-                'status' => 0,
-                'message' => 'Parameter Insert Tidak Sama'
-            );
+
+            header('Content-Type: application/json');
+            echo json_encode($response);
         }
-        header('Content-Type: application/json');
-        echo json_encode($response);
     }
 }

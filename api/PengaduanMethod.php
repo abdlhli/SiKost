@@ -24,49 +24,46 @@ class Pengaduan
     public function insert_Pengaduan()
     {
         global $mysqli;
-        $arrcheckpost = array(
-            'id_pgd' => '',
-            'nama_pgd' => '',
-            'no_kamar_pgd' => '',
-            'isi_pgd' => '',
-            'lampiran_pgd' => '',
-            'judul_pgd' => '',
+        $nama_pgd = $_POST['nama_pgd'];
+        $nokam_pgd = $_POST['no_kamar_pgd'];
+        $isi_pgd = $_POST['isi_pgd'];
+        $judul_pgd = $_POST['judul_pgd'];
+
+        $sumber = $_FILES['lampiran_pgd']['tmp_name'];
+        $nama_gambar = $_FILES['lampiran_pgd']['name'];
+
+        $result = mysqli_query(
+            $mysqli,
+            "INSERT INTO `pengaduan`(`nama_pgd`, `no_kamar_pgd`, `isi_pgd`, `lampiran_pgd`, `judul_pgd`) 
+            VALUES ('$nama_pgd','$nokam_pgd','$isi_pgd','$nama_gambar','$judul_pgd')"
         );
 
-        $hitung = count(array_intersect_key($_POST, $arrcheckpost));
-        if ($hitung == count($arrcheckpost)) {
-            $result = mysqli_query(
-                $mysqli,
-                "INSERT INTO pengaduan SET
-                id_pgd = '$_POST[id_pgd]',
-                nama_pgd = '$_POST[nama_pgd]',
-                no_kamar_pgd = '$_POST[no_kamar_pgd]',
-                isi_pgd = '$_POST[isi_pgd]',
-                lampiran_pgd = '$_POST[lampiran_pgd]',
-                judul_pgd = '$_POST[judul_pgd]'"
+        if (!move_uploaded_file($sumber, '../file/pengaduan/' . $nama_gambar)) {
+            $response = array(
+                'Response Code' => http_response_code(),
+                'status' => 0,
+                'message' => 'File gagal diupload ke server.'
             );
 
+            header('Content-Type: application/json');
+            echo json_encode($response);
+        } else {
             if ($result) {
                 $response = array(
                     'Response Code' => http_response_code(),
                     'status' => 1,
-                    'message' => 'Pemesanan Sukses Ditambahkan.'
+                    'message' => 'Pengaduan Sukses Ditambahkan.'
                 );
             } else {
                 $response = array(
                     'Response Code' => http_response_code(),
                     'status' => 0,
-                    'message' => 'Pemesanan Gagal Ditambahkan.'
+                    'message' => 'Pengaduan Gagal Ditambahkan.'
                 );
             }
-        } else {
-            $response = array(
-                'Response Code' => http_response_code(),
-                'status' => 0,
-                'message' => 'Parameter Insert Tidak Sama'
-            );
+
+            header('Content-Type: application/json');
+            echo json_encode($response);
         }
-        header('Content-Type: application/json');
-        echo json_encode($response);
     }
 }

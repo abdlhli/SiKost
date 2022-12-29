@@ -1,12 +1,14 @@
 <?php
-require_once "UserMethod.php";
-$user = new User();
+require_once "PembayaranMethod.php";
+$kamar = new Pembayaran();
 $request_method = $_SERVER["REQUEST_METHOD"];
 switch ($request_method) {
-    case 'POST':
+    case 'GET':
         if (!empty($_GET["id_user"])) {
             $id_user = intval($_GET["id_user"]);
-            $user->update_User($id_user);
+            $kamar->get_PembayaranByIdUser($id_user);
+        } else {
+            $kamar->get_Pembayaran();
         }
         break;
     default:

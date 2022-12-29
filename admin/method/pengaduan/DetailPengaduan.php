@@ -26,7 +26,7 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="">No Kamar</label>
-                            <input type="number" name="" class="form-control form-control-sm" id="" value="<?php echo $data['no_kamar_pgd']; ?>" readonly>
+                            <input type="text" name="" class="form-control form-control-sm" id="" value="<?php echo $data["no_kamar_pgd"]; ?>" readonly>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="">Judul</label>
@@ -38,7 +38,7 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="">Lampiran</label>
-                            <input type="text" name="" class="form-control form-control-sm" id="" value="<?php echo $data['lampiran_pgd']; ?>" readonly>
+                            <img src="../file/pengaduan/<?php echo $data['lampiran_pgd']; ?>" alt="...">
                         </div>
                     </div>
                 </form>

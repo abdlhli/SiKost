@@ -43,7 +43,7 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="">Lampiran KTP Pemesan</label>
-                            <input type="image" name="" class="form-control form-control-sm" id="" value="" readonly>
+                            <img src="../file/pemesanan/<?php echo $data['lampiran_ktp_psn']; ?>" alt="...">
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="">Tanggal Pemesanan</label>

@@ -78,31 +78,15 @@ class User
     function update_User($id_user)
     {
         global $mysqli;
-        $arrcheckpost = array(
-            'firstname' => '',
-            'lastname' => '',
-            'pass' => '',
-            'username' => '',
-            'no_hp' => '',
-            'alamat' => '',
-            'foto_profile' => '',
-            'asal_kampus' => ''
+        if (isset($_POST["editdataadmin"])) {
+            $namadep = $_POST['firstname'];
+            $namabelak = $_POST['lastname'];
+            $telp = $_POST['editTelpAdmin'];
+            $alamat = $_POST['editAlamatAdmin'];
+            $kampus = $_POST['asal_kampus'];
 
-        );
-        $hitung = count(array_intersect_key($_POST, $arrcheckpost));
-        if ($hitung == count($arrcheckpost)) {
-
-            $result = mysqli_query($mysqli, "UPDATE akun SET
-                firstname = '$_POST[firstname]',
-                lastname = '$_POST[lastname]',
-                pass = '$_POST[pass]',
-                username = '$_POST[username]',
-                no_hp = '$_POST[no_hp]',
-                alamat = '$_POST[alamat]',
-                foto_profile = '$_POST[foto_profile]',
-                asal_kampus = '$_POST[asal_kampus]',
-                WHERE id_user='$id_user'
-                ");
+            $sql = "UPDATE `akun` SET `firstname`= '$namadep',`lastname`= '$namabelak',`no_hp`= '$telp',`alamat`= '$alamat',`asal_kampus`= '$kampus' WHERE `id_user`= $id_user";
+            $result = mysqli_query($mysqli, $sql);
 
             if ($result) {
                 $response = array(
@@ -117,15 +101,9 @@ class User
                     'message' => 'Akun Updated Failed.'
                 );
             }
-        } else {
-            $response = array(
-                'Response Code' => http_response_code(),
-                'status' => 0,
-                'message' => 'Parameter Update Tidak Sama'
-            );
+            header('Content-Type: application/json');
+            echo json_encode($response);
         }
-        header('Content-Type: application/json');
-        echo json_encode($response);
     }
 
     function delete_User($id_user)

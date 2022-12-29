@@ -15,5 +15,8 @@ RewriteRule ^Login/([0-9]+)/?$ Login.php?username=$1 [NC,L]
 
 RewriteRule ^Register/?$ Register.php [NC,L]
 
-RewriteRule ^Login/?$ Update.php [NC,L]
-RewriteRule ^Login/([0-9]+)/?$ Update.php?id=$1 [NC,L]
+RewriteRule ^Update/?$ Update.php [NC,L]
+RewriteRule ^Update/([0-9]+)/?$ Update.php?id=$1 [NC,L]
+
+RewriteRule ^Pembayaran/?$ Pembayaran.php [NC,L]
+RewriteRule ^Pembayaran/([0-9]+)/?$ Pembayaran.php?id=$1 [NC,L]

@@ -121,11 +121,11 @@ if (isset($_POST["editdataadmin"])) {
                         <div class="form-group">
                             <label for="ubah_password">Ubah Password</label>
                             <div class="form-group">
-                                <input type="checkbox" id="ubah_password" name="ubah_password" value="1">
-                                <label class="prevent-select" for="ubah_password"> Ya, saya ingin mengubah password</label>
+                                <input type="checkbox" id="ubah_password<?php echo $data['username']; ?>" name="ubah_password" value="1">
+                                <label class="prevent-select" for="ubah_password"> Centang, jika ingin mengubah password</label>
                             </div>
                         </div>
-                        <div id="form_password" style="display: none;">
+                        <div id="form_password<?php echo $data['username']; ?>" style="display: none;">
                             <div class="form-group">
                                 <label for="editPassAdmin">Password Baru</label>
                                 <input type="password" class="form-control form-control-sm" id="editPassAdmin" name="editPassAdmin" placeholder="Masukkan password baru">
@@ -146,14 +146,14 @@ if (isset($_POST["editdataadmin"])) {
     </div>
 
     <script>
-        var checkbox = document.getElementById("ubah_password");
-        var formPassword = document.getElementById("form_password");
+        var checkbox<?php echo $data['username']; ?> = document.getElementById("ubah_password<?php echo $data['username']; ?>");
+        var formPassword<?php echo $data['username']; ?> = document.getElementById("form_password<?php echo $data['username']; ?>");
 
-        checkbox.addEventListener("change", function() {
+        checkbox<?php echo $data['username']; ?>.addEventListener("change", function() {
             if (this.checked) {
-                formPassword.style.display = "block";
+                formPassword<?php echo $data['username']; ?>.style.display = "block";
             } else {
-                formPassword.style.display = "none";
+                formPassword<?php echo $data['username']; ?>.style.display = "none";
             }
         });
     </script>

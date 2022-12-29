@@ -26,7 +26,7 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
                                 <input type="text" name="tmbNamaBelakangAdmin" class="form-control form-control-sm" id="tmbNamaBelakangAdmin" value="<?php echo $data['lastname']; ?>" readonly>
                             </div>
                         </div>
-                        <div class="form-group col">
+                        <div class="form-group">
                             <label class="control-label" for="tmbUserAdmin">Username</label>
                             <input type="text" name="tmbUserAdmin" class="form-control form-control-sm" id="tmbUserAdmin" value="<?php echo $data['username']; ?>" readonly>
                         </div>

@@ -40,7 +40,6 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
             }
             ?>
 
-
             <div id="showgambar<?php echo $data['id_pembayaran']; ?>" class="modal fade" tabindex="-1" role="dialog">
                 <div class="modal-dialog">
                     <div class="modal-content">

@@ -70,11 +70,9 @@ if (!isset($_SESSION['username'])) {
                             <li class="">
                                 <a href="index.php"><img src="img/home.png" width="24" height="24"></i><span>Dashboard</span></a>
                             </li>
-                            <?php
-                            if ($_SESSION['status'] == 'Super Admin') {
-                                echo '<li class=""><a href="admin.php"><img src="img/setting.png" width="24" height="24"><span>Data Admin</span></a></li>';
-                            }
-                            ?>
+                            <li class="">
+                                <a href="admin.php"><img src="img/setting.png" width="24" height="24"><span>Data Admin</span></a>
+                            </li>
                             <li class="active">
                                 <a href="data_kamar.php"><img src="img/bed.png" width="24" height="24"><span>Data
                                         Kamar</span></a>
