@@ -14,7 +14,7 @@ class Pengaduan
         $response = array(
             'Response Code' => http_response_code(),
             'status' => 1,
-            'message' => 'Get List Pemesanan Sukses.',
+            'message' => 'Get List Pengaduan Sukses.',
             'data' => $data
         );
         header('Content-Type: application/json');
