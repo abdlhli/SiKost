@@ -1,11 +1,11 @@
 <?php
 require_once "PembayaranMethod.php";
-$pembayar = new Pembayaran();
+$Detpembayar = new Pembayaran();
 $request_method = $_SERVER["REQUEST_METHOD"];
 switch ($request_method) {
     case 'GET':
-        $id_user = intval($_GET["id_user"]);
-        $pembayar->get_PembayaranByIdUser($id_user);
+        $id_pembayaran = intval($_GET["id_pembayaran"]);
+        $Detpembayar->get_PembayaranByIdpembayaran($id_pembayaran);
         break;
     default:
         // Invalid Request Method

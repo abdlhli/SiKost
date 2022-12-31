@@ -20,3 +20,6 @@ RewriteRule ^Update/([0-9]+)/?$ Update.php?id=$1 [NC,L]
 
 RewriteRule ^Pembayaran/?$ Pembayaran.php [NC,L]
 RewriteRule ^Pembayaran/([0-9]+)/?$ Pembayaran.php?id=$1 [NC,L]
+
+RewriteRule ^DetailPembayaran/?$ DetailPembayaran.php [NC,L]
+RewriteRule ^DetailPembayaran/([0-9]+)/?$ DetailPembayaran.php?id=$1 [NC,L]

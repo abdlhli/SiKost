@@ -25,9 +25,9 @@ class Kamar
     public function get_KamarByIdJenis($id_jenis_kamar = 0)
     {
         global $mysqli;
-        $query = "SELECT * FROM kamar";
+        $query = "SELECT * FROM kamar ";
         if ($id_jenis_kamar != 0) {
-            $query .= " WHERE id_jenis_kamar=" . $id_jenis_kamar;
+            $query .= " WHERE id_jenis_kamar= $id_jenis_kamar ORDER BY CASE WHEN no_kamar LIKE 'Kosong%' THEN 1 ELSE 2 END, no_kamar * 1 ASC;";
         }
         $data = array();
         $result = $mysqli->query($query);
@@ -43,5 +43,4 @@ class Kamar
         header('Content-Type: application/json');
         echo json_encode($response);
     }
-
 }
