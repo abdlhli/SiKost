@@ -52,10 +52,12 @@ class User
     public function insert_User()
     {
         global $mysqli;
+        $namadep = $_POST["firstname"];
+        $namabel = $_POST["lastname"];
         $user = $_POST["username"];
         $pass = md5($_POST["pass"]);
 
-        $sql = "INSERT INTO `akun` (`username`, `pass`) VALUES ('$user','$pass')";
+        $sql = "INSERT INTO `akun` (`firstname`,`lastname`,`username`, `pass`) VALUES ('$namadep','$namabel','$user','$pass')";
         $result = mysqli_query($mysqli, $sql);
 
         if ($result) {
