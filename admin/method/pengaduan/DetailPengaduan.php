@@ -7,7 +7,7 @@ $hasil = mysqli_query($conn, $sql);
 while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
 ?>
     <div class="modal fade" id="detail_pengaduan<?php echo $data['id_pgd']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title fs-5" id="exampleModalLabel">Detail Pengaduan
@@ -32,9 +32,9 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
                             <label class="control-label" for="">Judul</label>
                             <input type="text" name="" class="form-control form-control-sm" id="" value="<?php echo $data['judul_pgd']; ?>" readonly>
                         </div>
-                        <div class="form-group">
-                            <label class="control-label" for="">Isi</label>
-                            <textarea class="form-control" rows="3" readonly><?php echo $data['isi_pgd']; ?></textarea>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Isi:</label>
+                            <textarea class="form-control" id="message-text" readonly><?php echo $data['isi_pgd']; ?></textarea>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="">Lampiran</label>

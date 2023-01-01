@@ -6,7 +6,7 @@ class User
     public function get_UserAll()
     {
         global $mysqli;
-        $query = "SELECT * FROM Akun";
+        $query = "SELECT * FROM akun WHERE `hak_akses` = 1 AND `status` = 'Aktif'";
         $data = array();
         $result = $mysqli->query($query);
         while ($row = mysqli_fetch_object($result)) {

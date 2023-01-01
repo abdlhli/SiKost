@@ -8,7 +8,7 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
 ?>
 
     <div class="modal fade" id="detail_pemesanan<?php echo $data['id_psn']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title fs-5" id="exampleModalLabel">Detail Pemesanan

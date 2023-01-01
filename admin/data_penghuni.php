@@ -201,9 +201,9 @@ if (!isset($_SESSION['username'])) {
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="table-responsive">
-                                            <button type="button" class="btn btn-primary btn-xs" data-bs-toggle="modal" data-bs-target="#tmb_data_penghuni">
+                                            <!-- <button type="button" class="btn btn-primary btn-xs" data-bs-toggle="modal" data-bs-target="#tmb_data_penghuni">
                                                 <i class="bi-plus-lg">
-                                                </i>Tambah Data</button>
+                                                </i>Tambah Data</button> -->
                                             <table data-order="[]" id="tbl" class="display" style="width: 100%;">
                                                 <thead>
                                                     <tr>
