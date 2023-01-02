@@ -39,11 +39,21 @@ class User
                 'message' => 'Login Berhasil.'
             );
         } else {
-            $response = array(
-                'Response Code' => http_response_code(),
-                'status' => 0,
-                'message' => 'Login gagal.'
-            );
+            $query = "SELECT * FROM akun WHERE username='$username' AND pass='$pass' AND hak_akses = 1 AND status = 'Tidak Aktif'";
+            $result = mysqli_query($mysqli, $query);
+            if (mysqli_num_rows($result) > 0) {
+                $response = array(
+                    'Response Code' => http_response_code(),
+                    'status' => 0,
+                    'message' => 'Akun masih belum diaktifkan.'
+                );
+            } else {
+                $response = array(
+                    'Response Code' => http_response_code(),
+                    'status' => 0,
+                    'message' => 'Username atau password salah.'
+                );
+            }
         }
         header('Content-Type: application/json');
         echo json_encode($response);
