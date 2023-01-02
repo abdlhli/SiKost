@@ -71,7 +71,7 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
                         <div class="row">
                             <div class="form-group col">
                                 <label class="control-label" for="editNamaDepanPeng">Nama Depan</label>
-                                <input type="text" name="editNamaDepanPeng" class="form-control form-control-sm" id="editNamaDepanPeng" value="<?php echo $data['firstname']; ?>" required>
+                                <input type="text" name="editNamaDepanPeng" class="form-control form-control-sm" id="editNamaDepanPeng" value="<?php echo $data['firstname']; ?>">
                             </div>
                             <div class="form-group col">
                                 <label class="control-label" for="editNamaBelakangPeng">Nama belakang</label>
@@ -80,19 +80,19 @@ while ($data = mysqli_fetch_array($hasil, MYSQLI_ASSOC)) {
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="editTelpPeng">No Telepon</label>
-                            <input type="number" name="editTelpPeng" class="form-control form-control-sm" id="editTelpPeng" value="<?php echo $data['no_hp']; ?>" required>
+                            <input type="number" name="editTelpPeng" class="form-control form-control-sm" id="editTelpPeng" value="<?php echo $data['no_hp']; ?>">
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="editAlamatPeng">Alamat</label>
-                            <input type="text" name="editAlamatPeng" class="form-control form-control-sm" id="editAlamatPeng" value="<?php echo $data['alamat']; ?>" required>
+                            <input type="text" name="editAlamatPeng" class="form-control form-control-sm" id="editAlamatPeng" value="<?php echo $data['alamat']; ?>">
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="editTglPeng">Tanggal Masuk</label>
-                            <input type="date" name="editTglPeng" class="form-control form-control-sm" id="editTglPeng" value="<?php echo $data['tgl_masuk']; ?>" required>
+                            <input type="date" name="editTglPeng" class="form-control form-control-sm" id="editTglPeng" value="<?php echo $data['tgl_masuk']; ?>">
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="editAsalKamPeng">Asal Kampus</label>
-                            <input type="text" name="editAsalKamPeng" class="form-control form-control-sm" id="editAsalKamPeng" value="<?php echo $data['asal_kampus']; ?>" required>
+                            <input type="text" name="editAsalKamPeng" class="form-control form-control-sm" id="editAsalKamPeng" value="<?php echo $data['asal_kampus']; ?>">
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="">Status</label>
