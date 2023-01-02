@@ -58,20 +58,33 @@ class User
         $pass = md5($_POST["pass"]);
 
         $sql = "INSERT INTO `akun` (`firstname`,`lastname`,`username`, `pass`) VALUES ('$namadep','$namabel','$user','$pass')";
-        $result = mysqli_query($mysqli, $sql);
+        try {
+            $result = mysqli_query($mysqli, $sql);
+            if (!$result) {
+                throw new Exception('Query error: ' . mysqli_error($mysqli));
+            }
 
-        if ($result) {
             $response = array(
                 'Response Code' => http_response_code(),
                 'status' => 1,
                 'message' => 'Akun Sukses Ditambahkan.'
             );
-        } else {
-            $response = array(
-                'Response Code' => http_response_code(),
-                'status' => 0,
-                'message' => 'Akun Gagal Ditambahkan, Username sudah digunakan.'
-            );
+        } catch (Exception $e) {
+            if (strpos($e->getMessage(), "Duplicate entry") !== false) {
+                // pesan error "Duplicate entry" menunjukkan entri duplikat
+                $response = array(
+                    'Response Code' => http_response_code(),
+                    'status' => 0,
+                    'message' => 'Username sudah digunakan.'
+                );
+            } else {
+                // pesan error lainnya
+                $response = array(
+                    'Response Code' => http_response_code(),
+                    'status' => 0,
+                    'message' => 'Terjadi kesalahan: ' . $e->getMessage()
+                );
+            }
         }
         header('Content-Type: application/json');
         echo json_encode($response);
