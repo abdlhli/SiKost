@@ -35,8 +35,8 @@ class Pemesanan
 
         $result = mysqli_query(
             $mysqli,
-            "INSERT INTO `pemesanan`(`jenis_kamar_psn`, `no_kamar_psn`, `nama_psn`, `alamat_psn`, `no_hp_psn`, `lampiran_ktp_psn`) 
-            VALUES ('$jenis_psn','$nokam_psn','$nama_psn','$alamat_psn','$nohp_psn','$nama_gambar')"
+            "INSERT INTO `pemesanan`(`jenis_kamar_psn`, `no_kamar_psn`, `nama_psn`, `alamat_psn`, `no_hp_psn`, `lampiran_ktp_psn`, tgl_psn) 
+            VALUES ('$jenis_psn','$nokam_psn','$nama_psn','$alamat_psn','$nohp_psn','$nama_gambar',now())"
         );
 
         if (!move_uploaded_file($sumber, '../file/pemesanan/' . $nama_gambar)) {
