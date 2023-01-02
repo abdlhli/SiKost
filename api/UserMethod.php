@@ -28,7 +28,7 @@ class User
         $username = $_POST['username'];
         $pass = md5($_POST['pass']);
 
-        $sql = "SELECT * FROM akun WHERE username='$username' AND pass='$pass' AND hak_akses = 1 AND status'Aktif'";
+        $sql = "SELECT * FROM akun WHERE username='$username' AND pass='$pass' AND hak_akses = 1 AND status = 'Aktif'";
         $result = mysqli_query($mysqli, $sql);
 
         // Memeriksa hasil perintah SQL
