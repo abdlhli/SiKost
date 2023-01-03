@@ -30,13 +30,18 @@ class User
 
         $sql = "SELECT * FROM akun WHERE username='$username' AND pass='$pass' AND hak_akses = 1 AND status = 'Aktif'";
         $result = mysqli_query($mysqli, $sql);
+        $data = array();
+        while ($row = mysqli_fetch_object($result)) {
+            $data[] = $row;
+        }
 
         // Memeriksa hasil perintah SQL
         if (mysqli_num_rows($result) > 0) {
             $response = array(
                 'Response Code' => http_response_code(),
                 'status' => 1,
-                'message' => 'Login Berhasil.'
+                'message' => 'Login Berhasil.',
+                'data' => $data
             );
         } else {
             $query = "SELECT * FROM akun WHERE username='$username' AND pass='$pass' AND hak_akses = 1 AND status = 'Tidak Aktif'";
