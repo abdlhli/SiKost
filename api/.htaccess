@@ -22,3 +22,6 @@ RewriteRule ^Pembayaran/([0-9]+)/?$ Pembayaran.php?id=$1 [NC,L]
 
 RewriteRule ^DetailPembayaran/?$ DetailPembayaran.php [NC,L]
 RewriteRule ^DetailPembayaran/([0-9]+)/?$ DetailPembayaran.php?id=$1 [NC,L]
+
+RewriteRule ^PembayaranJatuhTempo/?$ PembayaranJatuhTempo.php [NC,L]
+RewriteRule ^PembayaranJatuhTempo/([0-9]+)/?$ PembayaranJatuhTempo.php?id=$1 [NC,L]
