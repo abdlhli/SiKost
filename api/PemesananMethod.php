@@ -53,7 +53,7 @@ class Pemesanan
                 $response = array(
                     'Response Code' => http_response_code(),
                     'status' => 1,
-                    'message' => 'pemesanan Sukses Ditambahkan.'
+                    'message' => 'Pemesanan Sukses Ditambahkan.'
                 );
             } else {
                 $response = array(
