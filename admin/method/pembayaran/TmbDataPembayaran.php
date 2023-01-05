@@ -9,7 +9,7 @@ if (isset($_POST["tmbdatapembayaran"])) {
     $nokam = $_POST['tmbNoKamarPem'];
 
     $sql = "INSERT INTO `pembayaran`(`id_user`, `kamar`, `tgl_pembayaran`, `harga_kamar`) 
-    VALUES ('$idpem','$tglpem','$harga','$nokam')";
+    VALUES ('$idpem','$nokam','$tglpem','$harga')";
 
     if (mysqli_query($conn, $sql)) {
 ?>
