@@ -114,24 +114,38 @@ class User
         $alamat = $_POST['alamat'];
         $kampus = $_POST['asal_kampus'];
 
+        $sumber = $_FILES['lampiran_pgd']['tmp_name'];
+        $nama_gambar = $_FILES['lampiran_pgd']['name'];
+
         $sql = "UPDATE `akun` SET `firstname`= '$namadep',`lastname`= '$namabelak',`no_hp`= '$telp',`alamat`= '$alamat',`asal_kampus`= '$kampus' WHERE `id_user`= $id_user";
         $result = mysqli_query($mysqli, $sql);
 
-        if ($result) {
-            $response = array(
-                'Response Code' => http_response_code(),
-                'status' => 1,
-                'message' => 'Akun Updated Successfully.'
-            );
-        } else {
+        if (!move_uploaded_file($sumber, '../file/pengaduan/' . $nama_gambar)) {
             $response = array(
                 'Response Code' => http_response_code(),
                 'status' => 0,
-                'message' => 'Akun Updated Failed.'
+                'message' => 'File gagal diupload ke server.'
             );
+
+            header('Content-Type: application/json');
+            echo json_encode($response);
+        } else {
+            if ($result) {
+                $response = array(
+                    'Response Code' => http_response_code(),
+                    'status' => 1,
+                    'message' => 'Akun Updated Successfully.'
+                );
+            } else {
+                $response = array(
+                    'Response Code' => http_response_code(),
+                    'status' => 0,
+                    'message' => 'Akun Updated Failed.'
+                );
+            }
+            header('Content-Type: application/json');
+            echo json_encode($response);
         }
-        header('Content-Type: application/json');
-        echo json_encode($response);
     }
 
     function delete_User($id_user)
