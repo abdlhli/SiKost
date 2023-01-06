@@ -117,31 +117,6 @@ if (!isset($_SESSION['username'])) {
                     <div class="col-md-6 col-sm-4 clearfix">
                         <ul class="notification-area pull-right">
                             <li class="dropdown">
-                                <i class="bi-bell-fill dropdown-toggle" data-toggle="dropdown">
-                                    <span>2</span>
-                                </i>
-                                <div class="dropdown-menu bell-notify-box notify-box">
-                                    <span class="notify-title">You have 3 new notifications <a href="#">view
-                                            all</a></span>
-                                    <div class="nofity-list">
-                                        <a href="#" class="notify-item">
-                                            <div class="notify-thumb"><i class="bi-key btn-danger"></i></div>
-                                            <div class="notify-text">
-                                                <p>You have Changed Your Password</p>
-                                                <span>Just Now</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="notify-item">
-                                            <div class="notify-thumb"><i class="bi-chat-text btn-info"></i></div>
-                                            <div class="notify-text">
-                                                <p>New Commetns On Post</p>
-                                                <span>30 Seconds ago</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="dropdown">
                                 <i class="bi-gear-fill dropdown-toogle" data-toggle="dropdown"></i>
                                 <ul class="dropdown-menu">
                                     <li>
@@ -184,7 +159,7 @@ if (!isset($_SESSION['username'])) {
                             <h1 class="head-title">
                                 Welcome back, <?php echo $_SESSION['username'] ?>!
                             </h1>
-                            <p class="head-subtitle">Anda punya beberapa notifikasi.</p>
+                            <p class="head-subtitle">Have a nice day !!</p>
                         </div>
                     </div>
                 </div>
