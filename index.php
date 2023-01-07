@@ -69,7 +69,7 @@
 
     <?php
     include 'login/database/config.php';
-    $kamar_kosong = mysqli_query($conn, "SELECT COUNT(kamar.status_kmr)-1 AS kamar_kosong FROM `kamar`;");
+    $kamar_kosong = mysqli_query($conn, "SELECT COUNT(kamar.status_kmr)-1 AS kamar_kosong FROM `kamar` WHERE status_kmr = 'Kosong'");
     while ($hasil = mysqli_fetch_array($kamar_kosong)) {
     ?>
 
